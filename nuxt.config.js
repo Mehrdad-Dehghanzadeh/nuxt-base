@@ -1,9 +1,17 @@
-export default {
+const path = require('path')
+
+const srcDir = path.resolve(__dirname, 'client/')
+module.exports = {
+  srcDir,
+  telemetry: false,
+  // Environment Variable
+  env: {
+    API_URL: process.env.API_URL,
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxt-base',
-    srcDir: 'client/',
-    telemetry: false,
 
     meta: [
       { charset: 'utf-8' },
@@ -33,14 +41,18 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     //https://i18n.nuxtjs.org/
-    'nuxt-i18n',
-    '',
   ],
 
   buildModules: [
     //https://github.com/nuxt-community/router-module
     '@nuxtjs/router',
   ],
+  //router moduel config for routing
+  routerModule: {
+    path: path.resolve(srcDir, 'router'),
+    fileName: 'router.js',
+    keepDefaultRouter: true,
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
@@ -70,7 +82,7 @@ export default {
         __dirname,
         'client/assets/mixins'
       )
-      config.resolve.alias['@kit'] = path.join(
+      config.resolve.alias['@kits'] = path.join(
         __dirname,
         'client/components/kit'
       )

@@ -1,27 +1,20 @@
 {
   "name": "nuxt-base",
-  "version": "0.0.0",
-  "private": false,
-  "author": {
-    "name": "Mehrdad Dehghanzadeh",
-    "email": "mehrdad.dehghanzadeh.dev@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Mehrdad-Dehghanzadeh/nuxt-base"
-  },
-  "license": "MIT",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "env-cmd -e dev -r .env.json nodemon server/index.js --watch server",
+    "build": "env-cmd -e prod -r .env.json nuxt build",
+    "build:test": "env-cmd -e test -r .env.json nuxt build",
+    "start": "env-cmd -e prod -r .env.json node server/index.js"
   },
   "dependencies": {
+    "@nuxt/content": "^1.14.0",
     "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/i18n": "^7.2.0",
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.15.1",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
     "nuxt": "^2.15.7"
   },
   "devDependencies": {
