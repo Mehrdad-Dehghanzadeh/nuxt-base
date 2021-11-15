@@ -2,10 +2,17 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./*"],
-      "~~/*": ["./*"],
-      "@@/*": ["./*"]
+      "~~": "<rootDir>",
+      "@@": "<rootDir>",
+      "~": "<srcDir>",
+      "@": "<srcDir>",
+      "@data": "<srcDir>/assets/data",
+      "@helpers": "<srcDir>/assets/helpers",
+      "@mixins": "<srcDir>/assets/mixins",
+      "@pages": "<srcDir>/pages",
+      "@kits": "<srcDir>/components/kits",
+      "@shared": "<srcDir>/components/shared",
+      "@includes": "<srcDir>/components/includes"
     }
   },
   "exclude": ["node_modules", ".nuxt", "dist"]

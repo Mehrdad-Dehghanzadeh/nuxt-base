@@ -1,7 +1,8 @@
 const path = require('path')
 
 const srcDir = path.resolve(__dirname, 'client/')
-module.exports = {
+
+const config = {
   srcDir,
   telemetry: false,
   // Environment Variable
@@ -26,7 +27,7 @@ module.exports = {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/utils', '~/plugins/axios'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,
@@ -55,7 +56,9 @@ module.exports = {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.API_URL,
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -64,28 +67,20 @@ module.exports = {
     },
   },
 
+  alias: {
+    '@data': path.join(__dirname, 'client/assets/data'),
+    '@helpers': path.join(__dirname, 'client/assets/helpers'),
+    '@mixins': path.join(__dirname, 'client/assets/mixins'),
+    '@pages': path.join(__dirname, 'client/pages'),
+    '@kits': path.join(__dirname, 'client/components/kits'),
+    '@shared': path.join(__dirname, 'client/components/shared'),
+    '@includes': path.join(__dirname, 'client/components/includes'),
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // extend config
-    extend(config, { loaders: { vue } }) {
-      config.resolve.alias['@@'] = path.join(
-        __dirname,
-        'client/components/includes'
-      )
-      config.resolve.alias['@data'] = path.join(__dirname, 'client/assets/data')
-      config.resolve.alias['@helpers'] = path.join(
-        __dirname,
-        'client/assets/helpers'
-      )
-      config.resolve.alias['@pages'] = path.join(__dirname, 'client/pages')
-      config.resolve.alias['@mixins'] = path.join(
-        __dirname,
-        'client/assets/mixins'
-      )
-      config.resolve.alias['@kits'] = path.join(
-        __dirname,
-        'client/components/kit'
-      )
-    },
   },
 }
+
+module.exports = config
