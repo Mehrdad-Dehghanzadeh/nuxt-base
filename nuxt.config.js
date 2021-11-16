@@ -42,7 +42,16 @@ const config = {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     //https://i18n.nuxtjs.org/
+    '@nuxtjs/i18n',
   ],
+
+  i18n: {
+    locales: ['en', 'fa'],
+    defaultLocale: 'fa',
+    vueI18n: {
+      fallbackLocale: 'fa',
+    },
+  },
 
   buildModules: [
     //https://github.com/nuxt-community/router-module
@@ -75,7 +84,7 @@ const config = {
     '@kits': path.join(__dirname, 'client/components/kits'),
     '@shared': path.join(__dirname, 'client/components/shared'),
     '@includes': path.join(__dirname, 'client/components/includes'),
-    '@api': path.join(__dirname, 'client/api')
+    '@api': path.join(__dirname, 'client/api'),
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
