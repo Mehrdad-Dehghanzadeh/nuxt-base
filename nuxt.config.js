@@ -24,7 +24,7 @@ const config = {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~/assets/styles/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['~/plugins/utils', '~/plugins/axios', '~/plugins/api'],
@@ -32,8 +32,8 @@ const config = {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+  // middleware https://nuxtjs.org/docs/configuration-glossary/configuration-servermiddleware
+  serverMiddleware: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -46,22 +46,54 @@ const config = {
   ],
 
   i18n: {
-    locales: ['en', 'fa'],
+    lazy: true,
+    langDir: 'locales/',
     defaultLocale: 'fa',
     vueI18n: {
       fallbackLocale: 'fa',
     },
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'appname.lang',
+      alwaysRedirect: false,
+      fallbackLocale: 'fa',
+    },
+    locales: [
+      {
+        name: 'فارسی',
+        code: 'fa',
+        iso: 'fa-IR',
+        file: 'fa.js',
+        rtl: true,
+      },
+    ],
   },
 
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     //https://github.com/nuxt-community/router-module
     '@nuxtjs/router',
+    //https://github.com/nuxt-community/style-resources-module
+    '@nuxtjs/style-resources',
   ],
+
   //router moduel config for routing
   routerModule: {
     path: path.resolve(srcDir, 'router'),
     fileName: 'router.js',
     keepDefaultRouter: true,
+  },
+
+  styleResources: {
+    hoistUseStatements: true,
+    sass: [
+      '~/assets/styles/*scss',
+      '~/assets/styles/variables/*scss',
+      '~/assets/styles/mixins/*scss',
+      '~/assets/styles/base/*scss',
+      '~/assets/styles/layout/*scss',
+      '~/assets/styles/elements/*scss',
+    ],
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

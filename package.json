@@ -20,7 +20,10 @@
   },
   "devDependencies": {
     "@nuxtjs/router": "^1.6.1",
+    "@nuxtjs/style-resources": "^1.2.1",
     "eslint-config-prettier": "^8.3.0",
-    "prettier": "^2.3.2"
+    "node-sass": "^5.0.0",
+    "prettier": "^2.3.2",
+    "sass-loader": "^10.1.1"
   }
 }

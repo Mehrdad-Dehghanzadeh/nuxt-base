@@ -1,12 +1,12 @@
 <template>
-  <main class="full-layout">
+  <main class="default-layout">
     <nuxt />
   </main>
 </template>
 
 <script>
 export default {
-  name: "FullLayout",
+  name: 'DefaultLayout'
 }
 </script>
 
