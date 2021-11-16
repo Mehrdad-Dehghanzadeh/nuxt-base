@@ -12,7 +12,8 @@
       "@pages": "<srcDir>/pages",
       "@kits": "<srcDir>/components/kits",
       "@shared": "<srcDir>/components/shared",
-      "@includes": "<srcDir>/components/includes"
+      "@includes": "<srcDir>/components/includes",
+      "@api": "<srcDir>/api"
     }
   },
   "exclude": ["node_modules", ".nuxt", "dist"]

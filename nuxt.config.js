@@ -27,7 +27,7 @@ const config = {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/utils', '~/plugins/axios'],
+  plugins: ['~/plugins/utils', '~/plugins/axios', '~/plugins/api'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,
@@ -75,6 +75,7 @@ const config = {
     '@kits': path.join(__dirname, 'client/components/kits'),
     '@shared': path.join(__dirname, 'client/components/shared'),
     '@includes': path.join(__dirname, 'client/components/includes'),
+    '@api': path.join(__dirname, 'client/api')
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
