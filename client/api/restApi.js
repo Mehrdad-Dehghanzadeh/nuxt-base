@@ -1,4 +1,4 @@
-export default ($axios) => (resource) => ({
+export default ($axios, resource) => ({
   create(payload) {
     return $axios.post(`/${resource}/${action}`, payload)
   },
