@@ -1,17 +1,20 @@
 <template>
   <button
-    v-bind="$attrs"
     :class="[
       'btn',
       { 'direction-ltr': ltr },
+      { 'btn-outline': outline },
+      { 'btn--disable': disabled },
       `${size ? 'btn--' + size : ''}`,
       `${color ? 'btn-' + color : ''}`,
       `${fontWeight ? 'btn--' + fontWeight : ''}`,
       `${display ? 'btn--' + display : ''}`,
     ]"
+    v-bind="$attrs"
+    :disabled="disabled"
   >
     <i
-      v-if="!append"
+      v-if="append"
       v-show="icon"
       :class="['btn__icon', `${icon ? 'icon-' + icon : ''}`]"
     ></i>
@@ -21,7 +24,7 @@
     </span>
 
     <i
-      v-if="append"
+      v-if="!append"
       v-show="icon"
       :class="['btn__icon', `${icon ? 'icon-' + icon : ''}`]"
     ></i>
@@ -34,29 +37,29 @@ export default {
 
   props: {
     text: {
-      typeof: [String, Number],
+      type: [String, Number],
       default: '',
     },
 
     size: {
-      typeof: String,
+      type: String,
       validator: (val) => ['xs', 'sm', 'lg', 'xl', 'wide'].includes(val),
       default: '',
     },
 
     color: {
-      tyepof: String,
+      type: String,
       default: 'primary',
     },
 
     fontWeight: {
-      typeof: String,
+      type: String,
       validator: (val) => ['', 'normal', 'bolder'].includes(val),
       default: '',
     },
 
     display: {
-      typeof: String,
+      type: String,
       validate: (val) => ['flex', 'block'].includes(val),
       default: '',
     },
@@ -71,8 +74,18 @@ export default {
       default: false,
     },
 
-    ltr: {
+    outline: {
       type: Boolean,
+      default: false,
+    },
+
+    ltr: {
+      typeof: Boolean,
+      default: false,
+    },
+
+    disabled: {
+      typeof: Boolean,
       default: false,
     },
   },

@@ -58,7 +58,15 @@
         <v-btn size="xs" color="secondary"> xs </v-btn>
         <v-btn size="sm" color="primary" icon="plus"> sm </v-btn>
         <v-btn size="lg" color="secondary" icon="plus" append ltr> lg </v-btn>
-        <v-btn size="xl" color="primary" icon="plus" text="xl" ltr />
+        <v-btn
+          size="xl"
+          color="primary"
+          icon="plus"
+          text="xl"
+          ltr
+          outline
+          disabled
+        />
       </div>
     </section>
   </article>
