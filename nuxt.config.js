@@ -30,7 +30,12 @@ const config = {
   css: ['~/assets/styles/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/utils', '~/plugins/axios', '~/plugins/api'],
+  plugins: [
+    '~/plugins/global',
+    '~/plugins/utils',
+    '~/plugins/axios',
+    '~/plugins/api',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,
@@ -88,13 +93,12 @@ const config = {
 
   styleResources: {
     hoistUseStatements: true,
-    sass: [
-      '~/assets/styles/*scss',
-      '~/assets/styles/variables/*scss',
-      '~/assets/styles/mixins/*scss',
-      '~/assets/styles/base/*scss',
-      '~/assets/styles/layout/*scss',
-      '~/assets/styles/elements/*scss',
+    scss: [
+      '~/assets/styles/variables/*.scss',
+      '~/assets/styles/mixins/*.scss',
+      '~/assets/styles/base/*.scss',
+      '~/assets/styles/layout/*.scss',
+      '~/assets/styles/elements/*.scss',
     ],
   },
 

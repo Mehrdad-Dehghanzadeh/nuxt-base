@@ -1,6 +1,8 @@
 <template>
   <main class="default-layout">
-    <Nuxt />
+    <div class="container">
+      <Nuxt />
+    </div>
   </main>
 </template>
 
