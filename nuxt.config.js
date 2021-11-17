@@ -1,6 +1,7 @@
 const path = require('path')
 
 const srcDir = path.resolve(__dirname, 'client/')
+const DEVELOPMENT_PAGES = ['pages/UIKIT/index.vue', '**/*.dev*']
 
 const config = {
   srcDir,
@@ -22,6 +23,8 @@ const config = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+
+  ignore: [],
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/styles/main.scss'],
@@ -81,7 +84,6 @@ const config = {
   routerModule: {
     path: path.resolve(srcDir, 'router'),
     fileName: 'router.js',
-    keepDefaultRouter: true,
   },
 
   styleResources: {
@@ -123,6 +125,10 @@ const config = {
   build: {
     // extend config
   },
+}
+
+if (process.env.NODE_ENV == 'production') {
+  config.ignore.push(...DEVELOPMENT_PAGES)
 }
 
 module.exports = config

@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Routes from './routes'
+import { routes, devRoutes } from './routes'
 
 Vue.use(Router)
-
 export function createRouter() {
+  const isDev = process.env.NODE_ENV == 'development'
+
   return new Router({
     mode: 'history',
-    routes: Routes,
+    routes: isDev ? [...routes, ...devRoutes] : routes,
   })
 }

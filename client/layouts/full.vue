@@ -1,12 +1,14 @@
 <template>
   <main class="full-layout">
-    <nuxt />
+    <div class="container">
+      <nuxt />
+    </div>
   </main>
 </template>
 
 <script>
 export default {
-  name: "FullLayout",
+  name: 'FullLayout',
 }
 </script>
 
