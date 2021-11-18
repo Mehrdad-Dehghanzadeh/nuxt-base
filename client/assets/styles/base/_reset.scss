@@ -14,5 +14,5 @@ body {
   direction: rtl;
   background-color: #f8f8f8;
   position: relative;
-  @include text-size();
+  @include text-size(100%, 1.65rem);
 }

@@ -1,17 +1,42 @@
 .control {
   &__label {
     margin-right: 16px;
+    @include text-size(0.85rem);
 
     &-required {
-      &:before {
-        content: "*";
+      &:after {
+        content: '*';
         color: $color-red;
       }
+    }
+  }
+
+  &__wrapper {
+    margin: 3px 0;
+  }
+
+  &__item {
+    display: block;
+    padding: 7px 16px 7px 7px;
+    border: 1px solid #646464;
+    border-radius: 7px;
+    width: 100%;
+
+    &::placeholder {
+      color: #555;
+      @include text-size(0.75rem, 1.65rem, 300);
     }
   }
 
   &__error {
     font-size: 0.65rem;
     color: $color-error;
+  }
+
+  &--error {
+    .control__item {
+      border: 1px solid $color-error;
+      box-shadow: 0 0 2px 0 $color-error;
+    }
   }
 }

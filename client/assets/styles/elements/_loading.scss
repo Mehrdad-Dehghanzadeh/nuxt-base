@@ -1,8 +1,7 @@
 .loading {
   font-size: inherit;
   margin: auto;
-  display: inline-block;
-  vertical-align: middle;
+  @include inline-block();
   @include rotating-animation();
 
   &--lg {

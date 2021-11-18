@@ -19,6 +19,7 @@
 
       <div class="control__wrapper">
         <input
+          class="control__item"
           v-on="listeners"
           v-bind="$attrs"
           :id="safeId"

@@ -77,7 +77,7 @@
       <v-form>
         <div class="row">
           <div class="col col-xl-4 col-md-6 col-xs-12">
-            <v-input label="input" v-model="model.normal" required />
+            <v-input label="ورودی" v-model="model.normal" required />
           </div>
         </div>
 

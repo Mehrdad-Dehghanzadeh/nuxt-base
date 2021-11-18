@@ -35,6 +35,10 @@ input::-ms-reveal {
   display: none;
 }
 
+input {
+  outline: none;
+}
+
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
