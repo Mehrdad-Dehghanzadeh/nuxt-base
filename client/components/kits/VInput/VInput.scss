@@ -1,0 +1,17 @@
+.control {
+  &__label {
+    margin-right: 16px;
+
+    &-required {
+      &:before {
+        content: "*";
+        color: $color-red;
+      }
+    }
+  }
+
+  &__error {
+    font-size: 0.65rem;
+    color: $color-error;
+  }
+}

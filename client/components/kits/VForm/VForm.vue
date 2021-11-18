@@ -1,30 +1,39 @@
 <template>
   <validation-observer :ref="safeName" slim>
-    <form ref="form" @submit.prevent="submit" :class="['form', { 'form--dense': dense, 'form--horizontal-md': horizontalMd }]" autocomplete="on">
+    <form
+      ref="form"
+      @submit.prevent="submit"
+      :class="[
+        'form',
+        { 'form--dense': dense, 'form--horizontal-md': horizontalMd },
+      ]"
+      autocomplete="on"
+    >
       <slot />
     </form>
   </validation-observer>
 </template>
 
 <script>
+import { ValidationObserver } from 'vee-validate'
 import controlMixin from '@mixins/control'
 
 export default {
   name: 'VForm',
-
+  components: { ValidationObserver },
   mixins: [controlMixin],
 
   props: {
     dense: {
       type: Boolean,
-      default: false
+      default: false,
     },
     horizontalMd: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  
+
   methods: {
     async submit() {
       try {
@@ -40,8 +49,8 @@ export default {
 
     clear() {
       this.$refs[this.safeName].reset()
-    }
-  }
+    },
+  },
 }
 </script>
 

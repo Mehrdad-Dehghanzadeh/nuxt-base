@@ -10,7 +10,7 @@ Form
   }
 
   &--horizontal-md {
-    @media #{$only-md} {
+    @media #{$media-down-md} {
       .checkbox {
         margin-top: 35px;
       }

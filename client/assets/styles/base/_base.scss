@@ -76,7 +76,6 @@ ul {
  * html
 **********************************/
 html {
-  
 }
 
 /**
@@ -89,7 +88,7 @@ html {
 }
 
 .direction-ltr {
-  direction: ltr;
+  direction: ltr !important;
 }
 
 hr {

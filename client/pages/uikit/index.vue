@@ -57,6 +57,7 @@
       <div class="mt-10">
         <v-btn size="xs" color="secondary" loading> xs </v-btn>
         <v-btn size="sm" color="primary" icon="plus"> sm </v-btn>
+        <v-btn color="secondary" outline> md </v-btn>
         <v-btn size="lg" color="secondary" icon="plus" append ltr> lg </v-btn>
         <v-btn
           size="xl"
@@ -70,6 +71,21 @@
         />
       </div>
     </section>
+
+    <section section class="card mt-30">
+      <h2 class="heading-3 text-center">inputs Elements</h2>
+      <v-form>
+        <div class="row">
+          <div class="col col-xl-4 col-md-6 col-xs-12">
+            <v-input label="input" v-model="model.normal" required />
+          </div>
+        </div>
+
+        <div class="text-center">
+          <v-btn type="submit">submit</v-btn>
+        </div>
+      </v-form>
+    </section>
   </article>
 </template>
 
@@ -78,6 +94,14 @@ export default {
   name: 'UikitPage',
 
   layout: 'full',
+
+  data() {
+    return {
+      model: {
+        normal: '',
+      },
+    }
+  },
 }
 </script>
 

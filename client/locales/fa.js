@@ -1,8 +1,6 @@
-export default {
-  App: {
-    name: '',
-    panel: '',
-  },
+export const App = {
+  name: '',
+  panel: '',
 }
 
 /*
@@ -41,4 +39,16 @@ export const validations = {
   mobile: 'شماره موبایل نادرست است',
   iban: 'شماره شبا نادرست است',
   noZero: 'مقدار وارد شده نباید صفر باشد',
+}
+
+export default {
+  control: {
+    placeholder: {
+      input: 'لطفا وارد کنید',
+    },
+  },
+
+  App,
+  validations,
+  errors,
 }

@@ -5,7 +5,7 @@
       { 'direction-ltr': ltr },
       { 'btn-outline': outline },
       { 'btn--disable': disabled },
-      `${size ? 'btn--' + size : ''}`,
+      `${size != 'md' ? 'btn--' + size : ''}`,
       `${color ? 'btn-' + color : ''}`,
       `${fontWeight ? 'btn--' + fontWeight : ''}`,
       `${display ? 'btn--' + display : ''}`,
@@ -49,8 +49,8 @@ export default {
 
     size: {
       type: String,
-      validator: (val) => ['xs', 'sm', 'lg', 'xl', 'wide'].includes(val),
-      default: '',
+      validator: (val) => ['xs', 'sm', 'md', 'lg', 'xl', 'wide'].includes(val),
+      default: 'md',
     },
 
     color: {
@@ -103,7 +103,7 @@ export default {
 
   computed: {
     loadingLgClass() {
-      return this.size && this.size !== 'xs' && this.size !== 'sm'
+      return this.size == 'lg' && this.size == 'xl' && this.size == 'wide'
     },
   },
 }
