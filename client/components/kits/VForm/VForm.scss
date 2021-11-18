@@ -1,0 +1,20 @@
+/*==============================
+Form
+================================*/
+.form {
+
+  &--dense {
+    .control {
+      margin-bottom: 14px;
+    }
+  }
+
+  &--horizontal-md {
+    @media #{$only-md} {
+      .checkbox {
+        margin-top: 35px;
+      }
+    }
+  }
+
+}

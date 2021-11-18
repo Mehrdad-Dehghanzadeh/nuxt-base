@@ -40,6 +40,5 @@ export const validations = {
   nationalCode: 'کد/شناسه ملی معتبر نیست',
   mobile: 'شماره موبایل نادرست است',
   iban: 'شماره شبا نادرست است',
-  paymentIdentifier: 'شناسه واریز نادرست است',
   noZero: 'مقدار وارد شده نباید صفر باشد',
 }

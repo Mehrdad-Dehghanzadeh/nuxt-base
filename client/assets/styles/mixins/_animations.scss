@@ -1,0 +1,12 @@
+@mixin rotating-animation(
+  $duration: 1.1s,
+  $iteration: infinite,
+  $direction: normal,
+  $timing-function: linear
+) {
+  animation-name: 'rotating';
+  animation-duration: $duration;
+  animation-iteration-count: $iteration;
+  animation-direction: $direction;
+  animation-timing-function: $timing-function;
+}

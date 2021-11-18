@@ -35,6 +35,7 @@ const config = {
     '~/plugins/utils',
     '~/plugins/axios',
     '~/plugins/api',
+    '~/plugins/validate',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -127,7 +128,8 @@ const config = {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    // extend config
+    // transpile from common-js
+    transpile: ['vee-validate'],
   },
 }
 

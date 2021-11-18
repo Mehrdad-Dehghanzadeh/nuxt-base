@@ -1,0 +1,17 @@
+.loading {
+  font-size: inherit;
+  margin: auto;
+  display: inline-block;
+  vertical-align: middle;
+  @include rotating-animation();
+
+  &--lg {
+    font-size: 2rem;
+  }
+
+  &:before {
+    content: $icon-refresh-cw;
+    font-family: $icon-font-family;
+    display: block;
+  }
+}
