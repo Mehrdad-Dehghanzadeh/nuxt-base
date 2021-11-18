@@ -11,6 +11,7 @@
       `${display ? 'btn--' + display : ''}`,
     ]"
     v-bind="$attrs"
+    v-on="$listeners"
     :disabled="disabled"
   >
     <template v-if="loading">

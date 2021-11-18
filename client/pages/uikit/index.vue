@@ -72,7 +72,7 @@
       </div>
     </section>
 
-    <section section class="card mt-30">
+    <section class="card mt-30">
       <h2 class="heading-3 text-center">inputs Elements</h2>
       <v-form>
         <div class="row">
@@ -94,12 +94,23 @@
         </div>
       </v-form>
     </section>
+
+    <section class="card mt-30">
+      <h2 class="heading-3 text-center">modal</h2>
+
+      <v-btn size="xs" color="secondary" @click="modal=true">modal</v-btn>
+    </section>
+
+    <v-modal v-model="modal" />
   </article>
 </template>
 
 <script>
+import VModal from '@kits/VModal/VModal'
+
 export default {
   name: 'UikitPage',
+  components: { VModal },
 
   layout: 'full',
 
@@ -110,6 +121,7 @@ export default {
         date: '',
         disabled: 'disabled',
       },
+      modal: false,
     }
   },
 }
