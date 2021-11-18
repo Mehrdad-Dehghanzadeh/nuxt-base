@@ -13,13 +13,12 @@
       <label
         :class="['control__label', { 'control__label-required': required }]"
         :for="safeId"
-      >
-        {{ label }}
-      </label>
+        v-text="label"
+      />
 
       <div class="control__wrapper">
         <input
-          class="control__item"
+          class="control__input"
           v-on="listeners"
           v-bind="$attrs"
           :id="safeId"
@@ -31,7 +30,7 @@
         />
       </div>
 
-      <em v-show="errors.length" class="control__error">{{ errors[0] }}</em>
+      <em v-show="errors.length" class="control__error" v-text="errors[0]" />
     </div>
   </validation-provider>
 </template>

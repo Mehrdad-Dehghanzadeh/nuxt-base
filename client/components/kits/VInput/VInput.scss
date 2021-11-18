@@ -7,6 +7,7 @@
       &:after {
         content: '*';
         color: $color-red;
+        margin-right: 5px;
       }
     }
   }
@@ -15,7 +16,7 @@
     margin: 3px 0;
   }
 
-  &__item {
+  &__input {
     display: block;
     padding: 7px 16px 7px 7px;
     border: 1px solid #646464;
@@ -34,9 +35,13 @@
   }
 
   &--error {
-    .control__item {
+    .control__input {
       border: 1px solid $color-error;
       box-shadow: 0 0 2px 0 $color-error;
     }
+  }
+
+  &--disabled {
+    opacity: 0.65;
   }
 }

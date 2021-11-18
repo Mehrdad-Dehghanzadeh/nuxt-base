@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 
 const srcDir = path.resolve(__dirname, 'client/')
 const DEVELOPMENT_PAGES = ['pages/UIKIT/index.vue', '**/*.dev*']
@@ -36,6 +37,10 @@ const config = {
     '~/plugins/axios',
     '~/plugins/api',
     '~/plugins/validate',
+    {
+      src: '~/plugins/datepicker.js',
+      mode: 'client',
+    },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -130,6 +135,9 @@ const config = {
   build: {
     // transpile from common-js
     transpile: ['vee-validate'],
+
+    // exclude datepicker locales
+    plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)],
   },
 }
 

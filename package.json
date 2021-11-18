@@ -17,7 +17,8 @@
     "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "nuxt": "^2.15.7",
-    "vee-validate": "^3.4.14"
+    "vee-validate": "^3.4.14",
+    "vue-persian-datetime-picker": "^2.10.1"
   },
   "devDependencies": {
     "@nuxtjs/router": "^1.6.1",

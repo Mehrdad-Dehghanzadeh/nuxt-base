@@ -76,12 +76,20 @@
       <h2 class="heading-3 text-center">inputs Elements</h2>
       <v-form>
         <div class="row">
-          <div class="col col-xl-4 col-md-6 col-xs-12">
-            <v-input label="ورودی" v-model="model.normal" required />
+          <div class="col-xl-4 col-md-6 col-xs-12">
+            <v-input label="normal" v-model="model.normal" required />
+          </div>
+
+          <div class="col-xl-4 col-md-6 col-xs-12">
+            <v-input label="disabled" v-model="model.disabled" disabled />
+          </div>
+
+          <div class="col-xl-4 col-md-6 col-xs-12">
+            <v-date-picker v-model="model.date" label="time picker" required />
           </div>
         </div>
 
-        <div class="text-center">
+        <div class="text-center mt-30">
           <v-btn type="submit">submit</v-btn>
         </div>
       </v-form>
@@ -99,6 +107,8 @@ export default {
     return {
       model: {
         normal: '',
+        date: '',
+        disabled: 'disabled',
       },
     }
   },
