@@ -29,7 +29,12 @@
 @import 'base/font-icons';
 @import 'base/typography';
 @import 'base/spacing';
-@import 'base/keyframs';
+
+/**
+ * Generic
+***********************************/
+@import 'generic/keyframs';
+@import 'generic/transitions';
 
 /**
  * layout
