@@ -18,6 +18,7 @@
 @import 'mixins/spacing';
 @import 'mixins/checkbox';
 @import 'mixins/switch';
+@import 'mixins/animations';
 
 /**
  * Base
@@ -28,6 +29,7 @@
 @import 'base/font-icons';
 @import 'base/typography';
 @import 'base/spacing';
+@import 'base/keyframs';
 
 /**
  * layout
@@ -40,4 +42,5 @@
 * Elements
 ***********************************/
 @import 'elements/card';
-@import 'elements/divider'
+@import 'elements/divider';
+@import 'elements/loading';

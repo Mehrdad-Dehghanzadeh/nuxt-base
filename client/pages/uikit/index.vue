@@ -55,7 +55,7 @@
       <h2 class="heading-3 text-center">buttons</h2>
 
       <div class="mt-10">
-        <v-btn size="xs" color="secondary"> xs </v-btn>
+        <v-btn size="xs" color="secondary" loading> xs </v-btn>
         <v-btn size="sm" color="primary" icon="plus"> sm </v-btn>
         <v-btn size="lg" color="secondary" icon="plus" append ltr> lg </v-btn>
         <v-btn
@@ -66,6 +66,7 @@
           ltr
           outline
           disabled
+          loading
         />
       </div>
     </section>

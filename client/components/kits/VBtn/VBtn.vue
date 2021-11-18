@@ -13,21 +13,27 @@
     v-bind="$attrs"
     :disabled="disabled"
   >
-    <i
-      v-if="append"
-      v-show="icon"
-      :class="['btn__icon', `${icon ? 'icon-' + icon : ''}`]"
-    ></i>
+    <template v-if="loading">
+      <span :class="['loading', { 'loading--lg': loadingLgClass }]"> </span>
+    </template>
 
-    <span class="btn__text">
-      <slot>{{ text }}</slot>
-    </span>
+    <template v-else>
+      <i
+        v-if="append"
+        v-show="icon"
+        :class="['btn__icon', `${icon ? 'icon-' + icon : ''}`]"
+      ></i>
 
-    <i
-      v-if="!append"
-      v-show="icon"
-      :class="['btn__icon', `${icon ? 'icon-' + icon : ''}`]"
-    ></i>
+      <span class="btn__text">
+        <slot>{{ text }}</slot>
+      </span>
+
+      <i
+        v-if="!append"
+        v-show="icon"
+        :class="['btn__icon', `${icon ? 'icon-' + icon : ''}`]"
+      ></i>
+    </template>
   </button>
 </template>
 
@@ -80,13 +86,24 @@ export default {
     },
 
     ltr: {
-      typeof: Boolean,
+      type: Boolean,
       default: false,
     },
 
     disabled: {
-      typeof: Boolean,
+      type: Boolean,
       default: false,
+    },
+
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
+  computed: {
+    loadingLgClass() {
+      return this.size && this.size !== 'xs' && this.size !== 'sm'
     },
   },
 }
