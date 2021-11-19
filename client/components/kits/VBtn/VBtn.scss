@@ -88,8 +88,15 @@ $btn-height: (
     font-weight: bolder;
   }
 }
-
 @include make-btn('primary', #fff, $color-primary);
 @include make-outline-btn('primary', $color-primary);
 @include make-btn('secondary', #fff, $color-secondary);
 @include make-outline-btn('secondary', $color-secondary);
+@include make-btn('red', #fff, $color-red);
+@include make-outline-btn('red', $color-red);
+@include make-btn('success', #fff, $color-success);
+@include make-outline-btn('success', $color-success);
+@include make-btn('info', #fff, $color-info);
+@include make-outline-btn('info', $color-info);
+@include make-btn('alert', #fff, $color-alert);
+@include make-outline-btn('alert', $color-alert);

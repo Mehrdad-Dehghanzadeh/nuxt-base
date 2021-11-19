@@ -1,0 +1,81 @@
+/**
+* foreground color
+***************************/
+.fg {
+  &-white {
+    color: $color-white;
+  }
+
+  &-black {
+    color: $color-black;
+  }
+
+  &-primary {
+    color: $color-primary;
+  }
+
+  &-secondary {
+    color: $color-secondary;
+  }
+
+  &-disable {
+    color: $color-disable;
+  }
+
+  &-error {
+    color: $color-error;
+  }
+
+  &-info {
+    color: $color-info;
+  }
+
+  &-alert {
+    color: $color-alert;
+  }
+
+  &-success {
+    color: $color-success;
+  }
+}
+
+/**
+* background color
+***************************/
+.bg {
+  &-white {
+    background-color: $color-white;
+  }
+
+  &-black {
+    background-color: $color-black;
+  }
+
+  &-primary {
+    background-color: $color-primary;
+  }
+
+  &-secondary {
+    background-color: $color-secondary;
+  }
+
+  &-disable {
+    background-color: $color-disable;
+  }
+
+  &-error {
+    background-color: $color-error;
+  }
+
+  &-info {
+    background-color: $color-info;
+  }
+
+  &-alert {
+    background-color: $color-alert;
+  }
+
+  &-success {
+    background-color: $color-success;
+  }
+}

@@ -142,6 +142,17 @@
       </div>
     </section>
 
+    <section class="card mt-30">
+      <h2 class="heading-3 text-center">snackbar</h2>
+
+      <div class="mt-30">
+        <v-btn @click="$snack.error('خطا')" color="red" outline> error </v-btn>
+        <v-btn @click="$snack.success('قبول')" color="success" outline> success </v-btn>
+        <v-btn @click="$snack.info('اطلاع')" color="info" outline> info </v-btn>
+        <v-btn @click="$snack.alert('اخطار')" color="alert" outline> alert </v-btn>
+      </div>
+    </section>
+
     <!-- Modals -->
     <v-modal v-model="modal.normal" />
     <v-modal v-model="modal.lg" size="lg">

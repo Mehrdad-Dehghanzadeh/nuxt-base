@@ -38,7 +38,11 @@ const config = {
     '~/plugins/api',
     '~/plugins/validate',
     {
-      src: '~/plugins/datepicker.js',
+      src: '~/plugins/datepicker',
+      mode: 'client',
+    },
+    {
+      src: '~/plugins/snackbar',
       mode: 'client',
     },
   ],
