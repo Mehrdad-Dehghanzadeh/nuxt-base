@@ -1,0 +1,47 @@
+.float {
+  &-left {
+    float: left;
+  }
+
+  &-right {
+    float: right;
+  }
+
+  &-none {
+    float: none;
+  }
+}
+
+.direction {
+  &-ltr {
+    direction: ltr !important;
+  }
+
+  &-rtl {
+    direction: rtl !important;
+  }
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+.back-ground-dark {
+  @include back-ground-dark();
+}
+
+.back-ground-white {
+  @include back-ground-white();
+}
+
+.fit {
+  @include fit();
+}
+
+.fixed {
+  @include fixed();
+}
+
+.absolute-center {
+  @include absolute-center();
+}

@@ -20,7 +20,7 @@
 
     <template v-else>
       <i
-        v-if="append"
+        v-if="!append"
         v-show="icon"
         :class="['btn__icon', `${icon ? 'icon-' + icon : ''}`]"
       ></i>
@@ -30,7 +30,7 @@
       </span>
 
       <i
-        v-if="!append"
+        v-if="append"
         v-show="icon"
         :class="['btn__icon', `${icon ? 'icon-' + icon : ''}`]"
       ></i>

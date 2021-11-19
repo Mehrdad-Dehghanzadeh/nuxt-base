@@ -16,3 +16,7 @@ body {
   position: relative;
   @include text-size(100%, 1.65rem);
 }
+
+hr {
+  border: none;
+}

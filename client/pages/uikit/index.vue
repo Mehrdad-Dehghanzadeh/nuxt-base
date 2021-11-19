@@ -1,5 +1,5 @@
 <template>
-  <article class="uikit-page">
+  <article class="uikit-page" id="uikit-page">
     <h1 class="heading-1 text-center mb-30">UIKIT</h1>
 
     <section class="card text-center">
@@ -220,9 +220,9 @@ export default {
       ],
 
       headers: [
-        { title: 'title1', value: 'name' },
-        { title: 'title2', value: 'lastName' },
-        { title: 'title3', value: 'age' },
+        { title: 'title 1', value: 'name' },
+        { title: 'title 2', value: 'lastName' },
+        { title: 'title 3', value: 'age' },
         { title: 'operaion', value: 'operaion' },
       ],
 

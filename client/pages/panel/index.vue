@@ -1,15 +1,13 @@
 <template>
-  <section>
+  <section class="panel-page" id="panel-page">
     <h1>panel</h1>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'PanelPage'
+  name: 'PanelPage',
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
