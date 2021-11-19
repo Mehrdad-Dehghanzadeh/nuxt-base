@@ -28,12 +28,20 @@ $color-secondary-darken-2: #0a4309;
 $color-disable: #ebebeb;
 $color-error: #b00020;
 $color-red: #cb2027;
-$color-success: #4CAF50;
-$color-info: #2196F3;
+$color-success: #4caf50;
+$color-info: #2196f3;
 $color-alert: #ddc700;
-
 
 /**
 * Color Gray
 **********************************/
-$color-gray: #d3d3d3;
+$color-divider: #d3d3d3;
+
+
+/**
+* Data Tabel
+*************************/
+$dataGrid-active: #0E1032;
+
+$hover-state: #e7eaf4;
+$active-state: #99a0;

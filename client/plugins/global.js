@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 import ClickOutside from '@directives/click-outside'
+import LongClick from '@directives/long-click'
 
 import VBtn from '@kits/VBtn/VBtn'
 import VForm from '@kits/VForm/VForm'
@@ -32,6 +33,7 @@ Object.entries(components).forEach(([name, component]) => {
 
 const directives = {
   ClickOutside,
+  LongClick,
 }
 
 Object.entries(directives).forEach(([name, component]) => {

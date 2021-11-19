@@ -1,4 +1,4 @@
-import { mouseEvent } from '@helper/utils'
+import { mouseEvent } from '@helpers/utils'
 
 const LongClick = {
   bind(el, { value }, VNode) {

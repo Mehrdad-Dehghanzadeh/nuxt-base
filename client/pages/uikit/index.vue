@@ -147,10 +147,25 @@
 
       <div class="mt-30">
         <v-btn @click="$snack.error('خطا')" color="red" outline> error </v-btn>
-        <v-btn @click="$snack.success('قبول')" color="success" outline> success </v-btn>
+        <v-btn @click="$snack.success('قبول')" color="success" outline>
+          success
+        </v-btn>
         <v-btn @click="$snack.info('اطلاع')" color="info" outline> info </v-btn>
-        <v-btn @click="$snack.alert('اخطار')" color="alert" outline> alert </v-btn>
+        <v-btn @click="$snack.alert('اخطار')" color="alert" outline>
+          alert
+        </v-btn>
       </div>
+    </section>
+
+    <section class="card mt-30">
+      <h2 class="heading-3 text-center">Data Table</h2>
+      <v-data-table :headers="headers" :data="data" centered>
+        <template v-slot:item.operaion="{ item }">
+          <v-menu>
+            <v-menu-item>{{ item.name }}</v-menu-item>
+          </v-menu>
+        </template>
+      </v-data-table>
     </section>
 
     <!-- Modals -->
@@ -177,10 +192,11 @@
 import VModal from '@kits/VModal/VModal'
 import VMenu from '@kits/VMenu/VMenu'
 import VMenuItem from '@kits/VMenu/VMenuItem'
+import VDataTable from '@kits/VDataTable/VDataTable'
 
 export default {
   name: 'UikitPage',
-  components: { VModal, VMenu, VMenuItem },
+  components: { VModal, VMenu, VMenuItem, VDataTable },
 
   layout: 'full',
 
@@ -201,6 +217,19 @@ export default {
         { name: 'item1', id: '1' },
         { name: 'item2', id: '2' },
         { name: 'item3', id: '3' },
+      ],
+
+      headers: [
+        { title: 'title1', value: 'name' },
+        { title: 'title2', value: 'lastName' },
+        { title: 'title3', value: 'age' },
+        { title: 'operaion', value: 'operaion' },
+      ],
+
+      data: [
+        { name: 'mehrdad', lastName: 'deghan', age: 21 },
+        { name: 'deghan', lastName: 'deghan', age: 23 },
+        { name: 'mehrdad', lastName: 'mehrdad', age: 32 },
       ],
     }
   },
