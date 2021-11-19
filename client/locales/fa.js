@@ -45,6 +45,7 @@ export default {
   control: {
     placeholder: {
       input: 'لطفا وارد کنید',
+      select: 'لطفا انتخاب کنید',
     },
   },
 

@@ -1,4 +1,6 @@
 .control {
+  margin-bottom: 25px;
+
   &__label {
     margin-right: 16px;
     @include text-size(0.85rem);

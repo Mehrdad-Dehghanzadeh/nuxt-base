@@ -87,6 +87,15 @@
           <div class="col-xl-4 col-md-6 col-xs-12">
             <v-date-picker v-model="model.date" label="time picker" required />
           </div>
+
+          <div class="col-xl-4 col-md-6 col-xs-12">
+            <v-select
+              v-model="model.select"
+              label="select"
+              :items="items"
+              required
+            />
+          </div>
         </div>
 
         <div class="text-center mt-30">
@@ -170,12 +179,18 @@ export default {
         normal: '',
         date: '',
         disabled: 'disabled',
+        select: '',
       },
       modal: {
         normal: false,
         lg: false,
         full: false,
       },
+      items: [
+        { name: 'item1', id: '1' },
+        { name: 'item2', id: '2' },
+        { name: 'item3', id: '3' },
+      ],
     }
   },
 }

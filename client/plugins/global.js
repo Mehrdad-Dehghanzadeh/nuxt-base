@@ -6,6 +6,7 @@ import VBtn from '@kits/VBtn/VBtn'
 import VForm from '@kits/VForm/VForm'
 import VInput from '@kits/VInput/Vinput'
 import VDatePicker from '@kits/VDatePicker/VDatePicker'
+import VSelect from '@kits/VSelect/VSelect'
 
 /*
  * Global component registration
@@ -16,6 +17,7 @@ const components = {
   VForm,
   VInput,
   VDatePicker,
+  VSelect,
 }
 
 Object.entries(components).forEach(([name, component]) => {
