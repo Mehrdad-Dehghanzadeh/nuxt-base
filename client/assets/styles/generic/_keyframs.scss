@@ -19,3 +19,26 @@
     transform: rotateZ(360deg);
   }
 }
+
+
+@keyframes menu {
+  0% {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  100% {
+    min-width: 160px;
+    min-height: 60px;
+  }
+}
+
+@keyframes menu-item {
+  0% {
+    min-height: 0;
+  }
+
+  100% {
+    min-height: 30px;
+  }
+}

@@ -29,3 +29,74 @@
   height: 0;
   opacity: 0;
 }
+
+/**
+* menu
+*****************************************/
+.menu-enter {
+  min-width: 0;
+  min-height: 0;
+
+  .menu__item {
+    height: 0;
+    min-height: 0;
+    opacity: 0;
+  }
+}
+
+.menu-enter-active {
+  .menu__item {
+    height: 0;
+    min-height: 0;
+    opacity: 0.15;
+  }
+}
+
+.menu-enter-to {
+  min-width: 160px;
+  min-height: 60px;
+}
+
+.menu-leave {
+  min-width: 160px;
+  min-height: 60px;
+
+  .menu__list {
+    padding: 0;
+  }
+
+  .menu__item {
+    height: 0;
+    min-height: 0;
+    opacity: 0.1;
+  }
+}
+
+.menu-leave-active {
+  min-width: 0;
+  min-height: 0;
+
+  .menu__list {
+    padding: 0;
+  }
+
+  .menu__item {
+    height: 0;
+    min-height: 0;
+    opacity: 0.1;
+  }
+}
+
+.menu-leave-to {
+  display: none;
+
+  .menu__list {
+    padding: 0;
+  }
+
+  .menu__item {
+    height: 0;
+    min-height: 0;
+    opacity: 0;
+  }
+}

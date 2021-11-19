@@ -98,19 +98,69 @@
     <section class="card mt-30">
       <h2 class="heading-3 text-center">modal</h2>
 
-      <v-btn size="xs" color="secondary" @click="modal=true">modal</v-btn>
+      <v-btn size="xs" color="primary" @click="modal.normal = true"
+        >modal</v-btn
+      >
+      <v-btn size="xs" color="primary" @click="modal.lg = true" outline>
+        lg modal
+      </v-btn>
+      <v-btn size="xs" color="primary" @click="modal.full = true">
+        xs modal
+      </v-btn>
     </section>
 
-    <v-modal v-model="modal" />
+    <section class="card mt-30">
+      <h2 class="heading-3 text-center">menu</h2>
+
+      <div class="row">
+        <div class="col">
+          <p>light</p>
+          <v-menu light>
+            <v-menu-item> item-1 </v-menu-item>
+
+            <v-menu-item> item-2 </v-menu-item>
+          </v-menu>
+        </div>
+
+        <div class="col">
+          <p>normal</p>
+          <v-menu>
+            <v-menu-item> item-1 </v-menu-item>
+
+            <v-menu-item> item-2 </v-menu-item>
+          </v-menu>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <v-modal v-model="modal.normal" />
+    <v-modal v-model="modal.lg" size="lg">
+      <h3 class="heading-5 modal__title" slot="header">lg modal</h3>
+
+      <div class="text-center">
+        <p>modal content</p>
+      </div>
+    </v-modal>
+
+    <v-modal v-model="modal.full" size="xs" title="xs modal">
+      <div class="text-center">
+        <p>modal content</p>
+      </div>
+    </v-modal>
+
+    <!-- Modals -->
   </article>
 </template>
 
 <script>
 import VModal from '@kits/VModal/VModal'
+import VMenu from '@kits/VMenu/VMenu'
+import VMenuItem from '@kits/VMenu/VMenuItem'
 
 export default {
   name: 'UikitPage',
-  components: { VModal },
+  components: { VModal, VMenu, VMenuItem },
 
   layout: 'full',
 
@@ -121,7 +171,11 @@ export default {
         date: '',
         disabled: 'disabled',
       },
-      modal: false,
+      modal: {
+        normal: false,
+        lg: false,
+        full: false,
+      },
     }
   },
 }

@@ -122,6 +122,7 @@ const config = {
 
   alias: {
     '@data': path.join(__dirname, 'client/assets/data'),
+    '@directives': path.join(__dirname, 'client/assets/directives'),
     '@helpers': path.join(__dirname, 'client/assets/helpers'),
     '@mixins': path.join(__dirname, 'client/assets/mixins'),
     '@pages': path.join(__dirname, 'client/pages'),

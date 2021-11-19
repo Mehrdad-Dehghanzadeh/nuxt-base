@@ -89,7 +89,7 @@ export default {
   },
 
   mounted() {
-    document.getElementById('__nuxt').prepend(this.$refs.modal)
+    document.getElementById('__nuxt').append(this.$refs.modal)
   },
 }
 </script>
