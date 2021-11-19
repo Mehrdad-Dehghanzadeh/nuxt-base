@@ -45,3 +45,22 @@
 .absolute-center {
   @include absolute-center();
 }
+
+.display {
+  &-block {
+    display: block;
+  }
+
+  &-flex {
+    display: flex;
+  }
+
+  &-inline {
+    display: inline;
+    vertical-align: middle;
+  }
+
+  &-linline-block {
+    @include inline-block();
+  }
+}

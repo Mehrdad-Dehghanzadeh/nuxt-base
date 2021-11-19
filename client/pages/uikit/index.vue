@@ -96,6 +96,15 @@
               required
             />
           </div>
+
+          <div class="col-xl-4 col-md-6 col-xs-12">
+            <v-textarea
+              v-model="model.textarea"
+              label="textarea"
+              required
+              noResize
+            />
+          </div>
         </div>
 
         <div class="text-center mt-30">
@@ -107,9 +116,9 @@
     <section class="card mt-30">
       <h2 class="heading-3 text-center">modal</h2>
 
-      <v-btn size="xs" color="primary" @click="modal.normal = true"
-        >modal</v-btn
-      >
+      <v-btn size="xs" color="primary" @click="modal.normal = true">
+        modal
+      </v-btn>
       <v-btn size="xs" color="primary" @click="modal.lg = true" outline>
         lg modal
       </v-btn>
@@ -193,10 +202,12 @@ import VModal from '@kits/VModal/VModal'
 import VMenu from '@kits/VMenu/VMenu'
 import VMenuItem from '@kits/VMenu/VMenuItem'
 import VDataTable from '@kits/VDataTable/VDataTable'
+import VDatePicker from '@kits/VDatePicker/VDatePicker'
+import VTextarea from '@kits/VTextarea/VTextarea'
 
 export default {
   name: 'UikitPage',
-  components: { VModal, VMenu, VMenuItem, VDataTable },
+  components: { VModal, VMenu, VMenuItem, VDataTable, VDatePicker, VTextarea },
 
   layout: 'full',
 
@@ -207,6 +218,7 @@ export default {
         date: '',
         disabled: 'disabled',
         select: '',
+        textarea: '',
       },
       modal: {
         normal: false,

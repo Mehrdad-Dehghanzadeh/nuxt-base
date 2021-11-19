@@ -12,8 +12,8 @@
   </div>
 </template>
 <script>
-import DefaultHeader from '@shared/DeFaultHeader/DeFaultHeader'
-import DefaultFooter from '@shared/DefaultFooter/DefaultFooter'
+import DefaultHeader from '@includes/DeFaultHeader/DeFaultHeader'
+import DefaultFooter from '@includes/DefaultFooter/DefaultFooter'
 
 export default {
   components: { DefaultHeader, DefaultFooter },

@@ -8,11 +8,16 @@
       </div>
 
       <h1 class="text-center heading-2">لیست تیکت ها</h1>
+      <hr class="divider" />
 
-      <div class="divider"></div>
+      <div class="row">
+        <div class="col-md-4">
+          <v-ticket />
+        </div>
+      </div>
     </section>
 
-    <v-modal v-model="modal" title="ثبت تیکت">
+    <v-modal size="xs" v-model="modal" title="ثبت تیکت">
       <p-modal />
     </v-modal>
   </article>
@@ -20,11 +25,12 @@
 
 <script>
 import VModal from '@kits/VModal/VModal'
+import VTicket from '@shared/VTicket/VTicket'
 import PModal from './_partial.modal'
 
 export default {
   name: 'TicketsPage',
-  components: { VModal, PModal },
+  components: { VModal, PModal, VTicket },
 
   data() {
     return {

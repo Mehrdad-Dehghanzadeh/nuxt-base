@@ -1,0 +1,39 @@
+.v-ticket {
+  position: relative;
+  max-width: 330px;
+  box-shadow: 0 0 4px 0 #c0c8e1;
+  border-radius: 8px 30px 8px 8px;
+  overflow: hidden;
+  background-color: rgba(241, 246, 255, 0.7);
+  margin: 30px auto;
+
+  &__link {
+    display: block;
+    padding: 8px 12px 20px;
+  }
+
+  &__item {
+    border-bottom: 1px dashed #aaa;
+    padding: 25px 10px 5px;
+  }
+
+  &__title {
+    color: $color-secondary-darken-1;
+    font-weight: 500;
+
+    &:after {
+      content: ':';
+      margin-right: 5px;
+    }
+  }
+
+  &__text {
+    float: left;
+    color: #5b5b5b;
+  }
+
+  .divider {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}

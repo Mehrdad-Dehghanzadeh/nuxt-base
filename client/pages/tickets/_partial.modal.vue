@@ -1,15 +1,10 @@
 <template>
   <v-form ref="form">
-    <div class="row">
-      <div class="col">
-        <v-input label="عنوان تیکت" v-model="model.title" required />
-      </div>
-      <div class="col">
-        <v-input label="عنوان تیکت" v-model="model.message" required />
-      </div>
-    </div>
+    <v-input label="عنوان تیکت" v-model="model.title" required />
 
-    <div class="text-left">
+    <v-textarea label="متن تیکت" v-model="model.message" required />
+
+    <div class="text-left mt-50">
       <v-btn
         type="button"
         size="xs"
