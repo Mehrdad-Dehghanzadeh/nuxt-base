@@ -11,8 +11,8 @@
       <hr class="divider" />
 
       <div class="row">
-        <div class="col-md-4">
-          <v-ticket />
+        <div class="col-md-4" v-for="item of tickets" :key="item.id">
+          <v-ticket :ticket="item" />
         </div>
       </div>
     </section>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import VModal from '@kits/VModal/VModal'
 import VTicket from '@shared/VTicket/VTicket'
 import PModal from './_partial.modal'
@@ -32,10 +33,26 @@ export default {
   name: 'TicketsPage',
   components: { VModal, PModal, VTicket },
 
+  async fetch({ store }) {
+    await store.dispatch('tickets/read')
+  },
+
+  head() {
+    return {
+      title: 'لیست تیکت ها ',
+    }
+  },
+
   data() {
     return {
       modal: false,
     }
+  },
+
+  computed: {
+    ...mapGetters({
+      tickets: 'tickets/getData',
+    }),
   },
 }
 </script>

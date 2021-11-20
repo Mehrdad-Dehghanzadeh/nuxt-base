@@ -39,3 +39,30 @@ const directives = {
 Object.entries(directives).forEach(([name, component]) => {
   Vue.directive(name, component)
 })
+
+/*
+ * Global filter registration
+ ****************************/
+import {
+  round,
+  price,
+  creditCard,
+  fullPath,
+  fileSize,
+  date,
+  hiddenMask,
+} from '@helpers/filters'
+
+const filters = {
+  round,
+  price,
+  creditCard,
+  fullPath,
+  fileSize,
+  date,
+  hiddenMask,
+}
+
+Object.entries(filters).forEach(([name, filter]) => {
+  Vue.filter(name, filter)
+})

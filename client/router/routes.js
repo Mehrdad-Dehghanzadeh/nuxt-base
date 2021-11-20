@@ -1,7 +1,8 @@
 import Home from '@pages/home'
 import Panel from '@pages/panel'
 import Auth from '@pages/auth'
-import Tickest from '@pages/tickets'
+import Tickets from '@pages/tickets'
+import TicketsDetails from '@pages/tickets/_id'
 
 export const routes = [
   {
@@ -21,7 +22,12 @@ export const routes = [
 
   {
     path: '/tickets',
-    component: Tickest,
+    component: Tickets,
+  },
+
+  {
+    path: '/tickets/:id',
+    component: TicketsDetails,
   },
 ]
 

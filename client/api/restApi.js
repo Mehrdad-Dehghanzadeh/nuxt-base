@@ -1,6 +1,6 @@
 export default ($axios, resource) => ({
   create(payload) {
-    return $axios.post(`/${resource}/${action}`, payload)
+    return $axios.post(`/${resource}`, payload)
   },
   read(query, id) {
     const payload = query ? { params: query } : {}

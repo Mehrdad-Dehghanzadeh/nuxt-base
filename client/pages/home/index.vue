@@ -10,5 +10,11 @@
 <script>
 export default {
   name: 'HomePage',
+
+  head() {
+    return {
+      title: 'صفحه اصلی ',
+    }
+  },
 }
 </script>

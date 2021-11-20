@@ -9,7 +9,6 @@ export const debounce = (fn, wait) => {
   }
 }
 
-
 /**
  * Global variables & computation
  * ***********************************/
@@ -18,7 +17,7 @@ let isTouch = false
 const events = {
   start: 'mousedown',
   end: 'mouseup',
-  move: 'mousemove'
+  move: 'mousemove',
 }
 
 if (process.client) {
@@ -43,3 +42,17 @@ export const isTouchDevice = isTouch
  * Events inaccording to touch device support
  * ***********************************/
 export const mouseEvent = events
+
+/**
+ * Encoding base-64
+ * ***********************************/
+export const encode = (str) => {
+  return Buffer.from(str).toString('base64')
+}
+
+/**
+ * Decoding base-64
+ * ***********************************/
+export const decode = (str) => {
+  return Buffer.from(str, 'base64').toString()
+}
