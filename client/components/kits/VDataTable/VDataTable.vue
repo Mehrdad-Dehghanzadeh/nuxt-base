@@ -9,8 +9,8 @@
         'v-data-table--scrollable': scrollable,
         'v-data-table--fixed': fixed,
         'v-data-table--dense': dense,
-        'v-data-table--bordered': bordered
-      }
+        'v-data-table--bordered': bordered,
+      },
     ]"
   >
     <div class="v-data-table__wrapper">
@@ -22,7 +22,7 @@
               :key="index"
               :width="column.width"
               :class="{
-                'v-data-table__col--actions': column.value === 'actions'
+                'v-data-table__col--actions': column.value === 'actions',
               }"
             >
               {{ column.title }}
@@ -33,8 +33,8 @@
           :class="[
             'v-data-table__body',
             {
-              'v-data-table__body--stripped': stripped
-            }
+              'v-data-table__body--stripped': stripped,
+            },
           ]"
         >
           <slot v-if="localData.length" :data="localData" name="rows">
@@ -43,7 +43,7 @@
               :key="index"
               v-long-click="{
                 active: hasDblclick,
-                handler: () => $emit('dblclick:row', item, index)
+                handler: () => $emit('dblclick:row', item, index),
               }"
             >
               <td v-for="(col, i) in headers" :key="i">
@@ -58,11 +58,7 @@
                 </template>
 
                 <template v-else>
-                  <slot
-                    :name="`item.${col.value}`"
-                    :item="item"
-                    :index="index"
-                  >
+                  <slot :name="`item.${col.value}`" :item="item" :index="index">
                     {{ item[col.value] || '' }}
                   </slot>
                 </template>
@@ -75,7 +71,7 @@
 
     <div v-if="!localData.length" class="v-data-table__status">
       <div v-if="loading" class="v-data-table__overlayer">
-        <v-spinner :value="true" />
+        <span class="loading loading--lg"> </span>
       </div>
       <p class="v-data-table__message" v-else>اطلاعاتی یافت نشد</p>
     </div>
@@ -104,80 +100,80 @@ export default {
   props: {
     headers: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     resource: {
       type: String,
-      default: null
+      default: null,
     },
     action: {
       type: String,
-      default: 'read'
+      default: 'read',
     },
     paging: {
       type: Boolean,
-      default: false
+      default: false,
     },
     page: {
       type: Number,
-      default: 1
+      default: 1,
     },
     pageSize: {
       type: Number,
-      default: 25
+      default: 25,
     },
     pageSizes: {
       type: Array,
-      default: () => [25, 50, 100, 200]
+      default: () => [25, 50, 100, 200],
     },
     standby: {
       type: Boolean,
-      default: false
+      default: false,
     },
     rounded: {
       type: Boolean,
-      default: true
+      default: true,
     },
     centered: {
       type: Boolean,
-      default: false
+      default: false,
     },
     hoverable: {
       type: Boolean,
-      default: true
+      default: true,
     },
     scrollable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     fixed: {
       type: Boolean,
-      default: false
+      default: false,
     },
     dense: {
       type: Boolean,
-      default: false
+      default: false,
     },
     bordered: {
       type: Boolean,
-      default: true
+      default: true,
     },
     stripped: {
       type: Boolean,
-      default: true
+      default: true,
     },
     headless: {
       type: Boolean,
-      default: false
+      default: false,
     },
     params: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
 
   data() {
@@ -188,8 +184,8 @@ export default {
 
       options: {
         page: this.page,
-        pageSize: this.pageSize
-      }
+        pageSize: this.pageSize,
+      },
     }
   },
 
@@ -200,12 +196,12 @@ export default {
       },
       loading(state) {
         return this.resource ? state[this.resource].loading : false
-      }
+      },
     }),
 
     hasDblclick() {
       return typeof this.$listeners['dblclick:row'] === 'function'
-    }
+    },
   },
 
   watch: {
@@ -214,7 +210,7 @@ export default {
     },
     'options.pageSize'() {
       this.reset()
-    }
+    },
   },
 
   mounted() {
@@ -225,7 +221,7 @@ export default {
 
           this.reset()
         },
-        immediate: true
+        immediate: true,
       })
     } else {
       this.$store.watch(
@@ -247,29 +243,24 @@ export default {
   methods: {
     read() {
       if (this.resource) {
-        this.setFilters()
-
         this.$store.dispatch(`${this.resource}/${this.action}`)
       } else {
         const base = (this.options.page - 1) * this.options.pageSize
-        this.localData = this.data.slice(
-          base,
-          base + this.options.pageSize
-        )
+        this.localData = this.data.slice(base, base + this.options.pageSize)
       }
     },
 
     setFilters() {
       this.$store.dispatch(`${this.resource}/setFilters`, {
         ...this.options,
-        ...this.params
+        ...this.params,
       })
     },
 
     reset() {
       this.options.page === 1 ? this.read() : (this.options.page = 1)
-    }
-  }
+    },
+  },
 }
 </script>
 

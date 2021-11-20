@@ -16,5 +16,10 @@
     top: $panel-top;
     bottom: $panel-bottom;
     width: calc(100% - #{$panel-nav-width});
+
+    .btn-head-wrapper {
+      position: absolute;
+      left: 25px;
+    }
   }
 }

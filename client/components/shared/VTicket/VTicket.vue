@@ -1,10 +1,6 @@
 <template>
   <section class="v-ticket">
-    <a
-      class="v-ticket__link"
-      :href="link"
-      :title="`تیکت ${ticket.title}`"
-    >
+    <a class="v-ticket__link" :href="link" :title="`تیکت ${ticket.title}`">
       <h3 class="heading-4 fg-success text-center py-5">{{ ticket.title }}</h3>
       <hr class="divider" />
       <div class="body-2">
@@ -21,7 +17,7 @@
 
           <li class="v-ticket__item">
             <span class="v-ticket__title"> وضیعت </span>
-            <span class="v-ticket__text">{{ ticket.status }}</span>
+            <span class="v-ticket__text">{{ $u.enums(`ticketStatus.${ticket.status}`) }}</span>
           </li>
         </ul>
 
