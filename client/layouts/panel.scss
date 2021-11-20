@@ -1,0 +1,20 @@
+.panel-layout {
+  &__wrapper {
+    position: relative;
+    min-height: calc(
+      100vh - #{$min-height-panel-header + $min-height-panel-footer}
+    );
+    overflow: hidden;
+  }
+
+  &__container {
+    position: fixed;
+    padding: 10px 15px;
+    overflow-y: auto;
+    left: 0;
+    background-color: #f8f8f8;
+    top: $panel-top;
+    bottom: $panel-bottom;
+    width: calc(100% - #{$panel-nav-width});
+  }
+}

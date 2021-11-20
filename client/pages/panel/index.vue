@@ -1,12 +1,14 @@
 <template>
   <section class="panel-page" id="panel-page">
-    <h1>panel</h1>
+    <nuxt-child />
   </section>
 </template>
 
 <script>
 export default {
   name: 'PanelPage',
+
+  layout: 'panel',
 }
 </script>
 

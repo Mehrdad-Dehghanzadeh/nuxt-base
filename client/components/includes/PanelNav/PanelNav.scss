@@ -1,0 +1,31 @@
+.panel-nav {
+  position: fixed;
+  top: $panel-top;
+  right: 0;
+  bottom: $panel-bottom;
+  width: $panel-nav-width;
+  border-radius: 25px 0 0 25px;
+  background-color: $color-primary-darken-2;
+  color: $color-white;
+
+  &__wrapper {
+    height: 100%;
+    overflow-y: auto;
+    margin-top: 30px;
+  }
+
+  &__item {
+    border-bottom: 1px solid #aaa;
+    margin: 5px auto;
+  }
+
+  &__link {
+    display: block;
+    padding: 10px 15px 10px 5px;
+    background-color: #1f1f84;
+
+    &-text {
+      margin-right: 5px;
+    }
+  }
+}
