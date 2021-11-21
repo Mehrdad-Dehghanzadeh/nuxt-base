@@ -1,0 +1,22 @@
+.home-page-nav {
+  padding: 10px 25px;
+
+  &__menu {
+    text-align: center;
+  }
+
+  &__item {
+    margin: 0 10px;
+    @include inline-block();
+  }
+
+  &__link {
+    padding: 10px 15px;
+    text-align: center;
+    min-width: 80px;
+    background-color: $color-info;
+    color: $color-white;
+    border-radius: 8px;
+    display: block;
+  }
+}

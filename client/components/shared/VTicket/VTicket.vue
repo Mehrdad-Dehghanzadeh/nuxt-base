@@ -17,7 +17,16 @@
 
           <li class="v-ticket__item">
             <span class="v-ticket__title"> وضیعت </span>
-            <span class="v-ticket__text">{{ $u.enums(`ticketStatus.${ticket.status}`) }}</span>
+            <span
+              :class="[
+                'v-ticket__text',
+                { 'fg-error': ticket.status === 'closed' },
+                { 'fg-info': ticket.status === 'pending' },
+                { 'fg-success': ticket.status === 'answered' },
+              ]"
+            >
+              {{ $u.enums(`ticketStatus.${ticket.status}`) }}
+            </span>
           </li>
         </ul>
 

@@ -1,0 +1,85 @@
+/**
+ * Chip
+ * *********************************/
+.chip-wrapper {
+  margin: -4px;
+  @include clearfix;
+}
+
+.chip {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  padding: 5px 20px;
+  background-color: rgba($color-disable, 0.65);
+  margin: 4px;
+  white-space: nowrap;
+  border-radius: 10px;
+
+  &__clear {
+    display: inline-block;
+    text-align: center;
+    font-size: 10px;
+    line-height: 23px;
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-right: 6px;
+    background-color: rgba($color-red, 0.3);
+    color: $color-white;
+  }
+
+  &--clearable {
+    padding: 5px 10px;
+  }
+
+  &--outline {
+    color: rgba($color-red, 0.6);
+    border: 2px solid #e7e7e7;
+    background-color: $color-white;
+
+    .chip__clear {
+      border: 1px solid rgba($color-black, 0.7);
+      color: rgba($color-black, 0.7);
+      background-color: transparent;
+      line-height: 20px;
+    }
+  }
+
+  &--success {
+    color: $color-success;
+    background-color: rgba($color-success, 0.25);
+
+    .chip__clear {
+      background-color: $color-success;
+    }
+  }
+
+  &--info {
+    color: $color-info;
+    background-color: rgba($color-info, 0.25);
+
+    .chip__clear {
+      background-color: $color-info;
+    }
+  }
+
+  &--error {
+    color: $color-error;
+    background-color: rgba($color-error, 0.25);
+
+    .chip__clear {
+      background-color: $color-error;
+    }
+  }
+
+  &--alert {
+    color: darken($color-alert, 10%);
+    background-color: rgba($color-alert, 0.25);
+
+    .chip__clear {
+      background-color: $color-alert;
+    }
+  }
+}

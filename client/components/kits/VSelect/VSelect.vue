@@ -48,7 +48,7 @@
             :placeholder="hint"
             :disabled="disabled"
             :required="required"
-            :value="value"
+            :value="text"
             autocomplete="off"
           />
         </div>

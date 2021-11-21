@@ -33,6 +33,7 @@ export const actions = {
         await resolve(res.data)
       } catch (error) {
         reject(error)
+        this.$snack.error(error)
       }
       commit('SET_LOADING', false)
     })
@@ -48,6 +49,7 @@ export const actions = {
         resolve(res)
       } catch (error) {
         reject(error)
+        this.$snack.error(error)
       }
 
       commit('SET_LOADING', false)
@@ -64,6 +66,24 @@ export const actions = {
         resolve(res)
       } catch (error) {
         reject(error)
+        this.$snack.error(error)
+      }
+
+      commit('SET_LOADING', false)
+    })
+  },
+
+  update({ commit }, payload) {
+    return new Promise(async (resolve, reject) => {
+      commit('SET_LOADING', true)
+
+      try {
+        const res = await this.$api.tickets.update(payload)
+        this.$snack.success('تیکت با موفقیت ویرایش شد')
+        resolve(res)
+      } catch (error) {
+        reject(error)
+        this.$snack.error(error)
       }
 
       commit('SET_LOADING', false)

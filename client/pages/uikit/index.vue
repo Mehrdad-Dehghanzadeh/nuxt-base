@@ -177,6 +177,13 @@
       </v-data-table>
     </section>
 
+    <section class="card mt-30">
+      <h2 class="heading-3 text-center">Chip</h2>
+      <v-chip alert>alert</v-chip>
+      <v-chip error>error</v-chip>
+      <v-chip success clearable>success</v-chip>
+      <v-chip info>info</v-chip>
+    </section>
     <!-- Modals -->
     <v-modal v-model="modal.normal" />
     <v-modal v-model="modal.lg" size="lg">
@@ -204,10 +211,19 @@ import VMenuItem from '@kits/VMenu/VMenuItem'
 import VDataTable from '@kits/VDataTable/VDataTable'
 import VDatePicker from '@kits/VDatePicker/VDatePicker'
 import VTextarea from '@kits/VTextarea/VTextarea'
+import VChip from '@kits/VChip/VChip'
 
 export default {
   name: 'UikitPage',
-  components: { VModal, VMenu, VMenuItem, VDataTable, VDatePicker, VTextarea },
+  components: {
+    VModal,
+    VMenu,
+    VMenuItem,
+    VDataTable,
+    VDatePicker,
+    VTextarea,
+    VChip,
+  },
 
   layout: 'full',
 
