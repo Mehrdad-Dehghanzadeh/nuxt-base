@@ -7,7 +7,11 @@
 <script>
 export default {
   name: 'PanelPage',
-
+  head() {
+    return {
+      title: 'پنل ادمین '
+    }
+  },
   layout: 'panel',
 }
 </script>

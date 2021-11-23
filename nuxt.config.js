@@ -61,6 +61,8 @@ const config = {
     '@nuxtjs/pwa',
     //https://i18n.nuxtjs.org/
     '@nuxtjs/i18n',
+    //https://auth.nuxtjs.org/
+    '@nuxtjs/auth-next',
   ],
 
   i18n: {

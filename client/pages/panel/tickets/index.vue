@@ -103,6 +103,12 @@ export default {
     PMessage,
   },
 
+  head() {
+    return {
+      title: 'پنل ادمین | تیک ها ',
+    }
+  },
+
   data() {
     return {
       modal: {
