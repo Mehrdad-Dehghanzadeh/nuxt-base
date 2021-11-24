@@ -35,6 +35,7 @@ const config = {
     '~/plugins/global',
     '~/plugins/utils',
     '~/plugins/axios',
+    '~/plugins/auth',
     '~/plugins/api',
     '~/plugins/validate',
     {
@@ -65,6 +66,36 @@ const config = {
     '@nuxtjs/auth-next',
   ],
 
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+    // https://github.com/nuxt-community/router-module
+    '@nuxtjs/router',
+    // https://github.com/nuxt-community/style-resources-module
+    '@nuxtjs/style-resources',
+  ],
+
+  //router moduel config for routing
+  routerModule: {
+    path: path.resolve(srcDir, 'router'),
+    fileName: 'router.js',
+  },
+
+  styleResources: {
+    hoistUseStatements: true,
+    scss: [
+      '~/assets/styles/variables/*.scss',
+      '~/assets/styles/mixins/*.scss',
+      '~/assets/styles/base/*.scss',
+      '~/assets/styles/layout/*.scss',
+      '~/assets/styles/elements/*.scss',
+    ],
+  },
+
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {
+    baseURL: process.env.API_URL,
+  },
+
   i18n: {
     lazy: true,
     langDir: 'locales/',
@@ -89,34 +120,14 @@ const config = {
     ],
   },
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    //https://github.com/nuxt-community/router-module
-    '@nuxtjs/router',
-    //https://github.com/nuxt-community/style-resources-module
-    '@nuxtjs/style-resources',
-  ],
-
-  //router moduel config for routing
-  routerModule: {
-    path: path.resolve(srcDir, 'router'),
-    fileName: 'router.js',
-  },
-
-  styleResources: {
-    hoistUseStatements: true,
-    scss: [
-      '~/assets/styles/variables/*.scss',
-      '~/assets/styles/mixins/*.scss',
-      '~/assets/styles/base/*.scss',
-      '~/assets/styles/layout/*.scss',
-      '~/assets/styles/elements/*.scss',
-    ],
-  },
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    baseURL: process.env.API_URL,
+  // https://auth.nuxtjs.org/
+  auth: {
+    redirect: {
+      login: '/auth',
+      logout: '/',
+      callback: '/auth',
+      home: '',
+    },
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
