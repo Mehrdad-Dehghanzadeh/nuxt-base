@@ -35,7 +35,6 @@ const config = {
     '~/plugins/global',
     '~/plugins/utils',
     '~/plugins/axios',
-    '~/plugins/auth',
     '~/plugins/api',
     '~/plugins/validate',
     {
@@ -60,10 +59,12 @@ const config = {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    //https://i18n.nuxtjs.org/
+    // https://i18n.nuxtjs.org/
     '@nuxtjs/i18n',
-    //https://auth.nuxtjs.org/
+    // https://auth.nuxtjs.org/
     '@nuxtjs/auth-next',
+    // https://github.com/nuxt-community/gtm-module
+    '@nuxtjs/gtm',
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -72,6 +73,8 @@ const config = {
     '@nuxtjs/router',
     // https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/style-resources',
+    // https://github.com/nuxt-community/google-analytics-module
+    '@nuxtjs/google-analytics',
   ],
 
   //router moduel config for routing
@@ -122,6 +125,7 @@ const config = {
 
   // https://auth.nuxtjs.org/
   auth: {
+    plugins: ['~/plugins/auth'],
     redirect: {
       login: '/auth',
       logout: '/',
@@ -134,6 +138,15 @@ const config = {
   pwa: {
     manifest: {
       lang: 'en',
+    },
+  },
+
+  publicRuntimeConfig: {
+    gtm: {
+      id: process.env.GOOGLE_TAG_MANAGER_ID,
+    },
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID,
     },
   },
 

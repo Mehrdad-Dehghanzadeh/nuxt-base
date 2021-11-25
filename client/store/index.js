@@ -5,5 +5,7 @@ export const getters = {}
 export const mutations = {}
 
 export const actions = {
-  async nuxtServerInit({}, {}) {},
+  async nuxtServerInit({}, { $auth }) {
+    console.log($auth)
+  },
 }
