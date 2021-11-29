@@ -130,7 +130,26 @@ const config = {
       login: '/auth',
       logout: '/',
       callback: '/auth',
-      home: '',
+      home: '/',
+    },
+
+    strategies: {
+      cookie: {
+        cookie: {
+          name: 'XSRF-TOKEN',
+        },
+
+        user: {
+          property: 'user',
+          autoFetch: false,
+        },
+
+        endpoints: {
+          login: { url: '/auth/login', method: 'post' },
+          logout: { url: '/auth/logout', method: 'post' },
+          user: { url: '/auth/user', method: 'get' },
+        },
+      },
     },
   },
 

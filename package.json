@@ -30,6 +30,6 @@
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.3.2",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.2.0"
   }
 }

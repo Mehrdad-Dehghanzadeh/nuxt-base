@@ -1,6 +1,6 @@
 <template>
   <article class="auth-page">
-    <v-form class="auth-form" id="auth-form">
+    <v-form class="auth-form" id="auth-form" @onValid="login">
       <h2 class="heading-4 mb-25 text-center">ورود</h2>
 
       <div class="pb-15">
@@ -49,6 +49,12 @@ export default {
         password: '',
       },
     }
+  },
+
+  methods: {
+    async login() {
+      await this.$store.dispatch('app/login', this.model)
+    },
   },
 }
 </script>
