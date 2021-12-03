@@ -34,6 +34,7 @@ const config = {
   plugins: [
     '~/plugins/global',
     '~/plugins/utils',
+    '~/plugins/auth',
     '~/plugins/axios',
     '~/plugins/api',
     '~/plugins/validate',
@@ -61,8 +62,6 @@ const config = {
     '@nuxtjs/pwa',
     // https://i18n.nuxtjs.org/
     '@nuxtjs/i18n',
-    // https://auth.nuxtjs.org/
-    '@nuxtjs/auth-next',
     // https://github.com/nuxt-community/gtm-module
     '@nuxtjs/gtm',
   ],
@@ -121,36 +120,6 @@ const config = {
         rtl: true,
       },
     ],
-  },
-
-  // https://auth.nuxtjs.org/
-  auth: {
-    plugins: ['~/plugins/auth'],
-    redirect: {
-      login: '/auth',
-      logout: '/',
-      callback: '/auth',
-      home: '/',
-    },
-
-    strategies: {
-      cookie: {
-        cookie: {
-          name: 'XSRF-TOKEN',
-        },
-
-        user: {
-          property: 'user',
-          autoFetch: false,
-        },
-
-        endpoints: {
-          login: { url: '/auth/login', method: 'post' },
-          logout: { url: '/auth/logout', method: 'post' },
-          user: { url: '/auth/user', method: 'get' },
-        },
-      },
-    },
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

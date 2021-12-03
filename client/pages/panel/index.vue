@@ -9,10 +9,11 @@ export default {
   name: 'PanelPage',
   head() {
     return {
-      title: 'پنل ادمین '
+      title: 'پنل ادمین ',
     }
   },
   layout: 'panel',
+
 }
 </script>
 

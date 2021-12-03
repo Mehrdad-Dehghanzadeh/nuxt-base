@@ -1,8 +1,8 @@
-export default ({ $axios, redirect, $auth }) => {
+export default function ({ $axios, redirect, $auth }) {
+  console.log($auth)
   $axios.onRequest((config) => {
-    // if ($auth.loggedIn) {
-    //   $axios.setToken($auth.strategy.token, 'Bearer')
-    // }
+    if (process.client) {
+    }
   })
 
   $axios.onError((error) => {
