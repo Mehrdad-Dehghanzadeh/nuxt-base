@@ -1,5 +1,4 @@
 export default function ({ $axios, redirect, $auth }) {
-  console.log($auth)
   $axios.onRequest((config) => {
     if (process.client) {
     }

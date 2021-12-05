@@ -70,9 +70,7 @@ export const checkIban = function (value) {
       leadingZeroes = false
     }
     if (!leadingZeroes) {
-      ibancheckdigits += '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf(
-        charAt
-      )
+      ibancheckdigits += '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf(charAt)
     }
   }
 

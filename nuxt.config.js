@@ -9,7 +9,7 @@ const config = {
   telemetry: false,
   // Environment Variable
   env: {
-    API_URL: process.env.API_URL,
+    API_URL: process.env.API_URL
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -20,9 +20,9 @@ const config = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   ignore: [],
@@ -40,12 +40,12 @@ const config = {
     '~/plugins/validate',
     {
       src: '~/plugins/datepicker',
-      mode: 'client',
+      mode: 'client'
     },
     {
       src: '~/plugins/snackbar',
-      mode: 'client',
-    },
+      mode: 'client'
+    }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -63,7 +63,7 @@ const config = {
     // https://i18n.nuxtjs.org/
     '@nuxtjs/i18n',
     // https://github.com/nuxt-community/gtm-module
-    '@nuxtjs/gtm',
+    '@nuxtjs/gtm'
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -73,13 +73,13 @@ const config = {
     // https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/style-resources',
     // https://github.com/nuxt-community/google-analytics-module
-    '@nuxtjs/google-analytics',
+    '@nuxtjs/google-analytics'
   ],
 
   //router moduel config for routing
   routerModule: {
     path: path.resolve(srcDir, 'router'),
-    fileName: 'router.js',
+    fileName: 'router.js'
   },
 
   styleResources: {
@@ -89,13 +89,13 @@ const config = {
       '~/assets/styles/mixins/*.scss',
       '~/assets/styles/base/*.scss',
       '~/assets/styles/layout/*.scss',
-      '~/assets/styles/elements/*.scss',
-    ],
+      '~/assets/styles/elements/*.scss'
+    ]
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.API_URL,
+    baseURL: process.env.API_URL
   },
 
   i18n: {
@@ -103,13 +103,13 @@ const config = {
     langDir: 'locales/',
     defaultLocale: 'fa',
     vueI18n: {
-      fallbackLocale: 'fa',
+      fallbackLocale: 'fa'
     },
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'appname.lang',
       alwaysRedirect: false,
-      fallbackLocale: 'fa',
+      fallbackLocale: 'fa'
     },
     locales: [
       {
@@ -117,25 +117,25 @@ const config = {
         code: 'fa',
         iso: 'fa-IR',
         file: 'fa.js',
-        rtl: true,
-      },
-    ],
+        rtl: true
+      }
+    ]
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en',
-    },
+      lang: 'en'
+    }
   },
 
   publicRuntimeConfig: {
     gtm: {
-      id: process.env.GOOGLE_TAG_MANAGER_ID,
+      id: process.env.GOOGLE_TAG_MANAGER_ID
     },
     googleAnalytics: {
-      id: process.env.GOOGLE_ANALYTICS_ID,
-    },
+      id: process.env.GOOGLE_ANALYTICS_ID
+    }
   },
 
   alias: {
@@ -147,17 +147,26 @@ const config = {
     '@kits': path.join(__dirname, 'client/components/kits'),
     '@shared': path.join(__dirname, 'client/components/shared'),
     '@includes': path.join(__dirname, 'client/components/includes'),
-    '@api': path.join(__dirname, 'client/api'),
+    '@api': path.join(__dirname, 'client/api')
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // enable external css
+    extractCSS: true,
+
+    // auto-prefixer
+    postcss: [
+      require('autoprefixer')({
+        overrideBrowserslist: ['> 1%', 'last 2 versions', 'IE 10']
+      })
+    ],
     // transpile from common-js
     transpile: ['vee-validate'],
 
     // exclude datepicker locales
-    plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)],
-  },
+    plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)]
+  }
 }
 
 if (process.env.NODE_ENV == 'production') {
