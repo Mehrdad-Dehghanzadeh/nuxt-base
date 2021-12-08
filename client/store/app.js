@@ -1,4 +1,7 @@
-export const state = () => ({})
+export const state = () => ({
+  token: null,
+  user: null
+})
 
 export const getters = {}
 
@@ -8,7 +11,7 @@ export const actions = {
   login({}, payload) {
     return new Promise(async (resolve, reject) => {
       try {
-        const res = await this.$auth.loginWith('local', { data: payload })
+        const res = await this.$auth.login(payload)
         resolve(res)
       } catch (error) {
         reject(error)
@@ -26,5 +29,5 @@ export const actions = {
         reject(error)
       }
     })
-  },
+  }
 }

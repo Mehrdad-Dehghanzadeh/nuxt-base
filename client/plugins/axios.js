@@ -1,6 +1,7 @@
 export default function ({ $axios, redirect, $auth }) {
   $axios.onRequest((config) => {
-    if (process.client) {
+    if ($auth.loggedIn()) {
+      config.headers.common.Authorization = `Bearer ${$auth.accessToken}`
     }
   })
 
