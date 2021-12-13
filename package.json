@@ -14,9 +14,11 @@
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/i18n": "^7.2.0",
     "@nuxtjs/pwa": "^3.3.5",
+    "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.15.1",
     "env-cmd": "^10.1.0",
     "express": "^4.17.1",
+    "jwt-decode": "^3.1.2",
     "nuxt": "^2.15.7",
     "vee-validate": "^3.4.14",
     "vue-persian-datetime-picker": "^2.10.1"

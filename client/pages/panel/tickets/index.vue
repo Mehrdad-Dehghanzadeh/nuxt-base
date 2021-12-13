@@ -100,12 +100,12 @@ export default {
     VModal,
     PCreate,
     PEdit,
-    PMessage,
+    PMessage
   },
 
   head() {
     return {
-      title: 'پنل ادمین | تیک ها ',
+      title: 'پنل ادمین | تیک ها '
     }
   },
 
@@ -114,7 +114,7 @@ export default {
       modal: {
         create: false,
         message: false,
-        edit: false,
+        edit: false
       },
       tempItem: null,
       ticketID: 0,
@@ -125,21 +125,21 @@ export default {
         { title: 'تاریخ دریافت', value: 'received' },
         { title: 'وضیعت', value: 'status' },
         { title: 'پیام', value: 'message' },
-        { title: 'عملیات', value: 'operation' },
-      ],
+        { title: 'عملیات', value: 'operation' }
+      ]
     }
   },
 
   computed: {
     ...mapGetters({
-      answerLoading: 'answers/getLoading',
-    }),
+      answerLoading: 'answers/getLoading'
+    })
   },
 
   methods: {
     ...mapActions({
       create: 'tickets/create',
-      delete: 'tickets/delete',
+      delete: 'tickets/delete'
     }),
 
     async deleteTicket({ id }) {
@@ -166,8 +166,12 @@ export default {
     updateTicket() {
       this.modal.edit = false
       this.$refs.table.read()
-    },
+    }
   },
+
+  mounted() {
+    console.log(this.$auth)
+  }
 }
 </script>
 

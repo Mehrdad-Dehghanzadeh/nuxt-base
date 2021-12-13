@@ -27,6 +27,14 @@ const config = {
 
   ignore: [],
 
+  // https://nuxtjs.org/docs/features/loading/
+  loading: {
+    color: 'blue',
+    height: '5px',
+    continuous: true,
+    rtl: true
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/styles/main.scss'],
 
@@ -34,9 +42,9 @@ const config = {
   plugins: [
     '~/plugins/global',
     '~/plugins/utils',
+    '~/plugins/api',
     '~/plugins/auth',
     '~/plugins/axios',
-    '~/plugins/api',
     '~/plugins/validate',
     {
       src: '~/plugins/datepicker',
@@ -63,7 +71,9 @@ const config = {
     // https://i18n.nuxtjs.org/
     '@nuxtjs/i18n',
     // https://github.com/nuxt-community/gtm-module
-    '@nuxtjs/gtm'
+    '@nuxtjs/gtm',
+    // https://www.npmjs.com/package/cookie-universal-nuxt
+    'cookie-universal-nuxt'
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
