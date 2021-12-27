@@ -1,55 +1,14 @@
-export const App = {
-  name: '',
-  panel: '',
-}
+import app from './data/app'
 
-/*
- * Error
- ******************/
-export const errors = {
-  400: 'مدل ارسال شده نامعتبر است',
-  401: 'توکن ورود شما نامعتبر است',
-  403: 'شما اجازه دسترسی به این صفحه را ندارید',
-  404: 'موردی یافت نشد!',
-  405: 'شما اجازه این عملیات را ندارید',
+import errors from './data/errors'
 
-  500: 'اوه، متاسفانه مشکلی پیش آمده است!',
-}
-/*
- * Validations
- *****************************/
-export const validations = {
-  between: 'مقدار باید بین {min} و {max} باشد',
-  is: 'مقدار وارد شده یکسان نیست',
-  digits: 'مقدار باید عدد و دقیقا {length} رقم باشد',
-  email: 'لطفا فرمت ایمیل صحیح وارد نمایید',
-  ext: 'فرمت فایل انتخابی صحیح نیست',
-  length: 'مقدار باید {length} کاراکتر باشد',
-  max_value: 'مقدار نمیتواند بیشتر از {max} باشد',
-  max: 'مقدار نمیتواند بیشتر از {length} کاراکتر باشد',
-  min_value: 'مقدار نمیتواند کمتر از {min} باشد',
-  min: 'مقدار نمیتواند کمتر از {length} کاراکتر باشد',
-  numeric: 'لطفا از مقادیر عددی استفاده نمایید',
-  integer: 'لطفا از مقادیر عددی استفاده نمایید',
-  regex: 'فرمت ورودی نادرست است',
-  required_if: 'لطفا مقدار را وارد نمایید',
-  required: 'لطفا مقدار را وارد نمایید',
-  size: 'سایز فایل نباید بیشتر از {size}KB باشد',
-  nationalCode: 'کد/شناسه ملی معتبر نیست',
-  mobile: 'شماره موبایل نادرست است',
-  iban: 'شماره شبا نادرست است',
-  noZero: 'مقدار وارد شده نباید صفر باشد',
-}
+import validations from './data/validations'
+
+import control from './data/control'
 
 export default {
-  control: {
-    placeholder: {
-      input: 'لطفا وارد کنید',
-      select: 'لطفا انتخاب کنید',
-    },
-  },
-
-  App,
+  app,
+  control,
   validations,
-  errors,
+  errors
 }

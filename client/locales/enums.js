@@ -1,9 +1,7 @@
-export const ticketStatus = {
+import { deepFreeze } from '@helpers/object'
+
+export default deepFreeze({
   pending: 'در حال انتظار',
   answered: 'پاسخ داده',
-  closed: 'بسته',
-}
-
-export default {
-  ticketStatus,
-}
+  closed: 'بسته'
+})
