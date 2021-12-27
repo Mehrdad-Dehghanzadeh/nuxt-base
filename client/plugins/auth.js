@@ -1,8 +1,7 @@
 import jwt_decode from 'jwt-decode'
 
-export default function ({ $api, $cookies, redirect }, inject) {
+export default function ({ $api, $cookies, redirect, query }, inject) {
   const auth = {
-    pathTo: '/panel',
     accessToken: '',
     user: null,
     loggedIn,
@@ -33,7 +32,8 @@ export default function ({ $api, $cookies, redirect }, inject) {
           const { accessToken } = res.data
           $cookies.set('accessToken', accessToken)
           auth.init()
-          redirect(auth.pathTo)
+          const redirectPath = query.redirect ? query.redirect : '/panel'
+          redirect(redirectPath)
           reslove(res.data)
         })
         .catch((error) => reject(error))

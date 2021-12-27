@@ -17,6 +17,11 @@
         />
       </div>
 
+      <div class="mb-20 text-center caption fg-info">
+        <i class="display-block">username: a@a.com</i>
+        <i class="display-block">pass: 123456</i>
+      </div>
+
       <div class="text-center">
         <v-btn
           :loading="loading"
@@ -37,7 +42,7 @@ export default {
 
   head() {
     return {
-      title: 'ورود / عضویت',
+      title: 'ورود / عضویت'
     }
   },
 
@@ -46,16 +51,16 @@ export default {
       loading: false,
       model: {
         username: '',
-        password: '',
-      },
+        password: ''
+      }
     }
   },
 
   methods: {
     async login() {
       await this.$store.dispatch('app/login', this.model)
-    },
-  },
+    }
+  }
 }
 </script>
 
