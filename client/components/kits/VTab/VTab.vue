@@ -1,23 +1,29 @@
 <template>
   <section class="v-tab">
     <div class="v-tab-bar">
-      
+      <ul class="v-tab-bar__container">
+        <li class="v-tab-bar__item" v-for="(item, index) in tabs" :key="index">
+          <slot :name="`tab-${index + 1}`" :tab="item">
+            <strong> {{ item }} </strong>
+          </slot>
+        </li>
+      </ul>
     </div>
 
     <div class="v-tab__contrainer">
-      <slot  />
+      <slot />
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: "VTab",
+  name: 'VTab',
 
   props: {
     value: {
       type: Number,
-      default: 0
+      default: 1
     },
     color: {
       type: String,
@@ -26,14 +32,18 @@ export default {
     tabs: {
       type: Array,
       required: true,
-      default: () => []
+      validator: (val) => val.length > 0
+    }
+  },
+
+  data() {
+    return {
+      localValue: this.value
     }
   },
 
   watch: {
-    value() {
-
-    }
+    localValue() {}
   }
 }
 </script>
