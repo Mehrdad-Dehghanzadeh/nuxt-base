@@ -1,10 +1,16 @@
 <template>
   <section class="v-tab">
     <div class="v-tab-bar">
-      <ul class="v-tab-bar__container">
+      <ul :class="['v-tab-bar__container', { 'direction-ltr': ltr }]">
         <li class="v-tab-bar__item" v-for="(item, index) in tabs" :key="index">
           <slot :name="`tab-${index + 1}`" :tab="item">
-            <strong> {{ item }} </strong>
+            <strong>
+              <i
+                v-if="item.icon"
+                :class="['vertical-align-middle', `icon-${item.icon}`]"
+              />
+              <span> {{ item.title ? item.title : item }} </span>
+            </strong>
           </slot>
         </li>
       </ul>
@@ -33,6 +39,10 @@ export default {
       type: Array,
       required: true,
       validator: (val) => val.length > 0
+    },
+    ltr: {
+      type: Boolean,
+      default: false
     }
   },
 

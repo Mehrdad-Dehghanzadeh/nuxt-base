@@ -188,7 +188,7 @@
     <section class="card mt-30">
       <h2 class="heading-3 text-center">tab</h2>
 
-      <v-tab :tabs="['tab #1', 'tab #2']"> </v-tab>
+      <v-tab :tabs="['tab #1', { title: 'سی پی یو', icon: 'cpu' }]" ltr> </v-tab>
     </section>
 
     <!-- Modals -->
