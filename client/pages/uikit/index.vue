@@ -184,6 +184,13 @@
       <v-chip success clearable>success</v-chip>
       <v-chip info>info</v-chip>
     </section>
+
+    <section class="card mt-30">
+      <h2 class="heading-3 text-center">tab</h2>
+
+      <v-tab></v-tab>
+    </section>
+
     <!-- Modals -->
     <v-modal v-model="modal.normal" />
     <v-modal v-model="modal.lg" size="lg">
@@ -199,7 +206,6 @@
         <p>modal content</p>
       </div>
     </v-modal>
-
     <!-- Modals -->
   </article>
 </template>
@@ -212,6 +218,7 @@ import VDataTable from '@kits/VDataTable/VDataTable'
 import VDatePicker from '@kits/VDatePicker/VDatePicker'
 import VTextarea from '@kits/VTextarea/VTextarea'
 import VChip from '@kits/VChip/VChip'
+import VTab from '@kits/VTab/Vtab'
 
 export default {
   name: 'UikitPage',
@@ -223,6 +230,7 @@ export default {
     VDatePicker,
     VTextarea,
     VChip,
+    VTab
   },
 
   layout: 'full',
@@ -234,33 +242,33 @@ export default {
         date: '',
         disabled: 'disabled',
         select: '',
-        textarea: '',
+        textarea: ''
       },
       modal: {
         normal: false,
         lg: false,
-        full: false,
+        full: false
       },
       items: [
         { name: 'item1', id: '1' },
         { name: 'item2', id: '2' },
-        { name: 'item3', id: '3' },
+        { name: 'item3', id: '3' }
       ],
 
       headers: [
         { title: 'title 1', value: 'name' },
         { title: 'title 2', value: 'lastName' },
         { title: 'title 3', value: 'age' },
-        { title: 'operaion', value: 'operaion' },
+        { title: 'operaion', value: 'operaion' }
       ],
 
       data: [
         { name: 'mehrdad', lastName: 'deghan', age: 21 },
         { name: 'deghan', lastName: 'deghan', age: 23 },
-        { name: 'mehrdad', lastName: 'mehrdad', age: 32 },
-      ],
+        { name: 'mehrdad', lastName: 'mehrdad', age: 32 }
+      ]
     }
-  },
+  }
 }
 </script>
 
