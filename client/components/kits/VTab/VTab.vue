@@ -1,24 +1,36 @@
 <template>
   <section class="v-tab">
+    <!-- Tab Bar -->
     <div class="v-tab-bar">
       <ul :class="['v-tab-bar__container', { 'direction-ltr': ltr }]">
-        <li class="v-tab-bar__item" v-for="(item, index) in tabs" :key="index">
+        <li
+          v-for="(item, index) in tabs"
+          :key="index"
+          :class="[
+            'v-tab-bar__item',
+            { 'v-tab-bar__item--active': index + 1 == localValue }
+          ]"
+          @click="switchTab(index)"
+        >
           <slot :name="`tab-${index + 1}`" :tab="item">
-            <strong>
+            <span>
               <i
                 v-if="item.icon"
                 :class="['vertical-align-middle', `icon-${item.icon}`]"
               />
               <span> {{ item.title ? item.title : item }} </span>
-            </strong>
+            </span>
           </slot>
         </li>
       </ul>
     </div>
+    <!-- Tab Bar -->
 
-    <div class="v-tab__contrainer">
-      <slot />
+    <!-- Tab Conent -->
+    <div ref="container" class="v-tab__container">
+      <slot name="item" />
     </div>
+    <!-- Tab Conent -->
   </section>
 </template>
 
@@ -48,12 +60,30 @@ export default {
 
   data() {
     return {
-      localValue: this.value
+      localValue: this.value,
+      activeItem: null
     }
   },
 
   watch: {
-    localValue() {}
+    localValue: {
+      handler(val) {
+        if (process.client) {
+          console.log(this.$refs.container)
+        }
+        if (val > 0) {
+          this.activeItem = this.$slots.item[val - 1]
+        }
+      },
+
+      immediate: true
+    }
+  },
+
+  methods: {
+    switchTab(index) {
+      this.localValue = index + 1
+    }
   }
 }
 </script>
