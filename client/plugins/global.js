@@ -1,18 +1,15 @@
 import Vue from 'vue'
 
-import ClickOutside from '@directives/click-outside'
-import LongClick from '@directives/long-click'
-
+/*
+ * Global component registration
+ ****************************/
 import VBtn from '@kits/VBtn/VBtn'
 import VForm from '@kits/VForm/VForm'
 import VInput from '@kits/VInput/Vinput'
 import VSelect from '@kits/VSelect/VSelect'
 import VSnackbar from '@kits/VSnackbar/VSnackbar'
 import VTextarea from '@kits/VTextarea/VTextarea'
-
-/*
- * Global component registration
- ****************************/
+import VChip from '@kits/VChip/VChip'
 
 const components = {
   VBtn,
@@ -21,6 +18,7 @@ const components = {
   VSelect,
   VSnackbar,
   VTextarea,
+  VChip
 }
 
 Object.entries(components).forEach(([name, component]) => {
@@ -30,10 +28,12 @@ Object.entries(components).forEach(([name, component]) => {
 /*
  * Global directives registration
  ****************************/
+import ClickOutside from '@directives/click-outside'
+import LongClick from '@directives/long-click'
 
 const directives = {
   ClickOutside,
-  LongClick,
+  LongClick
 }
 
 Object.entries(directives).forEach(([name, component]) => {
@@ -50,7 +50,7 @@ import {
   fullPath,
   fileSize,
   date,
-  hiddenMask,
+  hiddenMask
 } from '@helpers/filters'
 
 const filters = {
@@ -60,7 +60,7 @@ const filters = {
   fullPath,
   fileSize,
   date,
-  hiddenMask,
+  hiddenMask
 }
 
 Object.entries(filters).forEach(([name, filter]) => {

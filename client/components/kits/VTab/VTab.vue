@@ -27,8 +27,8 @@
     <!-- Tab Bar -->
 
     <!-- Tab Conent -->
-    <div ref="container" class="v-tab__container">
-      <slot name="item" />
+    <div class="v-tab__container">
+      <slot />
     </div>
     <!-- Tab Conent -->
   </section>
@@ -60,23 +60,20 @@ export default {
 
   data() {
     return {
-      localValue: this.value,
-      activeItem: null
+      localValue: 0,
+      activeItem: null,
+      tabItems: []
     }
   },
 
   watch: {
-    localValue: {
-      handler(val) {
-        if (process.client) {
-          console.log(this.$refs.container)
+    localValue(newVal, oldVal) {
+      if (process.client) {
+        if (oldVal) {
+          this.tabItems[oldVal - 1].active = false
         }
-        if (val > 0) {
-          this.activeItem = this.$slots.item[val - 1]
-        }
-      },
-
-      immediate: true
+        this.tabItems[newVal - 1].active = true
+      }
     }
   },
 
@@ -84,6 +81,11 @@ export default {
     switchTab(index) {
       this.localValue = index + 1
     }
+  },
+
+  created() {
+    this.tabItems = this.$children
+    this.localValue = 1
   }
 }
 </script>

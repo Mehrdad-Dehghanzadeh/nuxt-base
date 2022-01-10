@@ -189,8 +189,9 @@
       <h2 class="heading-3 text-center">tab</h2>
 
       <v-tab :tabs="['tab #1', { title: 'سی پی یو', icon: 'cpu' }]">
-        <section slot="item">tab #1</section>
-        <section slot="item">tab #2</section>
+        <template v-slot:tab-1="{ item }">{{`test: ${item}`}}</template>
+        <v-tab-item>tab #1</v-tab-item>
+        <v-tab-item>سی پی یو</v-tab-item>
       </v-tab>
     </section>
 
@@ -219,9 +220,8 @@ import VMenu from '@kits/VMenu/VMenu'
 import VMenuItem from '@kits/VMenu/VMenuItem'
 import VDataTable from '@kits/VDataTable/VDataTable'
 import VDatePicker from '@kits/VDatePicker/VDatePicker'
-import VTextarea from '@kits/VTextarea/VTextarea'
-import VChip from '@kits/VChip/VChip'
-import VTab from '@kits/VTab/Vtab'
+import VTab from '@kits/VTab/VTab'
+import VTabItem from '@kits/VTab/VTabItem'
 
 export default {
   name: 'UikitPage',
@@ -231,9 +231,8 @@ export default {
     VMenuItem,
     VDataTable,
     VDatePicker,
-    VTextarea,
-    VChip,
-    VTab
+    VTab,
+    VTabItem
   },
 
   layout: 'full',
