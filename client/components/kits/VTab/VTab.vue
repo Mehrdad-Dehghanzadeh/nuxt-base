@@ -61,7 +61,6 @@ export default {
   data() {
     return {
       localValue: 0,
-      activeItem: null,
       tabItems: []
     }
   },

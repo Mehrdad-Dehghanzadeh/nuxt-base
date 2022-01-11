@@ -1,7 +1,6 @@
 .v-tab {
   &-bar {
     overflow-x: auto;
-    padding-bottom: 20px;
 
     &__container {
       @include flex-row();
@@ -15,7 +14,7 @@
       text-align: center;
       white-space: nowrap;
       border-radius: 5px 5px 0 0;
-      transition: background-color 300ms, color 200ms ;
+      transition: background-color 300ms, color 200ms;
 
       &--active {
         background-color: rgb(235, 235, 235);
@@ -26,5 +25,12 @@
 
   &__container {
     overflow: hidden;
+    display: flex;
   }
+}
+
+.v-tab-item {
+  flex: 0 0 100%;
+  position: relative;
+  padding: 15px 10px;
 }

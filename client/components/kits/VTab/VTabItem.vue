@@ -1,7 +1,9 @@
 <template>
-  <section v-if="active" class="v-tab-item">
-    <slot />
-  </section>
+  <transition :name="transition">
+    <section v-if="active" class="v-tab-item">
+      <slot />
+    </section>
+  </transition>
 </template>
 
 <script>
@@ -10,7 +12,8 @@ export default {
 
   data() {
     return {
-      active: false
+      active: true,
+      transition: 'fade'
     }
   }
 }

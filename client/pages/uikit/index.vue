@@ -188,10 +188,31 @@
     <section class="card mt-30">
       <h2 class="heading-3 text-center">tab</h2>
 
-      <v-tab :tabs="['tab #1', { title: 'سی پی یو', icon: 'cpu' }]">
-        <template v-slot:tab-1="{ item }">{{`test: ${item}`}}</template>
-        <v-tab-item>tab #1</v-tab-item>
-        <v-tab-item>سی پی یو</v-tab-item>
+      <v-tab :tabs="['tab #1', 'tab #2', { title: 'سی پی یو', icon: 'cpu' }]">
+        <template v-slot:tab-1="{ tab }">{{ `test: ${tab}` }}</template>
+        <v-tab-item>
+          tab #1
+          asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</v-tab-item
+        >
+        <v-tab-item>
+          tab #2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum
+        </v-tab-item>
+
+        <v-tab-item>
+          سی پی یو Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+          do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum
+        </v-tab-item>
       </v-tab>
     </section>
 
