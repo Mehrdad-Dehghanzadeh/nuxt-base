@@ -1,3 +1,5 @@
+import enums from '~/locales/enums'
+
 /**
  * Debounce
  * ***********************************/
@@ -17,7 +19,7 @@ let isTouch = false
 const events = {
   start: 'mousedown',
   end: 'mouseup',
-  move: 'mousemove',
+  move: 'mousemove'
 }
 
 if (process.client) {
@@ -55,4 +57,23 @@ export const encode = (str) => {
  * ***********************************/
 export const decode = (str) => {
   return Buffer.from(str, 'base64').toString()
+}
+
+/**
+ * Enum Porvider
+ * ****************************************/
+export function enumProvider(type, value, prop = 'id') {
+  if (type == undefined) {
+    const error = new Error('must be enter type')
+    console.error(error)
+    return error
+  }
+
+  if (value === undefined) {
+    return enums[type]
+  }
+
+  const item = enums[type].find((i) => i[prop] === value)
+
+  return typeof item !== 'undefined' ? item : {}
 }
