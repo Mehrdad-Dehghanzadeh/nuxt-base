@@ -38,16 +38,15 @@ export default {
     return {
       model: {
         title: '',
-        message: '',
+        message: ''
       },
-      loading: false,
+      loading: false
     }
   },
 
   methods: {
     ...mapActions({
-      read: 'tickets/read',
-      create: 'tickets/create',
+      create: 'tickets/create'
     }),
 
     modalClose() {
@@ -67,15 +66,15 @@ export default {
 
       try {
         await this.create(this.model)
-        await this.read()
+        await this.$nuxt.$emit('readTable')
         await this.modalClose()
       } catch (error) {
         this.$snack.error(error)
       }
 
       this.loading = false
-    },
-  },
+    }
+  }
 }
 </script>
 

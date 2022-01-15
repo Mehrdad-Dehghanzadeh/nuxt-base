@@ -9,8 +9,8 @@
         'v-data-table--scrollable': scrollable,
         'v-data-table--fixed': fixed,
         'v-data-table--dense': dense,
-        'v-data-table--bordered': bordered,
-      },
+        'v-data-table--bordered': bordered
+      }
     ]"
   >
     <div class="v-data-table__wrapper">
@@ -22,7 +22,7 @@
               :key="index"
               :width="column.width"
               :class="{
-                'v-data-table__col--actions': column.value === 'actions',
+                'v-data-table__col--actions': column.value === 'actions'
               }"
             >
               {{ column.title }}
@@ -33,8 +33,8 @@
           :class="[
             'v-data-table__body',
             {
-              'v-data-table__body--stripped': stripped,
-            },
+              'v-data-table__body--stripped': stripped
+            }
           ]"
         >
           <slot v-if="localData.length" :data="localData" name="rows">
@@ -43,19 +43,11 @@
               :key="index"
               v-long-click="{
                 active: hasDblclick,
-                handler: () => $emit('dblclick:row', item, index),
+                handler: () => $emit('dblclick:row', item, index)
               }"
             >
               <td v-for="(col, i) in headers" :key="i">
-                <template v-if="col.value === 'actions'">
-                  <v-menu>
-                    <slot
-                      :name="`item.${col.value}`"
-                      :item="item"
-                      :index="index"
-                    />
-                  </v-menu>
-                </template>
+                <template v-if="col.value === 'actions'"> </template>
 
                 <template v-else>
                   <slot :name="`item.${col.value}`" :item="item" :index="index">
@@ -89,7 +81,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import VPaging from '@kits/VPaging/VPaging'
 
 export default {
@@ -100,80 +91,80 @@ export default {
   props: {
     headers: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     data: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     resource: {
       type: String,
-      default: null,
+      default: null
     },
     action: {
       type: String,
-      default: 'read',
+      default: 'read'
     },
     paging: {
       type: Boolean,
-      default: false,
+      default: false
     },
     page: {
       type: Number,
-      default: 1,
+      default: 1
     },
     pageSize: {
       type: Number,
-      default: 25,
+      default: 25
     },
     pageSizes: {
       type: Array,
-      default: () => [25, 50, 100, 200],
+      default: () => [25, 50, 100, 200]
     },
     standby: {
       type: Boolean,
-      default: false,
+      default: false
     },
     rounded: {
       type: Boolean,
-      default: true,
+      default: true
     },
     centered: {
       type: Boolean,
-      default: false,
+      default: false
     },
     hoverable: {
       type: Boolean,
-      default: true,
+      default: true
     },
     scrollable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     fixed: {
       type: Boolean,
-      default: false,
+      default: false
     },
     dense: {
       type: Boolean,
-      default: false,
+      default: false
     },
     bordered: {
       type: Boolean,
-      default: true,
+      default: true
     },
     stripped: {
       type: Boolean,
-      default: true,
+      default: true
     },
     headless: {
       type: Boolean,
-      default: false,
+      default: false
     },
-    params: {
+    query: {
       type: Object,
-      default: () => {},
-    },
+      default: () => {}
+    }
   },
 
   data() {
@@ -182,26 +173,23 @@ export default {
 
       total: 0,
 
+      loading: false,
+
       options: {
         page: this.page,
-        pageSize: this.pageSize,
-      },
+        pageSize: this.pageSize
+      }
     }
   },
 
   computed: {
-    ...mapState({
-      mapped(state) {
-        return this.resource ? state[this.resource].mapped : true
-      },
-      loading(state) {
-        return this.resource ? state[this.resource].loading : false
-      },
-    }),
+    filters() {
+      return { ...this.options, ...this.query }
+    },
 
     hasDblclick() {
       return typeof this.$listeners['dblclick:row'] === 'function'
-    },
+    }
   },
 
   watch: {
@@ -210,57 +198,44 @@ export default {
     },
     'options.pageSize'() {
       this.reset()
-    },
-  },
-
-  mounted() {
-    if (!this.resource) {
-      this.$watch('data', {
-        handler: (newVal) => {
-          this.total = newVal.length
-
-          this.reset()
-        },
-        immediate: true,
-      })
-    } else {
-      this.$store.watch(
-        (state) => state[this.resource].data,
-        (newVal) => {
-          this.localData = newVal
-          this.total = this.$store.getters[`${this.resource}/getTotal`]
-        }
-      )
-
-      if (this.standby) {
-        return
-      }
-
-      this.read()
     }
   },
 
   methods: {
     read() {
       if (this.resource) {
-        this.$store.dispatch(`${this.resource}/${this.action}`)
+        this.loading = true
+        this.$api[this.resource]
+          [this.action](this.filters)
+          .then(({ data }) => {
+            this.localData = data.data
+            this.total = data.total
+            this.loading = false
+          })
+          .catch((err) => {
+            this.$snack.error(err)
+            this.loading = false
+          })
       } else {
         const base = (this.options.page - 1) * this.options.pageSize
         this.localData = this.data.slice(base, base + this.options.pageSize)
       }
     },
 
-    setFilters() {
-      this.$store.dispatch(`${this.resource}/setFilters`, {
-        ...this.options,
-        ...this.params,
-      })
-    },
-
     reset() {
       this.options.page === 1 ? this.read() : (this.options.page = 1)
-    },
+    }
   },
+
+  created() {
+    this.$nuxt.$on('readTable', () => {
+      this.read()
+    })
+  },
+
+  mounted() {
+    this.read()
+  }
 }
 </script>
 
