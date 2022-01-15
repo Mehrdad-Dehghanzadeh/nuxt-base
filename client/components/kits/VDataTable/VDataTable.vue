@@ -50,7 +50,7 @@
                 <template v-if="col.value === 'actions'"> </template>
 
                 <template v-else>
-                  <slot :name="`item.${col.value}`" :item="item" :index="index">
+                  <slot :name="`item-${col.value}`" :item="item" :index="index">
                     {{ item[col.value] || '' }}
                   </slot>
                 </template>

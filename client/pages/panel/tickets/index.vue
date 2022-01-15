@@ -23,21 +23,17 @@
           centered
           paging
         >
-          <template v-slot:item.status="{ item }">
-            <v-chip
-              :success="item.status === 'answered'"
-              :error="item.status === 'closed'"
-              :info="item.status === 'pending'"
-            >
+          <template v-slot:item-status="{ item }">
+            <v-chip :color="$u.enums('ticketStatus', item.status).color">
               {{ $u.enums('ticketStatus', item.status).title }}
             </v-chip>
           </template>
 
-          <template v-slot:item.received="{ item }">
-            {{ item.received | date() }}
+          <template v-slot:item-received="{ item }">
+            {{ item.received | date }}
           </template>
 
-          <template v-slot:item.operation="{ item }" }>
+          <template v-slot:item-operation="{ item }" }>
             <v-menu>
               <v-menu-item @click="showMessages(item.id)">
                 <i class="icon-message-square"></i>

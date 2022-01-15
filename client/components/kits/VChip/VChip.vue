@@ -3,14 +3,13 @@
     v-if="show"
     :class="[
       'chip',
+
       {
         'chip--clearable': clearable,
-        'chip--outline': outline,
-        'chip--success': success,
-        'chip--info': info,
-        'chip--alert': alert,
-        'chip--error': error,
+        'chip--outline': outline
       },
+
+      `${color ? `chip--${color}` : ''}`
     ]"
   >
     <slot />
@@ -26,40 +25,30 @@ export default {
   props: {
     clearable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     outline: {
       type: Boolean,
-      default: false,
+      default: false
     },
-    success: {
-      type: Boolean,
-      default: false,
-    },
-    alert: {
-      type: Boolean,
-      default: false,
-    },
-    info: {
-      type: Boolean,
-      default: false,
-    },
-    error: {
-      type: Boolean,
-      default: false,
-    },
+    color: {
+      type: String,
+      default: '',
+      validator: (val) =>
+        ['success', 'alert', 'info', 'error', ''].includes(val)
+    }
   },
   data() {
     return {
-      show: true,
+      show: true
     }
   },
   methods: {
     onclear() {
       this.show = false
       this.$emit('removed')
-    },
-  },
+    }
+  }
 }
 </script>
 
