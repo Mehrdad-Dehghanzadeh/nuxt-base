@@ -12,7 +12,7 @@ export default {
 
   data() {
     return {
-      active: true,
+      active: false,
       transition: 'fade'
     }
   }
