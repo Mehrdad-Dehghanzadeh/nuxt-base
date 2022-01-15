@@ -1,21 +1,39 @@
 <template>
   <div class="v-paging">
     <div class="v-paging__paging">
-      <a href="#" :class="['v-paging__prev', { 'v-paging__action--disable': value === 1 }]" @click.prevent="prev">
-        <v-icon class="v-paging__icon">chevron-right</v-icon>
+      <a
+        href="#"
+        :class="[
+          'v-paging__prev',
+          { 'v-paging__action--disable': value === 1 }
+        ]"
+        @click.prevent="prev"
+      >
+        <i class="v-paging__icon icon-chevron-right"></i>
       </a>
 
       <ul class="v-paging__pages">
         <li v-if="startPage > 0" class="v-paging__page-wrapper">
-          <a href="#" class="v-paging__page-more" @click.prevent="updateValue(startPage)">
-            <v-icon class="v-paging__icon">more</v-icon>
+          <a
+            href="#"
+            class="v-paging__page-more"
+            @click.prevent="updateValue(startPage)"
+          >
+            <i class="v-paging__icon icon-more-horizontal" />
           </a>
         </li>
 
-        <li v-for="item in endPage - startPage" :key="item" class="v-paging__page-wrapper">
+        <li
+          v-for="item in endPage - startPage"
+          :key="item"
+          class="v-paging__page-wrapper"
+        >
           <a
             href="#"
-            :class="['v-paging__page', { 'v-paging__action--active': item + startPage === localValue }]"
+            :class="[
+              'v-paging__page',
+              { 'v-paging__action--active': item + startPage === localValue }
+            ]"
             @click.prevent="updateValue(item + startPage)"
           >
             {{ item + startPage }}
@@ -23,34 +41,53 @@
         </li>
 
         <li v-if="endPage < pages" class="v-paging__page-wrapper">
-          <a href="#" class="v-paging__page-more" data-index="5" @click.prevent="updateValue(endPage + 1)">
-            <v-icon class="v-paging__icon">more</v-icon>
+          <a
+            href="#"
+            class="v-paging__page-more"
+            data-index="5"
+            @click.prevent="updateValue(endPage + 1)"
+          >
+            <i class="v-paging__icon icon-more-horizontal" />
           </a>
         </li>
       </ul>
 
-      <a href="#" :class="['v-paging__next', { 'v-paging__action--disable': value === pages }]" @click.prevent="next">
-        <v-icon class="v-paging__icon">chevron-left</v-icon>
+      <a
+        href="#"
+        :class="[
+          'v-paging__next',
+          { 'v-paging__action--disable': value === pages }
+        ]"
+        @click.prevent="next"
+      >
+        <i class="v-paging__icon icon-chevron-left" />
       </a>
     </div>
 
     <div class="v-paging__info">
       <span class="v-paging__actions">
         <a href="#" class="v-paging__refresh" @click.prevent="refresh">
-          <v-icon class="v-paging__icon">rotate-cw</v-icon>
+          <i class="v-paging__icon icon-rotate-cw" />
         </a>
 
         <div class="v-paging__size-wrapper">
-          <a href="#" :class="['v-paging__size', { 'v-paging__size--active': sizeMenu }]" @click.prevent="toggleSizeMenu">
+          <a
+            href="#"
+            :class="['v-paging__size', { 'v-paging__size--active': sizeMenu }]"
+            @click.prevent="toggleSizeMenu"
+          >
             <span class="v-paging__size-text">{{ pageSize }}</span>
-            <v-icon class="v-paging__size-chevron">chevron-up</v-icon>
+            <i class="v-paging__size-chevron icon-chevron-up" />
           </a>
 
           <ul class="v-paging__size-menu">
             <li v-for="size in localPageSizes" :key="size">
               <a
                 href="#"
-                :class="['v-paging__size-item', { 'v-paging__size-item--active': size === pageSize }]"
+                :class="[
+                  'v-paging__size-item',
+                  { 'v-paging__size-item--active': size === pageSize }
+                ]"
                 @click.prevent="updatePageSize(size)"
               >
                 {{ size }}
@@ -61,7 +98,8 @@
       </span>
 
       <span>
-        نمایش <span class="v-paging__current">{{ min }} - {{ max }}</span> از <span class="v-paging__total">{{ total }}</span>
+        نمایش <span class="v-paging__current">{{ min }} - {{ max }}</span> از
+        <span class="v-paging__total">{{ total }}</span>
       </span>
     </div>
   </div>

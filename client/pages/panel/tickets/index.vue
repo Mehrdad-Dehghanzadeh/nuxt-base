@@ -21,6 +21,7 @@
           :headers="headers"
           resource="tickets"
           centered
+          paging
         >
           <template v-slot:item.status="{ item }">
             <v-chip
@@ -167,10 +168,6 @@ export default {
       this.modal.edit = false
       this.$refs.table.read()
     }
-  },
-
-  mounted() {
-    console.log(this.$auth)
   }
 }
 </script>

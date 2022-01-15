@@ -29,7 +29,7 @@ export const actions = {
       commit('SET_LOADING', true)
       try {
         const res = await this.$api.tickets.read({}, payload)
-        await commit('SET_DATA', res.data)
+        await commit('SET_DATA', res.data.data)
         await resolve(res.data)
       } catch (error) {
         reject(error)
@@ -39,7 +39,7 @@ export const actions = {
     })
   },
 
-  create({ commit }, payload) {
+  create({ commit, dispatch }, payload) {
     return new Promise(async (resolve, reject) => {
       commit('SET_LOADING', true)
 
