@@ -1,0 +1,36 @@
+.v-tab {
+  &-bar {
+    overflow-x: auto;
+
+    &__container {
+      @include flex-row();
+      border-bottom: 1px solid $color-divider;
+    }
+
+    &__item {
+      cursor: pointer;
+      padding: 8px;
+      margin-left: 15px;
+      text-align: center;
+      white-space: nowrap;
+      border-radius: 5px 5px 0 0;
+      transition: background-color 300ms, color 200ms;
+
+      &--active {
+        background-color: rgb(235, 235, 235);
+        color: $color-primary-light-1;
+      }
+    }
+  }
+
+  &__container {
+    overflow: hidden;
+    display: flex;
+  }
+}
+
+.v-tab-item {
+  flex: 0 0 100%;
+  position: relative;
+  padding: 15px 10px;
+}

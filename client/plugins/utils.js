@@ -1,14 +1,11 @@
 import fa from '~/locales/fa'
-import allEnums from '~/locales/enums'
+import { enumProvider } from '@helpers/utils'
 
-function enums(prop) {
-  const items = prop.split('.')
-  return allEnums[items[0]][items[1]]
-}
 export default ({}, inject) => {
   const utils = {
-    appName: fa.App.name,
-    enums,
+    appName: fa.app.name,
+
+    enums: enumProvider
   }
 
   inject('u', utils)

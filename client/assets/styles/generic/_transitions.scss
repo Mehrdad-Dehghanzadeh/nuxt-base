@@ -1,17 +1,25 @@
 /*
 * fade
 **************************/
+%fade-to {
+  opacity: 0;
+  transform: translate3d(0, 10px, 0) scale(0.85);
+  transition: transform ease 0.3s, opacity 0.45s;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
+}
 
-  .fade-enter,
-  .fade-leave-to {
-    opacity: 0;
-    transform: translate3d(0, 10px, 0) scale(0.85);
-    transition: transform ease 0.3s, opacity 0.45s;
-  }
+.fade-enter-to {
+  @extend %fade-to;
+}
+
+.fade-leave-to {
+  height: 0;
+  @extend %fade-to;
 }
 
 /**

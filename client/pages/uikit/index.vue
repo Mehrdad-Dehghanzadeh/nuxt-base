@@ -184,6 +184,38 @@
       <v-chip success clearable>success</v-chip>
       <v-chip info>info</v-chip>
     </section>
+
+    <section class="card mt-30">
+      <h2 class="heading-3 text-center">tab</h2>
+
+      <v-tab :tabs="['tab #1', 'tab #2', { title: 'سی پی یو', icon: 'cpu' }]">
+        <template v-slot:tab-1="{ tab }">{{ `test: ${tab}` }}</template>
+        <v-tab-item>
+          tab #1
+          asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</v-tab-item
+        >
+        <v-tab-item>
+          tab #2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum
+        </v-tab-item>
+
+        <v-tab-item>
+          سی پی یو Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+          do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum
+        </v-tab-item>
+      </v-tab>
+    </section>
+
     <!-- Modals -->
     <v-modal v-model="modal.normal" />
     <v-modal v-model="modal.lg" size="lg">
@@ -199,7 +231,6 @@
         <p>modal content</p>
       </div>
     </v-modal>
-
     <!-- Modals -->
   </article>
 </template>
@@ -210,8 +241,8 @@ import VMenu from '@kits/VMenu/VMenu'
 import VMenuItem from '@kits/VMenu/VMenuItem'
 import VDataTable from '@kits/VDataTable/VDataTable'
 import VDatePicker from '@kits/VDatePicker/VDatePicker'
-import VTextarea from '@kits/VTextarea/VTextarea'
-import VChip from '@kits/VChip/VChip'
+import VTab from '@kits/VTab/VTab'
+import VTabItem from '@kits/VTab/VTabItem'
 
 export default {
   name: 'UikitPage',
@@ -221,8 +252,8 @@ export default {
     VMenuItem,
     VDataTable,
     VDatePicker,
-    VTextarea,
-    VChip,
+    VTab,
+    VTabItem
   },
 
   layout: 'full',
@@ -234,33 +265,33 @@ export default {
         date: '',
         disabled: 'disabled',
         select: '',
-        textarea: '',
+        textarea: ''
       },
       modal: {
         normal: false,
         lg: false,
-        full: false,
+        full: false
       },
       items: [
         { name: 'item1', id: '1' },
         { name: 'item2', id: '2' },
-        { name: 'item3', id: '3' },
+        { name: 'item3', id: '3' }
       ],
 
       headers: [
         { title: 'title 1', value: 'name' },
         { title: 'title 2', value: 'lastName' },
         { title: 'title 3', value: 'age' },
-        { title: 'operaion', value: 'operaion' },
+        { title: 'operaion', value: 'operaion' }
       ],
 
       data: [
         { name: 'mehrdad', lastName: 'deghan', age: 21 },
         { name: 'deghan', lastName: 'deghan', age: 23 },
-        { name: 'mehrdad', lastName: 'mehrdad', age: 32 },
-      ],
+        { name: 'mehrdad', lastName: 'mehrdad', age: 32 }
+      ]
     }
-  },
+  }
 }
 </script>
 

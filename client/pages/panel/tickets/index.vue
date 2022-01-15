@@ -28,7 +28,7 @@
               :error="item.status === 'closed'"
               :info="item.status === 'pending'"
             >
-              {{ $u.enums(`ticketStatus.${item.status}`) }}
+              {{ $u.enums('ticketStatus', item.status).title }}
             </v-chip>
           </template>
 

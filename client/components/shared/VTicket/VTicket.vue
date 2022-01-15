@@ -20,12 +20,10 @@
             <span
               :class="[
                 'v-ticket__text',
-                { 'fg-error': ticket.status === 'closed' },
-                { 'fg-info': ticket.status === 'pending' },
-                { 'fg-success': ticket.status === 'answered' },
+                `fg-${$u.enums('ticketStatus', ticket.status).color}`
               ]"
             >
-              {{ $u.enums(`ticketStatus.${ticket.status}`) }}
+              {{ $u.enums('ticketStatus', ticket.status).title }}
             </span>
           </li>
         </ul>
@@ -46,15 +44,15 @@ export default {
   props: {
     ticket: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
 
   computed: {
     link() {
       return `tickets/${encode(this.ticket.id.toString())}`
-    },
-  },
+    }
+  }
 }
 </script>
 
