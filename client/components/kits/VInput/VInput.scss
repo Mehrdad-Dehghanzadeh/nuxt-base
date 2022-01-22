@@ -27,13 +27,13 @@
 
     &::placeholder {
       color: #555;
-      @include text-size(0.75rem, 1.65rem, 300);
+      @include text-size(0.75rem, 1.65, 300);
     }
   }
 
   &__error {
     color: $color-error;
-    @include text-size(0.65rem, 1em);
+    @include text-size(0.65rem, 1);
   }
 
   &--error {

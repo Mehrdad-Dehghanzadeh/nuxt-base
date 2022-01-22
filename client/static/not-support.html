@@ -7,6 +7,52 @@
   <title>عدم پشتیبانی</title>
 
   <style>
+    /**
+ * Body Font
+ * *********************************/
+    @font-face {
+      font-family: iranyekan;
+      font-style: normal;
+      font-weight: bold;
+      src: url('/fonts/eot/iranyekanwebbold.eot');
+      src: url('/fonts/eot/iranyekanwebbold.eot?#iefix') format('embedded-opentype'),
+        /* IE6-8 */ url('/fonts/woff/iranyekanwebbold.woff') format('woff'),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('/fonts/svg/iranyekanwebbold.svg') format('svg'),
+      url('/fonts/ttf/iranyekanwebbold.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: iranyekan;
+      font-style: normal;
+      font-weight: normal;
+      src: url('/fonts/eot/iranyekanwebregular.eot');
+      src: url('/fonts/eot/iranyekanwebregular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-8 */ url('/fonts/woff/iranyekanwebregular.woff') format('woff'),
+      url('/fonts/svg/iranyekanwebregular.svg') format('svg'),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('/fonts/ttf/iranyekanwebregular.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: iranyekan;
+      font-style: normal;
+      font-weight: 500;
+      src: url('/fonts/eot/iranyekanwebmedium.eot');
+      src: url('/fonts/eot/iranyekanwebmedium.eot?#iefix') format('embedded-opentype'),
+        /* IE6-8 */ url('/fonts/woff/iranyekanwebmedium.woff') format('woff'),
+      url('/fonts/svg/iranyekanwebmedium.svg') format('svg'),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('/fonts/ttf/iranyekanwebmedium.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: iranyekan;
+      font-style: normal;
+      font-weight: 800;
+      src: url('/fonts/eot/iranyekanwebextrabold.eot');
+      src: url('/fonts/eot/iranyekanwebextrabold.eot?#iefix') format('embedded-opentype'),
+        /* IE6-8 */ url('/fonts/woff/iranyekanwebextrabold.woff') format('woff'),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('/fonts/ttf/iranyekanwebextrabold.ttf') format('truetype');
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -14,10 +60,32 @@
       direction: rtl;
     }
 
+    .fg-red {
+      color: #d33;
+    }
+
+    html {
+      font-family: IRANYekan, 'Segoe UI', tahoma, Verdana, Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 2;
+    }
+
     .container {
       margin: 55px auto;
       max-width: 980px;
       padding: 25px 30px;
+    }
+
+    .alert {
+      width: 256px;
+      height: 256px;
+      margin: auto;
+    }
+
+    .heading-1 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 40px auto;
     }
 
     .grid {
@@ -86,6 +154,15 @@
       .grid__item:last-child > .bm, .grid__item:last-child > .bd {
         border-bottom: none;
       }
+
+      .heading-1 {
+        font-size: 1.3rem;
+      }
+
+      .container {
+        margin: 30px auto;
+        padding: 20px 15px;
+      }
     }
 
   </style>
@@ -93,11 +170,29 @@
 </head>
 <body>
 <div class="container">
-  <!-- Fire Fox -->
+
+  <!-- Alert Icon -->
+  <div class="alert">
+    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 56.91">
+      <path
+        d="M60,50,36.44,5A5.43,5.43,0,0,0,32,1.55,5.43,5.43,0,0,0,27.59,5L4,50c-2.44,4.64-.44,8.44,4.41,8.44h47.1C60.4,58.45,62.4,54.65,60,50ZM34.9,48.86H29.1v-6.4h5.8Zm0-12.8H29.1V16.87h5.8Z"
+        transform="translate(-3 -1.55)" style="fill:#d33"/>
+      <rect x="26.1" y="15.32" width="5.8" height="19.19" style="fill:#fefefe"/>
+      <rect x="26.1" y="40.91" width="5.8" height="6.4" style="fill:#fefefe"/>
+    </svg>
+  </div>
+  <!--Alert Icon -->
+
+  <h1 class="heading-1">متاسفانه مرورگر شما پشتیبانی نمی شوداز <span class="fg-red"> نسخه های به بالا مرورگرهای</span>
+    زیر استفاده
+    کنید </h1>
+
   <div class="grid">
     <div class="grid__item">
       <div class="bm">
         <div class="browser-logo">
+
+          <!-- Fire Fox -->
           <svg id="Firefox_-_Large" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                viewBox="0 0 1024 1024">
             <defs>
