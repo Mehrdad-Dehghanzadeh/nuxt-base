@@ -23,12 +23,43 @@ function copyDirFiles(srcDir, dirTo) {
       fs.copyFile(from, to, (err) => {
         if (err) throw err
 
-        console.log('\x1b[36mi', '\x1b[0mStatic Copied', `\x1b[32m${srcDir}/${item}`)
+        console.log(
+          '\x1b[36mi',
+          '\x1b[0mStatic Copied',
+          `\x1b[32m${srcDir}/${item}`
+        )
       })
     }
   })
 }
 
+/**
+ * Check Browser
+ **************************/
+function checkBrowser(browser) {
+  const defaults = {
+    IE: false,
+    Edge: true,
+    Safari: 8,
+    Firefox: 32,
+    Chrome: 32,
+    Opera: 22
+  }
+  let valid = false
+
+  if (defaults[browser.name] == undefined) {
+    valid = true
+  } else if (
+    defaults[browser.name] &&
+    defaults[browser.name] <= browser.version
+  ) {
+    valid = true
+  }
+
+  return valid
+}
+
 module.exports = {
-  copyDirFiles
+  copyDirFiles,
+  checkBrowser
 }

@@ -60,7 +60,7 @@ const config = {
   components: false,
 
   // middleware https://nuxtjs.org/docs/configuration-glossary/configuration-servermiddleware
-  serverMiddleware: [],
+  serverMiddleware: ['~~/server/middleware/userAgent'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

@@ -179,10 +179,11 @@
 
     <section class="card mt-30">
       <h2 class="heading-3 text-center">Chip</h2>
-      <v-chip alert>alert</v-chip>
-      <v-chip error>error</v-chip>
-      <v-chip success clearable>success</v-chip>
-      <v-chip info>info</v-chip>
+      <v-chip clearable>normal and clearable</v-chip>
+      <v-chip color="alert">alert</v-chip>
+      <v-chip color="error">error</v-chip>
+      <v-chip color="success" clearable>success</v-chip>
+      <v-chip color="info">info</v-chip>
     </section>
 
     <section class="card mt-30">
