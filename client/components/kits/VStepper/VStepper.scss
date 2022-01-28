@@ -1,0 +1,14 @@
+.v-stepper {
+  &-nav {
+    overflow-x: auto;
+    margin-bottom: 30px;
+  }
+
+  &__wrapper {
+    overflow: hidden;
+  }
+
+  &__slider {
+    @include flex-row();
+  }
+}
