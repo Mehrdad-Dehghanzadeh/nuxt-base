@@ -1,8 +1,22 @@
 .v-stepper {
+  /*************** Step Nav  ***************/
   &-nav {
     overflow-x: auto;
     margin-bottom: 30px;
+
+    &__wrapper {
+      padding: 15px;
+      text-align: center;
+      justify-content: space-around;
+      @include flex-row();
+    }
+
+    &__item {
+      margin: 0 5px;
+      @include inline-block();
+    }
   }
+  /*************** Step Nav  ***************/
 
   &__wrapper {
     overflow: hidden;

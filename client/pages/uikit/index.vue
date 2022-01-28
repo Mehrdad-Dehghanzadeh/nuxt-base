@@ -241,7 +241,7 @@
     <section class="card mt-30">
       <h2 class="heading-3 text-center">Steppers</h2>
 
-      <v-stepper>
+      <v-stepper v-model="stepper" nav>
         <v-stepper-step title="step 1">
           <h3 class="text-center">step 1</h3>
         </v-stepper-step>
@@ -334,7 +334,9 @@ export default {
         { name: 'mehrdad', lastName: 'deghan', age: 21 },
         { name: 'deghan', lastName: 'deghan', age: 23 },
         { name: 'mehrdad', lastName: 'mehrdad', age: 32 }
-      ]
+      ],
+
+      stepper: 1
     }
   }
 }

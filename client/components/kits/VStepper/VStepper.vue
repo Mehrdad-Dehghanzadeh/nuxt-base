@@ -1,6 +1,12 @@
 <template>
   <section class="v-stepper">
-    <div v-if="nav" class="v-stepper-nav"></div>
+    <div v-if="nav" class="v-stepper-nav">
+      <ul class="v-stepper-nav__wrapper">
+        <li v-for="item in navItems" :key="item" class="v-stepper-nav__item">
+          <span>{{ item }}</span>
+        </li>
+      </ul>
+    </div>
 
     <div :class="['v-stepper__wrapper', { 'direction-ltr': ltr }]">
       <div class="v-stepper__slider" :style="{ width: sliderWidth }">
@@ -31,7 +37,8 @@ export default {
 
   data() {
     return {
-      steps: []
+      steps: [],
+      navItems: []
     }
   },
 
@@ -74,6 +81,12 @@ export default {
           element.width = 100 / stepCount
         })
       }
+    },
+
+    setNavItems() {
+      this.steps.forEach((el) => {
+        this.navItems.push(el.title)
+      })
     }
   },
 
@@ -89,6 +102,7 @@ export default {
 
   mounted() {
     this.setWidthSteps()
+    this.setNavItems()
   }
 }
 </script>
