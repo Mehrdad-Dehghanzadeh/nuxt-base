@@ -253,6 +253,10 @@
         <v-stepper-step title="step 3">
           <h3 class="text-center">step 3</h3>
         </v-stepper-step>
+
+        <v-stepper-step title="step 4">
+          <h3 class="text-center">step 4</h3>
+        </v-stepper-step>
       </v-stepper>
     </section>
     <!-- Steppers -->
@@ -336,7 +340,7 @@ export default {
         { name: 'mehrdad', lastName: 'mehrdad', age: 32 }
       ],
 
-      stepper: 1
+      stepper: 2
     }
   }
 }
