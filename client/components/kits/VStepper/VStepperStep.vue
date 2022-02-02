@@ -1,5 +1,9 @@
 <template>
-  <section class="v-stepper-step" :style="{ flex: `0 0 ${width}%` }">
+  <section
+    v-show="active"
+    class="v-stepper-step"
+    :style="{ flex: `0 0 ${width}%` }"
+  >
     <slot />
   </section>
 </template>
@@ -16,7 +20,8 @@ export default {
 
   data() {
     return {
-      width: 100
+      width: 100,
+      active: false
     }
   }
 }

@@ -9,7 +9,7 @@
           :style="{ flex: `0 0 ${navItemWidth}` }"
           class="v-stepper-nav__item"
         >
-          <span class="v-stepper-nav__label">
+          <span class="v-stepper-nav__label" @click.prevent="navigate(index + 1)">
             <span
               :class="[
                 'v-stepper-nav__bullet',
@@ -46,7 +46,7 @@
 
     <!-- stepper slider -->
     <div :class="['v-stepper__wrapper', { 'direction-ltr': ltr }]">
-      <div class="v-stepper__slider" :style="{ width: sliderWidth }">
+      <div class="v-stepper__slider">
         <slot />
       </div>
     </div>
@@ -67,6 +67,10 @@ export default {
       type: Boolean,
       default: false
     },
+    navigating: {
+      type: Boolean,
+      default: false
+    },
     ltr: {
       type: Boolean,
       default: false
@@ -76,7 +80,8 @@ export default {
   data() {
     return {
       steps: [],
-      navItems: []
+      navItems: [],
+      activeStep: null
     }
   },
 
@@ -87,6 +92,7 @@ export default {
       },
 
       set(newVal) {
+        this.setActiveStep(newVal)
         this.$nextTick(() => {
           this.$emit('input', newVal)
         })
@@ -117,19 +123,24 @@ export default {
       this.localValue = step
     },
 
-    setWidthSteps() {
-      const stepCount = this.steps.length
-      if (stepCount > 1) {
-        this.steps.forEach((element) => {
-          element.width = 100 / stepCount
-        })
-      }
-    },
-
     setNavItems() {
       this.steps.forEach((el) => {
         this.navItems.push(el.title)
       })
+    },
+
+    setActiveStep(val) {
+      if (!!this.activeStep) {
+        this.activeStep.active = false
+      }
+      this.activeStep = this.steps[val - 1]
+      this.activeStep.active = true
+    },
+
+    navigate(step) {
+      if (this.navigating) {
+        this.go(step)
+      }
     }
   },
 
@@ -144,7 +155,7 @@ export default {
   },
 
   mounted() {
-    this.setWidthSteps()
+    this.setActiveStep(this.value)
     this.setNavItems()
   }
 }

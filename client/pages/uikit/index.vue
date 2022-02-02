@@ -241,7 +241,7 @@
     <section class="card mt-30">
       <h2 class="heading-3 text-center">Steppers</h2>
 
-      <v-stepper v-model="stepper" nav>
+      <v-stepper v-model="stepper" nav navigating>
         <v-stepper-step title="step 1">
           <h3 class="text-center">step 1</h3>
         </v-stepper-step>
@@ -345,5 +345,3 @@ export default {
   }
 }
 </script>
-
-<style></style>
