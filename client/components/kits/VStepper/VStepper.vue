@@ -9,7 +9,10 @@
           :style="{ flex: `0 0 ${navItemWidth}` }"
           class="v-stepper-nav__item"
         >
-          <span class="v-stepper-nav__label" @click.prevent="navigate(index + 1)">
+          <span
+            class="v-stepper-nav__label"
+            @click.prevent="navigate(index + 1)"
+          >
             <span
               :class="[
                 'v-stepper-nav__bullet',
@@ -97,11 +100,6 @@ export default {
           this.$emit('input', newVal)
         })
       }
-    },
-
-    sliderWidth() {
-      const sliderCount = this.steps.length
-      return `${sliderCount > 1 ? sliderCount * 100 : 100}%`
     },
 
     navItemWidth() {
