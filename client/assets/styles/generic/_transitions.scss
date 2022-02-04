@@ -108,3 +108,19 @@
     opacity: 0;
   }
 }
+
+/*********************************
+* swip
+*********************************/
+.swip-left-leave-to {
+  transform: translateX(-100%);
+}
+
+.swip-right-leave-to {
+  transform: translateX(100%);
+}
+
+.swip-right-enter,
+.swip-right-enter-active {
+  display: none;
+}

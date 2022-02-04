@@ -2,6 +2,7 @@
   <article class="uikit-page" id="uikit-page">
     <h1 class="heading-1 text-center mb-30">UIKIT</h1>
 
+    <!-- Typography -->
     <section class="card text-center">
       <h2 class="heading-3">typography</h2>
       <hr class="divider divider--light" />
@@ -29,7 +30,9 @@
         </div>
       </div>
     </section>
+    <!-- Typography -->
 
+    <!-- Dividers -->
     <section class="card mt-30 text-center">
       <h2 class="heading-3">divider</h2>
 
@@ -50,7 +53,9 @@
         </div>
       </div>
     </section>
+    <!-- Dividers -->
 
+    <!-- Buttons -->
     <section class="card mt-30">
       <h2 class="heading-3 text-center">buttons</h2>
 
@@ -71,7 +76,9 @@
         />
       </div>
     </section>
+    <!-- Buttons -->
 
+    <!-- Inputs Elements -->
     <section class="card mt-30">
       <h2 class="heading-3 text-center">inputs Elements</h2>
       <v-form>
@@ -112,7 +119,9 @@
         </div>
       </v-form>
     </section>
+    <!-- Inputs Elements -->
 
+    <!-- Modal Trigger -->
     <section class="card mt-30">
       <h2 class="heading-3 text-center">modal</h2>
 
@@ -126,7 +135,9 @@
         xs modal
       </v-btn>
     </section>
+    <!-- Modal Trigger -->
 
+    <!-- Menus -->
     <section class="card mt-30">
       <h2 class="heading-3 text-center">menu</h2>
 
@@ -150,7 +161,9 @@
         </div>
       </div>
     </section>
+    <!-- Menus -->
 
+    <!-- Snackbars -->
     <section class="card mt-30">
       <h2 class="heading-3 text-center">snackbar</h2>
 
@@ -165,7 +178,9 @@
         </v-btn>
       </div>
     </section>
+    <!-- Snackbars -->
 
+    <!-- Data Table -->
     <section class="card mt-30">
       <h2 class="heading-3 text-center">Data Table</h2>
       <v-data-table :headers="headers" :data="data" centered>
@@ -176,7 +191,9 @@
         </template>
       </v-data-table>
     </section>
+    <!-- Data Table -->
 
+    <!-- Chips -->
     <section class="card mt-30">
       <h2 class="heading-3 text-center">Chip</h2>
       <v-chip clearable>normal and clearable</v-chip>
@@ -185,9 +202,11 @@
       <v-chip color="success" clearable>success</v-chip>
       <v-chip color="info">info</v-chip>
     </section>
+    <!-- Chips -->
 
+    <!-- Tabs -->
     <section class="card mt-30">
-      <h2 class="heading-3 text-center">tab</h2>
+      <h2 class="heading-3 text-center">Tabs</h2>
 
       <v-tab :tabs="['tab #1', 'tab #2', { title: 'سی پی یو', icon: 'cpu' }]">
         <template v-slot:tab-1="{ tab }">{{ `test: ${tab}` }}</template>
@@ -216,6 +235,31 @@
         </v-tab-item>
       </v-tab>
     </section>
+    <!-- Tabs -->
+
+    <!-- Steppers -->
+    <section class="card mt-30">
+      <h2 class="heading-3 text-center">Steppers</h2>
+
+      <v-stepper v-model="stepper" nav navigating>
+        <v-stepper-step title="step 1">
+          <h3 class="text-center">step 1</h3>
+        </v-stepper-step>
+
+        <v-stepper-step title="step 2">
+          <h3 class="text-center">step 2</h3>
+        </v-stepper-step>
+
+        <v-stepper-step title="step 3">
+          <h3 class="text-center">step 3</h3>
+        </v-stepper-step>
+
+        <v-stepper-step title="step 4">
+          <h3 class="text-center">step 4</h3>
+        </v-stepper-step>
+      </v-stepper>
+    </section>
+    <!-- Steppers -->
 
     <!-- Modals -->
     <v-modal v-model="modal.normal" />
@@ -244,6 +288,8 @@ import VDataTable from '@kits/VDataTable/VDataTable'
 import VDatePicker from '@kits/VDatePicker/VDatePicker'
 import VTab from '@kits/VTab/VTab'
 import VTabItem from '@kits/VTab/VTabItem'
+import VStepper from '@kits/VStepper/VStepper'
+import VStepperStep from '@kits/VStepper/VStepperStep'
 
 export default {
   name: 'UikitPage',
@@ -254,7 +300,9 @@ export default {
     VDataTable,
     VDatePicker,
     VTab,
-    VTabItem
+    VTabItem,
+    VStepper,
+    VStepperStep
   },
 
   layout: 'full',
@@ -290,10 +338,10 @@ export default {
         { name: 'mehrdad', lastName: 'deghan', age: 21 },
         { name: 'deghan', lastName: 'deghan', age: 23 },
         { name: 'mehrdad', lastName: 'mehrdad', age: 32 }
-      ]
+      ],
+
+      stepper: 2
     }
   }
 }
 </script>
-
-<style></style>
