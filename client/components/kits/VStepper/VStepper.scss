@@ -87,3 +87,9 @@
     @include flex-row();
   }
 }
+
+/*************** Stepper Step  ***************/
+.v-stepper-step {
+  transform: none;
+  transition: transform ease-in-out 900ms;
+}

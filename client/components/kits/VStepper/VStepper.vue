@@ -128,8 +128,11 @@ export default {
     },
 
     setActiveStep(val) {
+      const transition = val > this.localValue ? 'swip-left' : 'swip-right'
       if (!!this.activeStep) {
         this.activeStep.active = false
+        this.activeStep.transition = transition
+        this.steps[val - 1].transition = transition
       }
       this.activeStep = this.steps[val - 1]
       this.activeStep.active = true

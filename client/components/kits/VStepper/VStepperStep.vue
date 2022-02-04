@@ -1,11 +1,13 @@
 <template>
-  <section
-    v-show="active"
-    class="v-stepper-step"
-    :style="{ flex: `0 0 ${width}%` }"
-  >
-    <slot />
-  </section>
+  <transition :name="transition">
+    <section
+      v-show="active"
+      class="v-stepper-step"
+      :style="{ flex: `0 0 ${width}%` }"
+    >
+      <slot />
+    </section>
+  </transition>
 </template>
 
 <script>
@@ -21,7 +23,8 @@ export default {
   data() {
     return {
       width: 100,
-      active: false
+      active: false,
+      transition: ''
     }
   }
 }
