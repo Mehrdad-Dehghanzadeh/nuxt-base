@@ -15,61 +15,61 @@
 
 <script>
 export default {
-  name: 'VSnackbar',
+  name: "VSnackbar",
 
   data() {
     return {
       snack: null,
 
       iconMapping: {
-        success: 'icon-check-circle',
-        info: 'icon-info',
-        alert: 'icon-alert-triangle',
-        error: 'icon-x-octagon',
+        success: "icon-check-circle",
+        info: "icon-info",
+        alert: "icon-alert-triangle",
+        error: "icon-x-octagon",
       },
-    }
+    };
   },
 
   computed: {
     active() {
-      return this.snack instanceof Object
+      return this.snack instanceof Object;
     },
 
     icon() {
       return this.active && this.iconMapping[this.snack.type]
         ? this.iconMapping[this.snack.type]
-        : 'notification'
+        : "notification";
     },
   },
 
   watch: {
     active(newVal) {
       if (newVal) {
-        clearTimeout(this.closeTimeout)
+        clearTimeout(this.closeTimeout);
 
         this.closeTimeout = setTimeout(() => {
-          this.snack = null
-        }, this.snack.time)
+          this.snack = null;
+        }, this.snack.time);
       }
     },
   },
 
   methods: {
     appear(payload) {
-      this.snack = null
-      clearTimeout(this.delayTimeout)
+      this.snack = null;
+      clearTimeout(this.delayTimeout);
 
       this.delayTimeout = setTimeout(() => {
-        this.snack = payload
-      }, 300)
+        this.snack = payload;
+      }, 300);
     },
 
     close() {
-      this.snack = null
-      clearTimeout(this.closeTimeout)
+      this.snack = null;
+      clearTimeout(this.closeTimeout);
     },
   },
-}
+};
 </script>
 
 <style lang="scss" src="./VSnackbar.scss" />
