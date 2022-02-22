@@ -6,17 +6,24 @@
 
       {
         'chip--clearable': clearable,
-        'chip--outline': outline
+        'chip--outline': outline,
+        'chip-copy': copy
       },
 
       `${color ? `chip--${color}` : ''}`
     ]"
+    v-on="{ ...{ click: copy ? copyText : () => false }, ...$listeners }"
   >
-    <slot />
-
-    <span v-if="clearable" @click="onclear" class="chip__clear">
+    <span v-if="clearable && !copy" @click="onclear" class="chip__clear">
       <i class="icon-x"></i>
     </span>
+
+    <span v-if="copy" class="display-inline-block">
+      <i v-if="!isCopied" class="icon-copy"></i>
+      <i v-else> کپی شد</i>
+    </span>
+
+    <slot />
   </span>
 </template>
 <script>
@@ -36,17 +43,48 @@ export default {
       default: '',
       validator: (val) =>
         ['success', 'alert', 'info', 'error', ''].includes(val)
+    },
+    copy: {
+      type: Boolean,
+      default: false
     }
   },
+
   data() {
     return {
-      show: true
+      show: true,
+      isCopied: false
     }
   },
+
   methods: {
     onclear() {
       this.show = false
-      this.$emit('removed')
+      this.$emit('update:clearable')
+    },
+
+    copyText() {
+      const text = this.$slots.default[0].text
+      this.copyToClipboard(text)
+    },
+
+    copyToClipboard(text) {
+      if (!navigator.clipboard) {
+        fallbackCopyTextToClipboard(text)
+        return
+      }
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+          this.isCopied = true
+
+          setTimeout(() => {
+            this.isCopied = false
+          }, 1555)
+        })
+        .catch((err) => {
+          console.error('Async: Could not copy text: ', err)
+        })
     }
   }
 }
