@@ -199,8 +199,11 @@
       <v-chip clearable>normal and clearable</v-chip>
       <v-chip color="alert">alert</v-chip>
       <v-chip color="error">error</v-chip>
+      <v-chip color="error" outline>outline error</v-chip>
+
       <v-chip color="success" clearable>success</v-chip>
       <v-chip color="info">info</v-chip>
+      <v-chip color="info" copy>text</v-chip>
     </section>
     <!-- Chips -->
 
