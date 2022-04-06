@@ -133,7 +133,7 @@ export default {
     hint() {
       return (
         this.$attrs.placeholder ||
-        this.$u.translate('control.placeholder.input', this.label)
+        this.$t('control.placeholder.input', [this.label])
       )
     }
   },

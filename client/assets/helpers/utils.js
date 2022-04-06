@@ -1,6 +1,4 @@
 import enums from '@locales/enums'
-import fa from '@locales/fa'
-import { deepClone } from './object'
 
 /**
  * Debounce
@@ -78,20 +76,4 @@ export function enumProvider(type, value, prop = 'id') {
   const item = enums[type].find((i) => i[prop] === value)
 
   return typeof item !== 'undefined' ? item : {}
-}
-
-/**
- * Translator Porvider
- ***************************/
-export function translatorPorvider(propsStr, alternative) {
-  const keys = propsStr.split('.')
-  if (keys[0] == 'enum' || keys[0] == 'enums')
-    throw 'this provider can not use for enums '
-
-  let val = deepClone(fa)
-  keys.forEach((key) => {
-    val = val[key]
-  }, null)
-
-  return val || alternative
 }

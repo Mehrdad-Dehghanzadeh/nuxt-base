@@ -345,6 +345,7 @@ export default {
 
       stepper: 2
     }
-  }
+  },
+
 }
 </script>

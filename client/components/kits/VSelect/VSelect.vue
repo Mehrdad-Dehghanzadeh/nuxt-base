@@ -178,7 +178,7 @@ export default {
     hint() {
       return this.placeholder !== undefined
         ? this.placeholder
-        : this.$u.translate('control.placeholder.select')
+        : this.$t('control.placeholder.select')
     }
   },
 
