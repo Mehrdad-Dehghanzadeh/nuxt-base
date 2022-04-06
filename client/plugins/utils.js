@@ -1,11 +1,11 @@
-import fa from '~/locales/fa'
-import { enumProvider } from '@helpers/utils'
+import { enumProvider, translatorPorvider } from '@helpers/utils'
 
 export default ({}, inject) => {
   const utils = {
-    appName: fa.app.name,
+    appName: translatorPorvider('app.name'),
 
-    enums: enumProvider
+    enums: enumProvider,
+    translate: translatorPorvider
   }
 
   inject('u', utils)

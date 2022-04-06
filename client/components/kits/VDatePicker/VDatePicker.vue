@@ -6,8 +6,8 @@
         {
           'control--error': errors.length,
           'control--disabled': disabled,
-          'direction-ltr': ltr,
-        },
+          'direction-ltr': ltr
+        }
       ]"
     >
       <label
@@ -64,48 +64,48 @@ export default {
 
   props: {
     value: {
-      default: null,
+      default: null
     },
     required: {
       type: Boolean,
-      default: false,
+      default: false
     },
     label: {
       type: String,
-      default: null,
+      default: null
     },
     rules: {
       type: [String, Object],
-      default: null,
+      default: null
     },
     min: {
       type: String,
-      default: null,
+      default: null
     },
     max: {
       type: String,
-      default: null,
+      default: null
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     ltr: {
       type: Boolean,
-      default: false,
+      default: false
     },
     type: {
       type: String,
       default: 'date',
       validator(value) {
         return ['date', 'time'].includes(value)
-      },
-    },
+      }
+    }
   },
 
   data() {
     return {
-      show: false,
+      show: false
     }
   },
 
@@ -133,9 +133,9 @@ export default {
     hint() {
       return (
         this.$attrs.placeholder ||
-        this.$t('control.placeholder.input', [this.label])
+        this.$u.translate('control.placeholder.input', this.label)
       )
-    },
+    }
   },
 
   methods: {
@@ -147,8 +147,8 @@ export default {
       this.$nextTick(() => {
         this.$emit('input', value)
       })
-    },
-  },
+    }
+  }
 }
 </script>
 

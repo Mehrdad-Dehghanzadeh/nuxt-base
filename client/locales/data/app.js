@@ -1,6 +1,6 @@
 import { deepFreeze } from '@helpers/object'
 
 export default deepFreeze({
-  name: '',
+  name: 'nuxt base',
   panel: ''
 })

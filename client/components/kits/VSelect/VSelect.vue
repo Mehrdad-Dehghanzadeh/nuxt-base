@@ -6,8 +6,8 @@
         {
           'control--error': errors.length,
           'control--disabled': disabled,
-          'direction-ltr': ltr,
-        },
+          'direction-ltr': ltr
+        }
       ]"
     >
       <label
@@ -70,8 +70,8 @@
                   'select__option',
                   {
                     'select__option--active':
-                      hasValue && localValue[itemValue] === item[itemValue],
-                  },
+                      hasValue && localValue[itemValue] === item[itemValue]
+                  }
                 ]"
               >
                 {{ item[itemText] }}
@@ -96,60 +96,60 @@ export default {
 
   props: {
     value: {
-      default: null,
+      default: null
     },
     required: {
       type: Boolean,
-      default: false,
+      default: false
     },
     label: {
       type: String,
-      default: null,
+      default: null
     },
     placeholder: {
       type: String,
-      default: undefined,
+      default: undefined
     },
     items: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     itemValue: {
       type: String,
-      default: 'id',
+      default: 'id'
     },
     itemText: {
       type: String,
-      default: 'name',
+      default: 'name'
     },
     icon: {
       type: String,
-      default: null,
+      default: null
     },
     rules: {
       type: [String, Object],
-      default: null,
+      default: null
     },
     format: {
       type: Function,
-      default: null,
+      default: null
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     returnObject: {
       type: Boolean,
-      default: false,
+      default: false
     },
     ltr: {
       type: Boolean,
-      default: false,
+      default: false
     },
     clearable: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
 
   data() {
@@ -157,7 +157,7 @@ export default {
       text: '',
       localItems: this.formatItems(this.items),
       localValue: null,
-      open: false,
+      open: false
     }
   },
 
@@ -167,7 +167,7 @@ export default {
         ...this.$listeners,
         input: debounce((e) => this.onSearch(e.target.value), 400),
         focus: this.onOpen,
-        blur: this.onClose,
+        blur: this.onClose
       }
     },
 
@@ -178,8 +178,8 @@ export default {
     hint() {
       return this.placeholder !== undefined
         ? this.placeholder
-        : this.$t('control.placeholder.select')
-    },
+        : this.$u.translate('control.placeholder.select')
+    }
   },
 
   watch: {
@@ -193,8 +193,8 @@ export default {
         const target = this.temp.find((i) => i[this.itemValue] === newValue)
         this.updateValue(target || null, false)
       },
-      immediate: true,
-    },
+      immediate: true
+    }
   },
 
   mounted() {
@@ -228,7 +228,7 @@ export default {
             [this.itemValue]: i,
             [this.itemText]: this.format
               ? this.format(i.toString())
-              : i.toString(),
+              : i.toString()
           }
         })
       } else {
@@ -313,8 +313,8 @@ export default {
       this.selectedValue = []
       this.selectedMapping = {}
       this.updateValue()
-    },
-  },
+    }
+  }
 }
 </script>
 
