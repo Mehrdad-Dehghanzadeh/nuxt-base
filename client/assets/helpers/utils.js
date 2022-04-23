@@ -1,4 +1,4 @@
-import enums from '~/locales/enums'
+import enums from '@locales/enums'
 
 /**
  * Debounce

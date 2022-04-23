@@ -6,8 +6,8 @@
         {
           'control--error': errors.length,
           'control--disabled': disabled,
-          'direction-ltr': ltr,
-        },
+          'direction-ltr': ltr
+        }
       ]"
     >
       <label
@@ -46,35 +46,35 @@ export default {
 
   props: {
     value: {
-      default: null,
+      default: null
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     ltr: {
       type: Boolean,
-      default: false,
+      default: false
     },
     required: {
       type: Boolean,
-      default: false,
+      default: false
     },
     label: {
       type: String,
-      default: null,
+      default: null
     },
     placeholder: {
       type: String,
-      default: undefined,
-    },
+      default: undefined
+    }
   },
 
   computed: {
     listeners() {
       return {
         ...this.$listeners,
-        input: (e) => this.updateValue(e.target.value),
+        input: (e) => this.updateValue(e.target.value)
       }
     },
 
@@ -82,7 +82,7 @@ export default {
       return this.placeholder !== undefined
         ? this.placeholder
         : this.$t('control.placeholder.input')
-    },
+    }
   },
 
   methods: {
@@ -92,8 +92,8 @@ export default {
 
     clear() {
       this.updateValue(null)
-    },
-  },
+    }
+  }
 }
 </script>
 

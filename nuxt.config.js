@@ -157,7 +157,8 @@ const config = {
     '@kits': path.join(__dirname, 'client/components/kits'),
     '@shared': path.join(__dirname, 'client/components/shared'),
     '@includes': path.join(__dirname, 'client/components/includes'),
-    '@api': path.join(__dirname, 'client/api')
+    '@api': path.join(__dirname, 'client/api'),
+    '@locales': path.join(__dirname, 'client/locales')
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
