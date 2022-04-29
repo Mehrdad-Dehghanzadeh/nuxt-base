@@ -86,13 +86,13 @@
 
 <script>
 import { ValidationProvider } from 'vee-validate'
-import controlMinix from '@mixins/control'
+import controlMixin from '@mixins/control'
 import { debounce } from '@helpers/utils'
 
 export default {
   name: 'VSelect',
   components: { ValidationProvider },
-  mixins: [controlMinix],
+  mixins: [controlMixin],
 
   props: {
     value: {
