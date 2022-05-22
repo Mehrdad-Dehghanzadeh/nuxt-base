@@ -60,11 +60,11 @@
       <h2 class="heading-3 text-center">buttons</h2>
 
       <div class="mt-10">
-        <v-btn size="xs" color="secondary" loading> xs </v-btn>
-        <v-btn size="sm" color="primary" icon="plus"> sm </v-btn>
-        <v-btn color="secondary" outline> md </v-btn>
-        <v-btn size="lg" color="secondary" icon="plus" append ltr> lg </v-btn>
-        <v-btn
+        <k-btn size="xs" color="secondary" loading> xs </k-btn>
+        <k-btn size="sm" color="primary" icon="plus"> sm </k-btn>
+        <k-btn color="secondary" outline> md </k-btn>
+        <k-btn size="lg" color="secondary" icon="plus" append ltr> lg </k-btn>
+        <k-btn
           size="xl"
           color="primary"
           icon="plus"
@@ -81,31 +81,55 @@
     <!-- Inputs Elements -->
     <section class="card mt-30">
       <h2 class="heading-3 text-center">inputs Elements</h2>
-      <v-form>
+      <k-form>
         <div class="row">
           <div class="col-xl-4 col-md-6 col-xs-12">
-            <v-input label="normal" v-model="model.normal" required />
+            <k-input label="normal" v-model="model.normal" required />
           </div>
 
           <div class="col-xl-4 col-md-6 col-xs-12">
-            <v-input label="disabled" v-model="model.disabled" disabled />
+            <k-input label="disabled" v-model="model.disabled" disabled />
           </div>
 
           <div class="col-xl-4 col-md-6 col-xs-12">
-            <v-date-picker v-model="model.date" label="time picker" required />
+            <k-date-picker v-model="model.date" label="time picker" required />
           </div>
 
           <div class="col-xl-4 col-md-6 col-xs-12">
-            <v-select
+            <k-select
               v-model="model.select"
               label="select"
               :items="items"
+              required
+              clearable
+            />
+          </div>
+
+          <div class="col-xl-4 col-md-6 col-xs-12">
+            <k-select
+              v-model="model.selectMultiple"
+              label="Select Multiple"
+              :items="items"
+              required
+              multiple
+              clearable
+            />
+          </div>
+
+          <div class="col-xl-4 col-md-6 col-xs-12" v-if="$auth.loggedIn()">
+            <k-select-server
+              v-model="model.selectServer"
+              label="select Server"
+              resource="people"
+              item-text="firstName"
+              action="read"
+              multiple
               required
             />
           </div>
 
           <div class="col-xl-4 col-md-6 col-xs-12">
-            <v-textarea
+            <k-textarea
               v-model="model.textarea"
               label="textarea"
               required
@@ -115,9 +139,9 @@
         </div>
 
         <div class="text-center mt-30">
-          <v-btn type="submit">submit</v-btn>
+          <k-btn type="submit">submit</k-btn>
         </div>
-      </v-form>
+      </k-form>
     </section>
     <!-- Inputs Elements -->
 
@@ -125,15 +149,15 @@
     <section class="card mt-30">
       <h2 class="heading-3 text-center">modal</h2>
 
-      <v-btn size="xs" color="primary" @click="modal.normal = true">
+      <k-btn size="xs" color="primary" @click="modal.normal = true">
         modal
-      </v-btn>
-      <v-btn size="xs" color="primary" @click="modal.lg = true" outline>
+      </k-btn>
+      <k-btn size="xs" color="primary" @click="modal.lg = true" outline>
         lg modal
-      </v-btn>
-      <v-btn size="xs" color="primary" @click="modal.full = true">
+      </k-btn>
+      <k-btn size="xs" color="primary" @click="modal.full = true">
         xs modal
-      </v-btn>
+      </k-btn>
     </section>
     <!-- Modal Trigger -->
 
@@ -144,20 +168,20 @@
       <div class="row">
         <div class="col">
           <p>light</p>
-          <v-menu light>
-            <v-menu-item> item-1 </v-menu-item>
+          <k-menu light>
+            <k-menu-item> item-1 </k-menu-item>
 
-            <v-menu-item> item-2 </v-menu-item>
-          </v-menu>
+            <k-menu-item> item-2 </k-menu-item>
+          </k-menu>
         </div>
 
         <div class="col">
           <p>normal</p>
-          <v-menu>
-            <v-menu-item> item-1 </v-menu-item>
+          <k-menu>
+            <k-menu-item> item-1 </k-menu-item>
 
-            <v-menu-item> item-2 </v-menu-item>
-          </v-menu>
+            <k-menu-item> item-2 </k-menu-item>
+          </k-menu>
         </div>
       </div>
     </section>
@@ -168,14 +192,14 @@
       <h2 class="heading-3 text-center">snackbar</h2>
 
       <div class="mt-30">
-        <v-btn @click="$snack.error('خطا')" color="red" outline> error </v-btn>
-        <v-btn @click="$snack.success('قبول')" color="success" outline>
+        <k-btn @click="$snack.error('خطا')" color="red" outline> error </k-btn>
+        <k-btn @click="$snack.success('قبول')" color="success" outline>
           success
-        </v-btn>
-        <v-btn @click="$snack.info('اطلاع')" color="info" outline> info </v-btn>
-        <v-btn @click="$snack.alert('اخطار')" color="alert" outline>
+        </k-btn>
+        <k-btn @click="$snack.info('اطلاع')" color="info" outline> info </k-btn>
+        <k-btn @click="$snack.alert('اخطار')" color="alert" outline>
           alert
-        </v-btn>
+        </k-btn>
       </div>
     </section>
     <!-- Snackbars -->
@@ -183,27 +207,27 @@
     <!-- Data Table -->
     <section class="card mt-30">
       <h2 class="heading-3 text-center">Data Table</h2>
-      <v-data-table :headers="headers" :data="data" centered>
-        <template v-slot:item.operaion="{ item }">
-          <v-menu>
-            <v-menu-item>{{ item.name }}</v-menu-item>
-          </v-menu>
+      <k-data-table :headers="headers" :data="data" paging centered>
+        <template v-slot:actions="{ item }">
+          <k-menu>
+            <k-menu-item>{{ item.name }}</k-menu-item>
+          </k-menu>
         </template>
-      </v-data-table>
+      </k-data-table>
     </section>
     <!-- Data Table -->
 
     <!-- Chips -->
     <section class="card mt-30">
       <h2 class="heading-3 text-center">Chip</h2>
-      <v-chip clearable>normal and clearable</v-chip>
-      <v-chip color="alert">alert</v-chip>
-      <v-chip color="error">error</v-chip>
-      <v-chip color="error" outline>outline error</v-chip>
+      <k-chip clearable>normal and clearable</k-chip>
+      <k-chip color="alert">alert</k-chip>
+      <k-chip color="error">error</k-chip>
+      <k-chip color="error" outline>outline error</k-chip>
 
-      <v-chip color="success" clearable>success</v-chip>
-      <v-chip color="info">info</v-chip>
-      <v-chip color="info" copy>text</v-chip>
+      <k-chip color="success" clearable>success</k-chip>
+      <k-chip color="info">info</k-chip>
+      <k-chip color="info" copy>text</k-chip>
     </section>
     <!-- Chips -->
 
@@ -211,13 +235,13 @@
     <section class="card mt-30">
       <h2 class="heading-3 text-center">Tabs</h2>
 
-      <v-tab :tabs="['tab #1', 'tab #2', { title: 'سی پی یو', icon: 'cpu' }]">
+      <k-tab :tabs="['tab #1', 'tab #2', { title: 'سی پی یو', icon: 'cpu' }]">
         <template v-slot:tab-1="{ tab }">{{ `test: ${tab}` }}</template>
-        <v-tab-item>
+        <k-tab-item>
           tab #1
-          asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</v-tab-item
+          asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</k-tab-item
         >
-        <v-tab-item>
+        <k-tab-item>
           tab #2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -225,9 +249,9 @@
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum
-        </v-tab-item>
+        </k-tab-item>
 
-        <v-tab-item>
+        <k-tab-item>
           سی پی یو Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
           do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
           ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -235,8 +259,8 @@
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum
-        </v-tab-item>
-      </v-tab>
+        </k-tab-item>
+      </k-tab>
     </section>
     <!-- Tabs -->
 
@@ -244,69 +268,86 @@
     <section class="card mt-30">
       <h2 class="heading-3 text-center">Steppers</h2>
 
-      <v-stepper v-model="stepper" nav navigating>
-        <v-stepper-step title="step 1">
+      <k-stepper v-model="stepper" nav navigating>
+        <k-stepper-step title="step 1">
           <h3 class="text-center">step 1</h3>
-        </v-stepper-step>
+        </k-stepper-step>
 
-        <v-stepper-step title="step 2">
+        <k-stepper-step title="step 2">
           <h3 class="text-center">step 2</h3>
-        </v-stepper-step>
+        </k-stepper-step>
 
-        <v-stepper-step title="step 3">
+        <k-stepper-step title="step 3">
           <h3 class="text-center">step 3</h3>
-        </v-stepper-step>
+        </k-stepper-step>
 
-        <v-stepper-step title="step 4">
+        <k-stepper-step title="step 4">
           <h3 class="text-center">step 4</h3>
-        </v-stepper-step>
-      </v-stepper>
+        </k-stepper-step>
+      </k-stepper>
     </section>
     <!-- Steppers -->
 
+    <!-- Alert -->
+    <section class="card mt-30">
+      <h2 class="heading-3 text-center">Alerts</h2>
+
+      <k-alert v-model="alert.a">
+        <slot> متن تستی </slot>
+      </k-alert>
+      <k-btn @click="alert.a = true">Alert A</k-btn>
+
+      <k-alert v-model="alert.success" title="موفق" :handler="handler" success>
+        <p>سلام بر دنیا</p>
+      </k-alert>
+      <k-btn @click="alert.success = true">Alert Success</k-btn>
+    </section>
+    <!-- Alert -->
+
+    <!-- Info -->
+    <section class="card mt-30">
+      <h2 class="heading-3 text-center">Info</h2>
+      <k-info title="عنوان" text="this is test text" icon="check-circle" />
+    </section>
+    <!-- Info -->
+
+    <!-- KProgress -->
+    <section class="card mt-30">
+      <h2 class="heading-3 text-center">Progress</h2>
+      <div class="my-20">
+        <h3 class="heading-6 text-center">determinate</h3>
+        <k-progress type="determinate" />
+      </div>
+
+      <div class="my-20">
+        <h3 class="heading-6 text-center">linear</h3>
+        <k-progress v-model="progress" />
+      </div>
+    </section>
+    <!-- KProgress -->
+
     <!-- Modals -->
-    <v-modal v-model="modal.normal" />
-    <v-modal v-model="modal.lg" size="lg">
-      <h3 class="heading-5 modal__title" slot="header">lg modal</h3>
+    <k-modal v-model="modal.normal" />
+    <k-modal v-model="modal.lg" size="lg">
+      <h3 class="heading-5 k-modal__title" slot="header">lg modal</h3>
 
       <div class="text-center">
         <p>modal content</p>
       </div>
-    </v-modal>
+    </k-modal>
 
-    <v-modal v-model="modal.full" size="xs" title="xs modal">
+    <k-modal v-model="modal.full" size="xs" title="xs modal">
       <div class="text-center">
         <p>modal content</p>
       </div>
-    </v-modal>
+    </k-modal>
     <!-- Modals -->
   </article>
 </template>
 
 <script>
-import VModal from '@kits/VModal/VModal'
-import VMenu from '@kits/VMenu/VMenu'
-import VMenuItem from '@kits/VMenu/VMenuItem'
-import VDataTable from '@kits/VDataTable/VDataTable'
-import VDatePicker from '@kits/VDatePicker/VDatePicker'
-import VTab from '@kits/VTab/VTab'
-import VTabItem from '@kits/VTab/VTabItem'
-import VStepper from '@kits/VStepper/VStepper'
-import VStepperStep from '@kits/VStepper/VStepperStep'
-
 export default {
   name: 'UikitPage',
-  components: {
-    VModal,
-    VMenu,
-    VMenuItem,
-    VDataTable,
-    VDatePicker,
-    VTab,
-    VTabItem,
-    VStepper,
-    VStepperStep
-  },
 
   layout: 'full',
 
@@ -317,6 +358,8 @@ export default {
         date: '',
         disabled: 'disabled',
         select: '',
+        selectMultiple: [],
+        selectServer: [],
         textarea: ''
       },
       modal: {
@@ -325,16 +368,16 @@ export default {
         full: false
       },
       items: [
-        { name: 'item1', id: '1' },
-        { name: 'item2', id: '2' },
-        { name: 'item3', id: '3' }
+        { title: 'item1', id: '1' },
+        { title: 'item2', id: '2' },
+        { title: 'item3', id: '3' }
       ],
 
       headers: [
         { title: 'title 1', value: 'name' },
         { title: 'title 2', value: 'lastName' },
         { title: 'title 3', value: 'age' },
-        { title: 'operaion', value: 'operaion' }
+        { title: 'actions', value: 'actions' }
       ],
 
       data: [
@@ -343,7 +386,20 @@ export default {
         { name: 'mehrdad', lastName: 'mehrdad', age: 32 }
       ],
 
-      stepper: 2
+      stepper: 2,
+
+      alert: {
+        a: false,
+        success: false
+      },
+
+      progress: 55
+    }
+  },
+
+  methods: {
+    handler() {
+      console.log('handler is done')
     }
   },
 

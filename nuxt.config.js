@@ -27,6 +27,8 @@ const config = {
 
   ignore: [],
 
+  css: ['~/assets/styles/main.scss'],
+
   // https://nuxtjs.org/docs/features/loading/
   loading: {
     color: 'blue',
@@ -36,7 +38,7 @@ const config = {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/styles/main.scss'],
+  // css: ['~/assets/styles/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -95,11 +97,12 @@ const config = {
   styleResources: {
     hoistUseStatements: true,
     scss: [
-      '~/assets/styles/variables/*.scss',
-      '~/assets/styles/mixins/*.scss',
-      '~/assets/styles/base/*.scss',
-      '~/assets/styles/layout/*.scss',
-      '~/assets/styles/elements/*.scss'
+      '~/assets/styles/resources/variables/*.scss',
+      '~/assets/styles/resources/mixins/*.scss',
+      '~/assets/styles/resources/extend/*.scss',
+      '~/assets/styles/resources/generic/*.scss',
+      '~/assets/styles/resources/layout/*.scss',
+      '~/assets/styles/resources/elements/*.scss'
     ]
   },
 

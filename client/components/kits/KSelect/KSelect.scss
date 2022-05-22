@@ -1,0 +1,163 @@
+/**
+ * Select
+ * *********************************/
+.k-select {
+  &__input {
+    &--invisible {
+      opacity: 0;
+      height: 1px;
+      line-height: 0;
+    }
+  }
+
+  &__chips {
+    @include single-line;
+  }
+
+  &__chip {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 4px;
+    padding: 0 4px;
+    background-color: #dbe2ea;
+    border-radius: 6px;
+  }
+
+  &__more-value {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  &__count {
+    color: darken($color-success, 6%);
+    @include text-size(0.75rem, 1.5, 300);
+    @include inline-block(text-top);
+  }
+
+  &__menu {
+    position: absolute;
+    max-height: 290px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    z-index: $select-index;
+    overflow-y: auto;
+    box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+
+  &__message {
+    color: #a9a9a9;
+    padding: 12px 16px;
+    font-size: 14px;
+    display: block;
+    font-weight: 400;
+  }
+
+  &__options {
+    color: #58677f;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    &--multiple {
+      > .k-select__option {
+        &:before {
+          content: ' ';
+          font-family: icons;
+          display: inline-block;
+          vertical-align: middle;
+          width: 14px;
+          height: 14px;
+          line-height: 14px;
+          font-size: 10px;
+          margin-left: 6px;
+          text-align: center;
+          border: 1px solid #ddd;
+          border-radius: 3px;
+        }
+
+        &--active {
+          &:before {
+            content: $icon-check;
+            border-color: rgba($color-success, 0.2);
+          }
+        }
+      }
+    }
+  }
+
+  &__option {
+    font-size: 14px;
+    padding: 8px 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-state;
+    }
+
+    &--active {
+      font-weight: 600;
+      color: darken($color-success, 6%);
+      background-color: rgba($color-success, 0.06) !important;
+    }
+  }
+
+  &__handle {
+    @include inline-block(initial);
+  }
+
+  &__loading {
+    width: calc(100% - 14px);
+    margin: -5px auto 0;
+    height: 3px;
+  }
+
+  .control {
+    &__field {
+      position: relative;
+    }
+
+    &__append {
+      cursor: pointer;
+      position: absolute;
+      line-height: 0;
+      left: 9px;
+      top: 9px;
+    }
+
+    &__input {
+      border: none;
+      padding: 0;
+    }
+
+    &__wrapper {
+      cursor: pointer;
+      display: block;
+      border: 1px solid #646464;
+      padding: 7px 16px 7px 7px;
+      border-radius: 7px;
+      width: 100%;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+  }
+
+  &--open {
+    .k-select__handle {
+      transform: rotate(180deg);
+    }
+  }
+
+  &--error {
+    .control__wrapper {
+      border: 1px solid $color-error;
+      box-shadow: 0 0 2px 0 $color-error;
+    }
+  }
+}

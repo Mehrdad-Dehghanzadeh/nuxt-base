@@ -1,0 +1,20 @@
+.k-info {
+  &__title {
+    color: $color-primary-light-2;
+    vertical-align: middle;
+
+    &:after {
+      content: ':';
+    }
+
+    .icon {
+      vertical-align: middle;
+    }
+  }
+
+  &__text {
+    padding-right: 8px;
+    font-weight: lighter;
+    color: rgba($color-black, 0.83);
+  }
+}

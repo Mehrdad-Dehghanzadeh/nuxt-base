@@ -1,0 +1,50 @@
+/***************************
+* Alert
+***************************/
+.k-alert {
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color-black, 0.75);
+  z-index: $modal-index;
+  padding: 0 20px;
+  @include fixed();
+
+  &__container {
+    padding: 10px 20px;
+    background-color: $color-white;
+    border-radius: 10px;
+    opacity: 0;
+    box-shadow: 0 0 5px 0 rgba(21, 21, 21, 0.45);
+    text-align: center;
+    min-width: 320px;
+    max-width: 996px;
+  }
+
+  &__icon {
+    @include text-size(3rem, 1);
+
+    .icon-check-circle {
+      color: $color-success;
+    }
+
+    .icon-help-circle {
+      color: $color-info;
+    }
+  }
+
+  &__title {
+    margin: 10px 0;
+  }
+
+  &__content {
+    color: lighten($color-black, 17%);
+  }
+
+  &--open {
+    display: flex;
+
+    .k-alert__container {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.icon-btn {
+  height: 22px;
+  padding: 2px 4px;
+  background-color: $color-disable;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &--error {
+    background-color: $color-red;
+    color: $color-white;
+  }
+}

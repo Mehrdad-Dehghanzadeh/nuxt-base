@@ -1,0 +1,77 @@
+@keyframes rotating {
+  0% {
+    transform: rotateZ(0);
+  }
+
+  25% {
+    transform: rotateZ(90deg);
+  }
+
+  50% {
+    transform: rotateZ(180deg);
+  }
+
+  75% {
+    transform: rotateZ(270deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes menu {
+  0% {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  100% {
+    min-width: 160px;
+    min-height: 60px;
+  }
+}
+
+@keyframes menu-item {
+  0% {
+    min-height: 0;
+  }
+
+  100% {
+    min-height: 30px;
+  }
+}
+
+@keyframes indeterminate {
+  0% {
+    right: -35%;
+    left: 100%;
+  }
+
+  60% {
+    right: 100%;
+    left: -90%;
+  }
+
+  100% {
+    right: 100%;
+    left: -90%;
+  }
+}
+
+@keyframes indeterminate-short {
+  0% {
+    right: -200%;
+    left: 100%;
+  }
+
+  60% {
+    right: 107%;
+    left: -8%;
+  }
+
+  100% {
+    right: 107%;
+    left: -8%;
+  }
+}

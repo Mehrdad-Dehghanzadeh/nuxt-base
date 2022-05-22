@@ -1,0 +1,95 @@
+.k-stepper {
+  /*************** Step Nav  ***************/
+  &-nav {
+    overflow-x: auto;
+    margin-bottom: 30px;
+
+    &__item {
+      position: relative;
+      justify-content: center;
+      @include flex-row();
+
+      &:before,
+      &:after {
+        content: '';
+        flex: 0 1 50%;
+        height: 1px;
+        background-color: $color-divider;
+        transform: translateY(15px);
+      }
+
+      &:first-child {
+        &:before {
+          height: 0;
+        }
+      }
+
+      &:last-child {
+        &:after {
+          height: 0;
+        }
+      }
+    }
+
+    &__bullet {
+      $size: 32px;
+      width: $size;
+      height: $size;
+      border-radius: $size / 2;
+      margin-bottom: 8px;
+      border: 1px solid rgb(161, 161, 161);
+      text-align: center;
+      background-color: $color-white;
+      @include inline-block();
+
+      &--success {
+        border: none;
+        background-color: $color-success;
+        color: $color-page-background;
+      }
+
+      &--active {
+        border: none;
+        background-color: $color-info;
+        color: $color-page-background;
+      }
+
+      .icon {
+        line-height: 2;
+      }
+    }
+
+    &__title {
+      @include text-size(0.8em, 2);
+    }
+
+    &__wrapper {
+      padding: 5px 15px;
+      text-align: center;
+      justify-content: space-around;
+      @include flex-row();
+    }
+
+    &__label {
+      position: relative;
+      min-width: 45px;
+      cursor: pointer;
+      @include inline-block();
+    }
+  }
+  /*************** Step Nav  ***************/
+
+  &__wrapper {
+    overflow: hidden;
+  }
+
+  &__slider {
+    @include flex-row();
+  }
+}
+
+/*************** Stepper Step  ***************/
+.k-stepper-step {
+  transform: none;
+  transition: transform ease-in-out 900ms;
+}

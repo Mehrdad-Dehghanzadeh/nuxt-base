@@ -1,0 +1,60 @@
+/**
+* Theme Color
+*****************************/
+
+@mixin back-ground-dark {
+  background-color: $color-black;
+  color: $color-white;
+}
+
+@mixin back-ground-white {
+  color: $color-black;
+  background-color: $color-white;
+}
+
+/**
+* Fit Size
+*******************************/
+@mixin fit() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/**
+* Fix Size
+*******************************/
+@mixin fixed() {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    display: table;
+    content: ' ';
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin single-line {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

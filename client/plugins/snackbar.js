@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import component from '@kits/VSnackbar/VSnackbar'
+import component from '@kits/KSnackbar/KSnackbar'
 
 let snack = null
 

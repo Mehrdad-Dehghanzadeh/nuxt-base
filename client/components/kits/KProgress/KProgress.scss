@@ -1,0 +1,38 @@
+/**
+ * Progress
+ * *********************************/
+ .k-progress {
+  overflow: hidden;
+  height: 2px;
+
+  &__line {
+    position: relative;
+    height: 100%;
+    background-color: rgba($color-info, 0.2);
+  }
+
+  &__value {
+    height: 100%;
+    background-color: $color-info;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &--determinate {
+    .k-progress__value {
+      will-change: left, right;
+
+      &:first-child {
+        animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+      }
+
+      &:last-child {
+        animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+        animation-delay: 1.15s;
+      }
+    }
+  }
+
+}
