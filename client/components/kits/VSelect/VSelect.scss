@@ -1,0 +1,81 @@
+/**
+ * Select
+ * *********************************/
+.select {
+  &__handle {
+    position: absolute;
+    top: 46px;
+    left: 22px;
+    font-size: 12px;
+    color: #363636;
+    cursor: pointer;
+
+    + .control__input {
+      padding-left: 40px;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    max-height: 290px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    z-index: $select-index;
+    overflow-y: auto;
+    border-radius: 11px;
+  }
+
+  &__no-data {
+    color: #a9a9a9;
+    padding: 12px 16px;
+    font-size: 13px;
+    display: block;
+    font-weight: 400;
+  }
+
+  &__options {
+    color: #888888;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  &__option {
+    font-size: 13px;
+    padding: 9px 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f6f6f6;
+    }
+
+    &--active {
+      color: #fff;
+      background-color: $color-primary-darken-2 !important;
+    }
+  }
+
+  &--open {
+    .select__handle {
+      transform: rotate(180deg);
+    }
+  }
+
+  .control__input {
+    cursor: pointer;
+  }
+}
+
+/*==============================
+Control extend
+================================*/
+.control--small {
+  > .select {
+    .select__handle {
+      top: 12px;
+    }
+  }
+}

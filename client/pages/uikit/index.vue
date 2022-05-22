@@ -401,6 +401,7 @@ export default {
     handler() {
       console.log('handler is done')
     }
-  }
+  },
+
 }
 </script>
