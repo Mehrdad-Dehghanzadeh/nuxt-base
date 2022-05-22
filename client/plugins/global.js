@@ -1,28 +1,32 @@
 import Vue from 'vue'
 
 /*
- * Global component registration
- ****************************/
-import VBtn from '@kits/VBtn/VBtn'
-import VForm from '@kits/VForm/VForm'
-import VInput from '@kits/VInput/Vinput'
-import VSelect from '@kits/VSelect/VSelect'
-import VSnackbar from '@kits/VSnackbar/VSnackbar'
-import VTextarea from '@kits/VTextarea/VTextarea'
-import VChip from '@kits/VChip/VChip'
+ * Global component registration in Kits Directory
+ ********************************************/
+const requireComponent = require.context(
+  // The relative path of the components folder
+  '../components/kits',
+  // Whether or not to look in subfolders
+  true,
+  // The regular expression used to match base component filenames
+  /[A-Z]\w+\.(vue)$/)
 
-const components = {
-  VBtn,
-  VForm,
-  VInput,
-  VSelect,
-  VSnackbar,
-  VTextarea,
-  VChip
-}
+requireComponent.keys().forEach((fileName) => {
+  // Get component config
+  const componentConfig = requireComponent(fileName)
+  const componentName = fileName
+    .split('/')
+    .pop()
+    .replace(/\.\w+$/, '')
 
-Object.entries(components).forEach(([name, component]) => {
-  Vue.component(name, component)
+  // Register component globally
+  Vue.component(
+    componentName,
+    // Look for the component options on `.default`, which will
+    // exist if the component was exported with `export default`,
+    // otherwise fall back to module's root.
+    componentConfig.default || componentConfig
+  )
 })
 
 /*

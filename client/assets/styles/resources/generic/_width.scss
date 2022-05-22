@@ -1,0 +1,25 @@
+.width {
+  &-auto {
+    width: auto;
+  }
+
+  &-full {
+    width: 100%;
+  }
+
+  &-vw {
+    width: 100vw;
+  }
+
+  &-fit-content {
+    width: fit-content;
+  }
+
+  &-max-content {
+    width: max-content;
+  }
+
+  &-min-content {
+    width: min-content;
+  }
+}

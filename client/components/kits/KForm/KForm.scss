@@ -1,0 +1,20 @@
+/*==============================
+K-Form
+================================*/
+.k-form {
+
+  &--dense {
+    .control {
+      margin-bottom: 14px;
+    }
+  }
+
+  &--horizontal-md {
+    @media #{$media-down-md} {
+      .checkbox {
+        margin-top: 35px;
+      }
+    }
+  }
+
+}

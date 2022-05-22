@@ -1,0 +1,62 @@
+.k-menu {
+  color: $color-black;
+
+  &__handler {
+    display: block;
+    font-size: 15px;
+    width: 24px;
+    height: 24px;
+    line-height: 28px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__wrapper {
+    position: absolute;
+    min-width: 160px;
+    min-height: 60px;
+    animation: menu 200ms ease;
+    background-color: rgb(22, 21, 21);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+    z-index: $menu-index;
+    border-radius: 7px;
+
+    &--light {
+      background-color: #565656;
+
+      > .k-menu__list {
+        color: #ebebeb;
+        font-weight: 400;
+      }
+
+      .k-menu__link:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  &__list {
+    color: $color-white;
+    font-size: 13px;
+    line-height: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  &__item {
+    animation: menu-item 200ms ease;
+
+    .icon {
+      vertical-align: middle;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 7px 10px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+  }
+}

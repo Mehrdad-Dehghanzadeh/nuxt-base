@@ -8,12 +8,12 @@
   &__line {
     position: relative;
     height: 100%;
-    background-color: rgba($color-alt-orange-light, 0.2);
+    background-color: rgba($color-info, 0.2);
   }
 
   &__value {
     height: 100%;
-    background-color: $color-alt-orange-light;
+    background-color: $color-info;
     position: absolute;
     top: 0;
     right: 0;

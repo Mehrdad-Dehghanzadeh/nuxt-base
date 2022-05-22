@@ -1,0 +1,92 @@
+/**
+* Heading
+ ************************************/
+.heading-1 {
+  @include text-size(2.3rem, 1.5, 700);
+}
+
+.heading-2 {
+  @include text-size(1.85rem, 1.5, 500);
+}
+
+.heading-3 {
+  @include text-size(1.6rem, 1.5, 400);
+}
+
+.heading-4 {
+  @include text-size(1.4rem, 1.5, 400);
+}
+
+.heading-5 {
+  @include text-size(1.2rem, 2, 400);
+}
+
+.heading-6 {
+  @include text-size(1rem, 2, 500);
+}
+
+/**
+* Subtitle
+ ***********************************/
+.subtitle-1 {
+  @include text-size(1rem, 2, 400);
+}
+
+.subtitle-2 {
+  @include text-size(0.85rem, 2, 500);
+}
+
+/**
+* Body or Text
+ ***********************************/
+.body-1 {
+  @include text-size(1rem, 2, 400);
+}
+
+.body-2 {
+  @include text-size(0.85rem, 2, 400);
+}
+
+.caption {
+  @include text-size(0.75rem, 2, 400);
+}
+
+.overline {
+  @include text-size(0.65rem, 2, 400);
+}
+
+/**
+* common text class
+ ********************************/
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+/**
+* text wight
+******************************/
+.font-weight {
+  &-bold {
+    font-weight: bold;
+  }
+
+  &-bolder {
+    font-weight: bolder;
+  }
+
+  &-lighter {
+    font-weight: lighter;
+  }
+
+  &-initial {
+    font-weight: initial;
+  }
+}
