@@ -1,16 +1,17 @@
 /**
  * VUploader
  * *********************************/
- .k-uploader {
-
+.k-uploader {
   &__field {
+    position: relative;
     cursor: pointer;
+    padding: 7px 16px 7px 7px;
+    border: 1px solid #646464;
+    border-radius: 7px;
     @include no-select;
-    border: 1px dashed #ced4de;
   }
 
-  &:not(.v-control--disabled):not(.k-uploader--has-content):hover {
-
+  &:not(.control--disabled):not(.k-uploader--has-content):hover {
     .k-uploader__field {
       background-color: rgba($color-info, 0.05);
       border-color: rgba($color-info, 0.6);
@@ -57,14 +58,13 @@
     &:hover {
       opacity: 0.8;
     }
-
   }
 
   &__title {
     display: block;
     max-width: 90%;
-    line-height: 24px;
     @include single-line;
+    @include text-size(0.75rem, 1.5);
   }
 
   &__percent {
@@ -83,14 +83,12 @@
   }
 
   &__delete {
-
     &:hover {
-      color:$color-red;
+      color: $color-red;
     }
-
   }
 
-  &.v-control--disabled {
+  &.control--disabled {
     cursor: context-menu;
 
     .k-uploader__icon,
@@ -100,12 +98,10 @@
       &:hover {
         color: inherit;
       }
-
     }
   }
 
-  &.v-control--readonly {
-
+  &.control--readonly {
     .k-uploader__icon,
     .k-uploader__delete {
       cursor: inherit;
@@ -113,13 +109,28 @@
   }
 
   &--has-content {
-
     .k-uploader__field {
-      border: none;
       padding-right: 44px;
       cursor: context-menu;
     }
-
   }
 
+  .control__action {
+    float: left;
+    font-size: 13px;
+    cursor: pointer;
+    margin-right: 8px;
+    height: 22px;
+    line-height: 28px;
+    min-width: 14px;
+
+    &:hover {
+      color: #273240;
+    }
+
+    &--large {
+      font-size: 22px;
+      height: 22px;
+    }
+  }
 }

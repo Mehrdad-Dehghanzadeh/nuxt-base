@@ -24,7 +24,7 @@
       <label
         v-if="!solo && label"
         :for="safeId"
-        :class="['control__label', { 'control__label--marked': isRequired }]"
+        :class="['control__label', { 'control__label-required': required }]"
         @click.prevent="choose"
         @mousedown.prevent
         v-text="label"
@@ -72,10 +72,12 @@
             ref="input"
             :name="safeName"
             :accept="accept"
+            v-bind="$attrs"
             type="file"
-            class="hidden"
+            class="display-none"
             capture="capture"
             :disabled="disabled"
+            :required="required"
             @change="validate"
           />
 
@@ -114,14 +116,15 @@
 </template>
 
 <script>
+import { ValidationProvider } from 'vee-validate'
 import { fullPath } from '@helpers/filters'
 import { fileType } from '@data/file'
 
 import controlMixin from '@mixins/control.js'
 
 export default {
-  name: 'VUploader',
-
+  name: 'KUploader',
+  components: { ValidationProvider },
   mixins: [controlMixin],
 
   props: {
@@ -174,6 +177,10 @@ export default {
       default: null
     },
     solo: {
+      type: Boolean,
+      default: false
+    },
+    required: {
       type: Boolean,
       default: false
     }
