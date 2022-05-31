@@ -32,7 +32,7 @@ export const creditCard = {
  * ***********************************/
 export const fullPath = (val) => {
   if (val) {
-    return process.env.API_URL + val
+    return process.env.API_URL + (val.indexOf('/') === 0 ? '' : '/') + val
   }
 }
 
