@@ -1,0 +1,125 @@
+/**
+ * VUploader
+ * *********************************/
+ .k-uploader {
+
+  &__field {
+    cursor: pointer;
+    @include no-select;
+    border: 1px dashed #ced4de;
+  }
+
+  &:not(.v-control--disabled):not(.k-uploader--has-content):hover {
+
+    .k-uploader__field {
+      background-color: rgba($color-info, 0.05);
+      border-color: rgba($color-info, 0.6);
+    }
+
+    .k-uploader__icon {
+      color: $color-info;
+    }
+  }
+
+  &__placeholder {
+    display: block;
+    color: #adb3c1;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+  }
+
+  &__thumbnail {
+    position: absolute;
+    overflow: hidden;
+    right: 3px;
+    top: 3px;
+    font-size: 12px;
+    height: 34px;
+    width: 34px;
+    font-size: 11px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 600;
+    color: #6f707c;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    border-radius: 6px;
+  }
+
+  &__img {
+    object-fit: cover;
+    cursor: pointer;
+    height: 100%;
+    opacity: 0.7;
+    @include fit;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+  }
+
+  &__title {
+    display: block;
+    max-width: 90%;
+    line-height: 24px;
+    @include single-line;
+  }
+
+  &__percent {
+    font-weight: 800;
+  }
+
+  &__status {
+    font-size: 12px;
+    font-weight: 600;
+    color: $color-success;
+  }
+
+  &__icon {
+    margin-left: -2px;
+    margin-top: -1px;
+  }
+
+  &__delete {
+
+    &:hover {
+      color:$color-red;
+    }
+
+  }
+
+  &.v-control--disabled {
+    cursor: context-menu;
+
+    .k-uploader__icon,
+    .k-uploader__delete {
+      cursor: context-menu;
+
+      &:hover {
+        color: inherit;
+      }
+
+    }
+  }
+
+  &.v-control--readonly {
+
+    .k-uploader__icon,
+    .k-uploader__delete {
+      cursor: inherit;
+    }
+  }
+
+  &--has-content {
+
+    .k-uploader__field {
+      border: none;
+      padding-right: 44px;
+      cursor: context-menu;
+    }
+
+  }
+
+}

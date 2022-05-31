@@ -37,6 +37,20 @@
     @include text-size(0.65rem, 1);
   }
 
+  &__numeric-down {
+    margin-left: -2px;
+    font-size: 18px;
+    line-height: 16px;
+  }
+
+  &__loading {
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    bottom: 0;
+    border-radius: 0 0 5px 5px;
+  }
+
   &--error {
     margin-bottom: 10px;
 
