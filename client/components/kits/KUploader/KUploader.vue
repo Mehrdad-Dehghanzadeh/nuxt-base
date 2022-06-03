@@ -15,16 +15,15 @@
         'control',
         {
           'control--error': errors.length,
-          'control--solo': solo,
           'control--disabled': disabled,
           'control--readonly': readonly
         }
       ]"
     >
       <label
-        v-if="!solo && label"
+        v-if="label"
         :for="safeId"
-        :class="['control__label', { 'control__label--marked': isRequired }]"
+        :class="['control__label', { 'control__label-required': required }]"
         @click.prevent="choose"
         @mousedown.prevent
         v-text="label"
@@ -39,24 +38,18 @@
         <div class="control__append">
           <slot name="action" />
 
-          <a
+          <span
             v-if="!disabled && !readonly"
             v-show="localValue"
-            href="javascript:;"
-            class="k-uploader__delete control__action control__action--large"
+            class="k-uploader__delete"
             @click="clearHandler"
           >
-            <i class="icon icon-x-square" />
-          </a>
+            <i class="icon icon-trash-2" />
+          </span>
 
-          <a
-            v-if="!localValue"
-            href="javascript:;"
-            class="k-uploader__icon control__action control__action--large"
-            @click="choose"
-          >
+          <div v-if="!localValue" class="k-uploader__upload-icon" @click="choose">
             <i class="icon icon-upload" />
-          </a>
+          </div>
 
           <span
             v-if="suffix"
@@ -72,10 +65,12 @@
             ref="input"
             :name="safeName"
             :accept="accept"
+            v-bind="$attrs"
             type="file"
-            class="hidden"
+            class="display-none"
             capture="capture"
             :disabled="disabled"
+            :required="required"
             @change="validate"
           />
 
@@ -95,9 +90,9 @@
           </template>
 
           <template v-else>
-            <span class="k-uploader__placeholder" @click="choose">
-              {{ localPlaceholder }}
-            </span>
+            <p class="k-uploader__placeholder" @click="choose">
+              {{ placeholder }}
+            </p>
           </template>
         </div>
 
@@ -108,20 +103,20 @@
         />
       </div>
 
-      <em v-show="!solo" class="control__error" :value="errors[0]" />
+      <em class="control__error" v-text="errors[0]" />
     </div>
   </validation-provider>
 </template>
 
 <script>
+import { ValidationProvider } from 'vee-validate'
 import { fullPath } from '@helpers/filters'
 import { fileType } from '@data/file'
-
 import controlMixin from '@mixins/control.js'
 
 export default {
-  name: 'VUploader',
-
+  name: 'KUploader',
+  components: { ValidationProvider },
   mixins: [controlMixin],
 
   props: {
@@ -173,7 +168,7 @@ export default {
       type: String,
       default: null
     },
-    solo: {
+    required: {
       type: Boolean,
       default: false
     }
@@ -208,10 +203,13 @@ export default {
         : additional
     },
 
+<<<<<<< HEAD
+=======
     localPlaceholder() {
       return this.solo ? this.label || this.placeholder : this.placeholder
     },
 
+>>>>>>> origin
     accept() {
       return this.extensions.map((i) => '.'.concat(i)).join(',')
     },

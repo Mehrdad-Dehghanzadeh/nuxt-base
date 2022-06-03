@@ -1,22 +1,24 @@
 /**
  * VUploader
  * *********************************/
- .k-uploader {
-
+.k-uploader {
   &__field {
+    position: relative;
     cursor: pointer;
+    padding: 8px;
+    border: 1px dashed #646464;
+    border-radius: 7px;
+    max-width: 310px;
     @include no-select;
-    border: 1px dashed #ced4de;
   }
 
-  &:not(.v-control--disabled):not(.k-uploader--has-content):hover {
-
+  &:not(.control--disabled):not(.k-uploader--has-content):hover {
     .k-uploader__field {
       background-color: rgba($color-info, 0.05);
       border-color: rgba($color-info, 0.6);
     }
 
-    .k-uploader__icon {
+    .k-uploader__upload-icon {
       color: $color-info;
     }
   }
@@ -24,32 +26,26 @@
   &__placeholder {
     display: block;
     color: #adb3c1;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 20px;
+    text-align: center;
+    @include text-size(0.7rem);
   }
 
   &__thumbnail {
     position: absolute;
     overflow: hidden;
     right: 3px;
-    top: 3px;
-    font-size: 12px;
-    height: 34px;
+    top: 5px;
+    height: 30px;
     width: 34px;
-    font-size: 11px;
     text-align: center;
-    line-height: 30px;
-    font-weight: 600;
-    color: #6f707c;
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 2px solid rgba(255, 255, 255, 0.85);
+    color: $color-white;
+    background-color: rgba(150, 150, 150, 0.85);
     border-radius: 6px;
+    @include text-size(0.65rem, 2.75);
   }
 
   &__img {
     object-fit: cover;
-    cursor: pointer;
     height: 100%;
     opacity: 0.7;
     @include fit;
@@ -57,14 +53,13 @@
     &:hover {
       opacity: 0.8;
     }
-
   }
 
   &__title {
     display: block;
     max-width: 90%;
-    line-height: 24px;
     @include single-line;
+    @include text-size(0.75rem, 1.5);
   }
 
   &__percent {
@@ -77,20 +72,24 @@
     color: $color-success;
   }
 
-  &__icon {
-    margin-left: -2px;
-    margin-top: -1px;
-  }
-
   &__delete {
+    cursor: pointer;
+    float: left;
+    margin-top: 3px;
+    line-height: 1;
 
     &:hover {
-      color:$color-red;
+      color: $color-red;
     }
-
   }
 
-  &.v-control--disabled {
+  &__upload-icon {
+    text-align: center;
+    color: #646464;
+    @include text-size(1.5rem, 1);
+  }
+
+  &.control--disabled {
     cursor: context-menu;
 
     .k-uploader__icon,
@@ -100,12 +99,10 @@
       &:hover {
         color: inherit;
       }
-
     }
   }
 
-  &.v-control--readonly {
-
+  &.control--readonly {
     .k-uploader__icon,
     .k-uploader__delete {
       cursor: inherit;
@@ -113,13 +110,9 @@
   }
 
   &--has-content {
-
     .k-uploader__field {
-      border: none;
       padding-right: 44px;
       cursor: context-menu;
     }
-
   }
-
 }

@@ -136,6 +136,10 @@
               noResize
             />
           </div>
+
+          <div class="col-xl-4 col-md-6 col-xs-12">
+            <k-uploader v-model="model.uploader" label="uploader" :types="['image', 'pdf']" required />
+          </div>
         </div>
 
         <div class="text-center mt-30">
@@ -360,7 +364,8 @@ export default {
         select: '',
         selectMultiple: [],
         selectServer: [],
-        textarea: ''
+        textarea: '',
+        uploader: ''
       },
       modal: {
         normal: false,
@@ -401,7 +406,6 @@ export default {
     handler() {
       console.log('handler is done')
     }
-  },
-
+  }
 }
 </script>
