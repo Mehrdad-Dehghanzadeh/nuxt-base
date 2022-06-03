@@ -47,11 +47,7 @@
             <i class="icon icon-trash-2" />
           </span>
 
-          <div
-            v-if="!localValue"
-            class="k-uploader__upload-icon"
-            @click="choose"
-          >
+          <div v-if="!localValue" class="k-uploader__upload-icon" @click="choose">
             <i class="icon icon-upload" />
           </div>
 
