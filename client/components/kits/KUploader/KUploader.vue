@@ -47,7 +47,11 @@
             <i class="icon icon-trash-2" />
           </span>
 
-          <div v-if="!localValue" class="k-uploader__upload-icon" @click="choose">
+          <div
+            v-if="!localValue"
+            class="k-uploader__upload-icon"
+            @click="choose"
+          >
             <i class="icon icon-upload" />
           </div>
 
@@ -203,13 +207,6 @@ export default {
         : additional
     },
 
-<<<<<<< HEAD
-=======
-    localPlaceholder() {
-      return this.solo ? this.label || this.placeholder : this.placeholder
-    },
-
->>>>>>> origin
     accept() {
       return this.extensions.map((i) => '.'.concat(i)).join(',')
     },
