@@ -138,7 +138,7 @@
           </div>
 
           <div class="col-xl-4 col-md-6 col-xs-12">
-            <k-uploader v-model="model.uploader" label="uploader" required />
+            <k-uploader v-model="model.uploader" label="uploader" :types="['image', 'pdf']" required />
           </div>
         </div>
 
