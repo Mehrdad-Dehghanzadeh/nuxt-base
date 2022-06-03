@@ -203,6 +203,13 @@ export default {
         : additional
     },
 
+<<<<<<< HEAD
+=======
+    localPlaceholder() {
+      return this.solo ? this.label || this.placeholder : this.placeholder
+    },
+
+>>>>>>> origin
     accept() {
       return this.extensions.map((i) => '.'.concat(i)).join(',')
     },
