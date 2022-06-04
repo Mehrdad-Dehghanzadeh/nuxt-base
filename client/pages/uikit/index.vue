@@ -129,6 +129,10 @@
           </div>
 
           <div class="col-xl-4 col-md-6 col-xs-12">
+            <k-checkbox label="chceckbox" v-model="model.checkbox" required />
+          </div>
+
+          <div class="col-xl-4 col-md-6 col-xs-12">
             <k-textarea
               v-model="model.textarea"
               label="textarea"
@@ -138,7 +142,12 @@
           </div>
 
           <div class="col-xl-4 col-md-6 col-xs-12">
-            <k-uploader v-model="model.uploader" label="uploader" :types="['image', 'pdf']" required />
+            <k-uploader
+              v-model="model.uploader"
+              label="uploader"
+              :types="['image', 'pdf']"
+              required
+            />
           </div>
         </div>
 
@@ -359,6 +368,7 @@ export default {
     return {
       model: {
         normal: '',
+        checkbox: false,
         date: '',
         disabled: 'disabled',
         select: '',

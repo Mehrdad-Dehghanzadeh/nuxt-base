@@ -58,3 +58,13 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+
+@mixin no-accessible {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  right: -99999px;
+}

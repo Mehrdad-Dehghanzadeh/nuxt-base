@@ -1,0 +1,86 @@
+/**
+ * Checkbox
+ * *********************************/
+.k-checkbox {
+  $size: 26px;
+
+  margin-top: 35px;
+  @include no-select;
+
+  &__label {
+    cursor: pointer;
+  }
+
+  &__toggle {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: $size;
+    height: $size;
+    line-height: $size;
+    color: $color-primary;
+    background-color: #edf2f8;
+    border: none;
+    text-align: center;
+    border-radius: 8px;
+
+    &:before {
+      content: $icon-check;
+      font-family: 'icons';
+      display: none;
+    }
+  }
+
+  &__title {
+    margin-right: 5px;
+    vertical-align: text-top;
+    @include text-size(0.85rem, 2em, 500);
+  }
+
+  &__input {
+    @include no-accessible();
+
+    &:checked {
+      + .k-checkbox__toggle {
+        background-color: rgba($color-success, 0.3);
+
+        &:before {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &--inline {
+    display: inline-block;
+    vertical-align: middle;
+
+    + .k-checkbox--inline {
+      margin-right: 20px;
+    }
+  }
+
+  &--align {
+    margin-top: 36px;
+  }
+
+  &--block {
+    &-md {
+      @media #{$only-md} {
+        margin-top: 10px;
+      }
+    }
+
+    &-sm {
+      @media #{$only-sm} {
+        margin-top: 10px;
+      }
+    }
+
+    &-xs {
+      @media #{$media-down-xs} {
+        margin-top: 10px;
+      }
+    }
+  }
+}
