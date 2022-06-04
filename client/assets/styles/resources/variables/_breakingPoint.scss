@@ -43,7 +43,6 @@ $media-up-xxl: 'only screen and (min-width: #{$breakpoint-xxl + 1})';
 /**
 * Break point media queries for down
 ******************************************/
-
 // Super Small devices (landscape phones, 380px and up)
 $media-down-xs: 'only screen and (max-width: #{$breakpoint-xs - 1})';
 
@@ -61,3 +60,9 @@ $media-down-xl: 'only screen and (max-width: #{$breakpoint-xl - 1})';
 
 // Ultra Extra large devices (large desktops, 1400px and down)
 $media-down-xxl: 'only screen and (max-width: #{$breakpoint-xxl - 1})';
+
+
+$only-xl: 'only screen and (min-width: #{$breakpoint-lg}) and (max-width: #{$breakpoint-xl - 1})';
+$only-lg: 'only screen and (min-width: #{$breakpoint-md}) and (max-width: #{$breakpoint-lg - 1})';
+$only-md: 'only screen and (min-width: #{$breakpoint-sm}) and (max-width: #{$breakpoint-md - 1})';
+$only-sm: 'only screen and (min-width: #{$breakpoint-xs}) and (max-width: #{$breakpoint-sm - 1})';
