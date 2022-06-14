@@ -377,6 +377,7 @@ export default {
         textarea: '',
         uploader: ''
       },
+      loading: true,
       modal: {
         normal: false,
         lg: false,
