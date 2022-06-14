@@ -55,6 +55,10 @@ const config = {
     {
       src: '~/plugins/snackbar',
       mode: 'client'
+    },
+    {
+      src: '~/plugins/loading',
+      mode: 'client'
     }
   ],
 
