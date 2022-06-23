@@ -8,6 +8,7 @@
     "build:test": "env-cmd -e test -r .env.json nuxt build",
     "generate": "env-cmd -e test -r .env.json  nuxt generate",
     "start": "env-cmd -e prod -r .env.json node server/index.js",
+    "analyze": "env-cmd -e prod -r .env.json nuxt build --analyze",
     "start:static": "env-cmd -e prod -r .env.json nuxt start"
   },
   "dependencies": {
