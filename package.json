@@ -6,7 +6,10 @@
     "dev": "env-cmd -e dev -r .env.json nodemon server/index.js --watch server",
     "build": "env-cmd -e prod -r .env.json nuxt build",
     "build:test": "env-cmd -e test -r .env.json nuxt build",
-    "start": "env-cmd -e prod -r .env.json node server/index.js"
+    "generate": "env-cmd -e test -r .env.json  nuxt generate",
+    "start": "env-cmd -e prod -r .env.json node server/index.js",
+    "analyze": "env-cmd -e prod -r .env.json nuxt build --analyze",
+    "start:static": "env-cmd -e prod -r .env.json nuxt start"
   },
   "dependencies": {
     "@nuxt/content": "^1.14.0",
