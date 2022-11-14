@@ -135,3 +135,17 @@ export function date(val) {
 export function time(val) {
   return /^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$/.test(val)
 }
+
+/**
+ * phone validation
+ * ***********************************/
+export const checkPhone = function (value) {
+  return /^(0[0-9]{2,4})-([0-9]{4,8})$/g.test(value)
+}
+
+/**
+ * Hard Password Validation
+ ***********************************/
+export const checkHardPassword = function (value) {
+  return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/g.test(value)
+}
