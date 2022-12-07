@@ -76,3 +76,25 @@ export const hiddenMask = (val, start) => {
     return subStr
   }
 }
+
+/**
+ * Brief text
+ ******************************/
+export function briefText(val) {
+  let text = ''
+  if (val.split(' ').length > 1) {
+    text = val
+      .toString()
+      .split(' ')
+      .reduce(
+        (previousValue, currentValue) => previousValue[0] + currentValue[0]
+      )
+
+      .toUpperCase()
+  } else if (val.split(' ').length == 1) {
+    text = val.toString().substr(0, 2).toUpperCase()
+  }
+
+  return text
+}
+
