@@ -78,6 +78,17 @@ export function enumProvider(type, value, prop = 'id') {
   return typeof item !== 'undefined' ? item : {}
 }
 
+/* File To Base 64
+ ***********************************/
+export function toBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = () => resolve(reader.result)
+    reader.onerror = (error) => reject(error)
+  })
+}
+
 /**
  * currentDate formate yyyy-mm-dd
  * ****************************************/
