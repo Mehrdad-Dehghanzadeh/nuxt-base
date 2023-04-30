@@ -116,3 +116,23 @@ export function tomorrowDate() {
     day < 10 ? '0' + day : day
   }`
 }
+
+/**
+ * convert utc to unix time
+ * ****************************************/
+export function utcToUnix(utc) {
+  return utc ? moment.utc(utc).unix() : ''
+}
+
+/**
+ * jalaali to unix time
+ * ****************************************/
+export function jalaaliToUnix(jalaaliDate) {
+  let val = ''
+  if (jalaaliDate) {
+    const utc = moment(jalaaliDate, 'jYYYY/jM/jD HH:mm:ss A').format()
+    val = moment.utc(utc).unix()
+  }
+
+  return val
+}
